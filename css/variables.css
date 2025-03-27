@@ -1,0 +1,27 @@
+:root {
+    /* Updated forest-inspired color palette */
+    --primary-color: #2d6a4f;      /* Deep forest green */
+    --primary-light: #40916c;      /* Medium forest green */
+    --secondary-color: #52b788;    /* Fresh leaf green */
+    --accent-color: #95d5b2;       /* Light sage green */
+    --highlight-color: #d8f3dc;    /* Very light mint */
+    --light-color: #f8f9fa;        /* Off-white background */
+    --dark-color: #1b4332;         /* Dark forest green for text */
+    --supplementary-color: #457b9d; /* River blue */
+    --autumn-accent: #e9c46a;      /* Golden leaves/sunlight */
+    
+    /* Updated shadows for more depth */
+    --shadow-sm: rgba(0, 0, 0, 0.05) 0px 1px 2px, rgba(0, 0, 0, 0.05) 0px 2px 4px;
+    --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.05) 0px 1px 3px;
+    --shadow-lg: rgba(0, 0, 0, 0.15) 0px 8px 24px, rgba(0, 0, 0, 0.1) 0px 2px 6px;
+    
+    /* Other design variables */
+    --card-border-radius: 16px;     /* Slightly more rounded corners */
+    --button-border-radius: 8px;    /* Consistent rounded corners for buttons */
+    --transition-speed: 0.3s;       /* Consistent transition speed */
+    
+    /* Status colors */
+    --success-color: #2d6a4f;       /* Success green (same as primary) */
+    --warning-color: #e9c46a;       /* Warning amber */
+    --danger-color: #e63946;        /* Danger red */
+}
