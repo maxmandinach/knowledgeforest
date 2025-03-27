@@ -80,6 +80,9 @@ KnowledgeForest.Flashcards = (function() {
         currentSession.reviewedCount = 0;
         currentSession.totalRating = 0;
 
+        // Switch to flashcard view
+        UI.showFlashcards();
+
         // Show first card
         showNextCard();
     }
