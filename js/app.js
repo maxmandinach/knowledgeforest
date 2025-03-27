@@ -111,7 +111,14 @@ KnowledgeForest.App = (function() {
         });
         
         // Start session button
-        safeAddEventListener('start-session-btn', 'click', Flashcards.startSession);
+        const startSessionBtn = document.getElementById('start-session-btn');
+        if (startSessionBtn) {
+            startSessionBtn.addEventListener('click', Flashcards.startSession);
+            startSessionBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Prevent double-firing on iOS
+                Flashcards.startSession();
+            });
+        }
         
         // Add content button
         safeAddEventListener('add-content-btn', 'click', toggleUploadSection);

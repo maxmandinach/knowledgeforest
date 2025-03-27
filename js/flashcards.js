@@ -27,12 +27,18 @@ KnowledgeForest.Flashcards = (function() {
     
     // Start a review session
     function startSession() {
+        console.log('Starting review session...');
+        
         // Get selected content IDs
         const selectedContentIds = UI.getSelectedContentIds();
+        console.log('Selected content IDs:', selectedContentIds);
+        
         const includeSupplementary = UI.getIncludeSupplementary();
+        console.log('Include supplementary:', includeSupplementary);
         
         // If no content is selected, select the first available content
         if (selectedContentIds.length === 0 && Data.getLibrary().length > 0) {
+            console.log('No content selected, selecting first available content');
             UI.toggleContentSelection(Data.getLibrary()[0].id);
         }
         
@@ -52,6 +58,8 @@ KnowledgeForest.Flashcards = (function() {
             }
         });
         
+        console.log('Total cards found:', allCards.length);
+        
         // Filter cards based on due date and type
         currentSession.cards = allCards.filter(card => {
             const isSupplementary = card.type === 'supplementary' || card.supplementary === true;
@@ -60,8 +68,11 @@ KnowledgeForest.Flashcards = (function() {
             return isDue && (includeSupplementary || !isSupplementary);
         });
         
+        console.log('Filtered cards:', currentSession.cards.length);
+        
         // If no cards are due, show all selected cards
         if (currentSession.cards.length === 0) {
+            console.log('No due cards, showing all selected cards');
             currentSession.cards = allCards.filter(card => {
                 const isSupplementary = card.type === 'supplementary' || card.supplementary === true;
                 return includeSupplementary || !isSupplementary;
@@ -80,9 +91,11 @@ KnowledgeForest.Flashcards = (function() {
         currentSession.reviewedCount = 0;
         currentSession.totalRating = 0;
 
+        console.log('Switching to flashcard view...');
         // Switch to flashcard view
         UI.showFlashcards();
 
+        console.log('Showing first card...');
         // Show first card
         showNextCard();
     }

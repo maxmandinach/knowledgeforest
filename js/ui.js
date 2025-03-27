@@ -194,12 +194,19 @@ KnowledgeForest.UI = (function() {
     }
     
     function showFlashcards() {
+        console.log('UI: Switching to flashcard view...');
         const dashboardEl = document.getElementById('dashboard');
         const flashcardContainerEl = document.getElementById('flashcard-container');
+        
+        console.log('UI: Found dashboard element:', !!dashboardEl);
+        console.log('UI: Found flashcard container:', !!flashcardContainerEl);
         
         if (dashboardEl && flashcardContainerEl) {
             dashboardEl.style.display = 'none';
             flashcardContainerEl.style.display = 'flex';
+            console.log('UI: Successfully switched to flashcard view');
+        } else {
+            console.error('UI: Could not find required elements for view switch');
         }
     }
     
