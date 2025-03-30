@@ -1,0 +1,807 @@
+Podcast Transcript to Flashcards Prompt
+Task Description
+Convert the provided podcast transcript into a structured set of spaced-repetition flashcards. These flashcards should capture key concepts, facts, expert opinions, and important context from the podcast to enhance listener retention and understanding.
+Flashcard Purpose
+These flashcards will be used in a spaced repetition app called "Knowledge Forest" to help users retain information from podcasts they've listened to. The flashcards should:
+
+Reinforce main concepts covered in the podcast
+Highlight important factual information
+Preserve notable opinions or perspectives shared
+Include supplementary cards that define terms, people, or concepts mentioned but not fully explained
+
+Output Format
+Create a JSON file with the following structure:
+jsonCopy{
+  "episode_title": "Podcast Name - Episode Title/Guest",
+  "flashcards": [
+    {
+      "question": "Clear, concise question about a key point",
+      "answer": "Synthesized answer that captures the essence of the discussion point",
+      "direct_quotes": "Verbatim quote from the transcript that supports the answer",
+      "supplementary": false
+    },
+    {
+      "question": "Another knowledge-testing question",
+      "answer": "Concise answer drawn from the content",
+      "direct_quotes": "Relevant direct quote from the podcast",
+      "supplementary": false
+    },
+    {
+      "supplementary": true,
+      "question": "Question about a term, person, or concept mentioned but not explained",
+      "answer": "Definition or explanation that provides helpful context",
+      "direct_quotes": null
+    }
+  ]
+}
+Guidelines for Creating Effective Flashcards
+For Regular Flashcards:
+
+Questions should be specific, testing a single concept rather than broad topics
+Answers should be concise (1-3 sentences) but comprehensive enough to fully answer the question
+Include the most relevant direct quote from the transcript that supports the answer
+Focus on insights rather than basic information that would be obvious to someone who listened
+Capture diverse content types:
+
+Historical events and their significance
+Expert opinions on debated topics
+Cause-and-effect relationships
+Comparisons between different concepts, periods, or perspectives
+Statistical information or research findings
+Key arguments or frameworks presented
+
+
+
+For Supplementary Flashcards:
+
+Identify terms, people, events, or concepts mentioned in the podcast but not fully explained
+Create clear, definitional questions that would help users understand these references
+Write concise explanations that provide necessary context
+Mark these cards with "supplementary": true
+Direct quotes are optional for supplementary cards and can be null if not directly from the transcript
+
+Process to Follow
+
+Carefully read the entire transcript to understand the main themes and discussion points
+Identify 15-25 key points that would be valuable for listeners to remember
+Convert these points into question-answer pairs, ensuring each tests a specific piece of knowledge
+Find direct quotes from the transcript that support each answer
+Identify 3-5 terms, people, or concepts mentioned that would benefit from additional explanation
+Create supplementary flashcards for these items
+Format everything according to the JSON structure above
+Review to ensure diverse question types and comprehensive coverage of the podcast content
+
+Example of Good Flashcards
+Regular Flashcard Example:
+jsonCopy{
+  "question": "How did the British North America Act of 1867 address tensions between anglophone and francophone Canadians?",
+  "answer": "It created a looser federation that allowed Quebec to maintain significant autonomy over matters most important to French-Canadian cultural preservation, including education and civil law.",
+  "direct_quotes": "They realized that a tight union wouldn't work for Quebec. They needed a looser union with more autonomy for Quebec, particularly in those domains that were most important for the preservation of French-Canadian culture, particularly education and civil law.",
+  "supplementary": false
+}
+Supplementary Flashcard Example:
+jsonCopy{
+  "supplementary": true,
+  "question": "Who was Benito Juárez?",
+  "answer": "Benito Juárez was a Mexican politician who served as president of Mexico from 1858 to 1872. As leader of the liberals, he fought against both conservative forces in Mexico and French occupation, establishing principles of free elections, press freedom, and a more equitable legal system.",
+  "direct_quotes": null
+}
+Common Mistakes to Avoid
+
+Don't create overly broad questions like "What did the guest say about economics?"
+Don't include unnecessary information in answers - be concise and focused
+Don't ignore direct quotes - they are essential for connecting answers to the source material
+Don't create imbalanced flashcards that only cover one section of the podcast
+Don't miss opportunities for supplementary cards when important terms are mentioned
+Don't generate flashcards for basic information already known to the target audience
+Don't create flashcards with multiple questions embedded in a single card
+
+Remember, the goal is to help users retain and understand the most valuable insights from the podcast through spaced repetition learning. Focus on creating flashcards that will be genuinely useful for long-term knowledge retention and deeper understanding.
+Input Format
+When using this prompt with an AI tool, structure your input as follows:
+
+
+Add a clear separator like "---TRANSCRIPT BEGINS---"
+
+Chamath and Friedberg describe their adventures in DC and welcome Treasury Secretary Scott Bessent!
+okay we are here in Washington DC in front of the White House having spent the afternoon with our friend David Saxs
+our friend Elon Musk and others we are here to learn about the debt the deficit
+what's going on in DC and we have an incredible interview lined up with Scott Bessant Treasury Secretary of the United
+States it was amazing and it's been an amazing afternoon and we're really looking forward to it it was amazing
+well this is the pre the intro to the video it will be amazing it's not the pre let's just What the
+We're going to pretend it's the pre it was amazing it It will be incredible it was incredible but how cool is the White
+House and here's a bell i'm pretty sure I'm pretty sure the bell I cannot even describe to you the day we had running
+around it's incredible running around room to room in the White House one of the best days of my life it was one of the best days of my life it was
+incredible incredible i think this bell is probably pretty important can you guys get a shot of this bell i don't
+know what it is but it's really important yeah the White House the people to a one super kind super open
+super curious i mean did you felt it i You felt accepted yeah I felt But I got
+free soda they have a soda machine where you can make any Coca-Cola flavor you want in the White House it was pretty
+cool i took some uh hummus i wrapped it on Creeper's face i punched him in it
+was a cool afternoon and uh this is what is this the east wing of the White House and we took a walk from the west wing
+all the way over to the east wing to the portico and then we we snuck in well we didn't sneak in we walked in and then
+we're walking around the east wing we went to all of the private rooms i got great photos we'll we'll we'll slice him into this video and then some secret
+service dude comes up and he's like "What are you guys What are you doing here this is the residence of the president you have to get the out." He's
+like "You need to go downstairs now." So we got kicked the out but it was an incredible um incredible tour super
+great yeah anyway we're excited for this interview with Scott Bess and hope you enjoy it
+all right besties i think that was another epic discussion people love the interviews i could hear him talk for
+hours absolutely we crush your questions in a minute we are giving people ground truth data to underwrite your own
+opinion what do you guys think that was fun pal Well today's a really important day
+Scott's background, what drew him to equities, the role of macro investors
+we're joined by the 79th Secretary of the Treasury Scott Bessant and this is
+an opportunity that we wanted to take as part of a longer form way of explaining to people not just how the economy works
+but in a little bit more detail where are we in this moment in time where are we with deficits tariffs the budget
+economic monetary fiscal policy how do we make sure that we all understand the plan to make America great again so
+Scott thank you for joining us good thanks for having me i actually want to start with let's go back in the way back
+machine so South Carolina your father was a real estate developer tell us
+where the passion for finance came from uh well um I don't know where finance in
+particular came from as you mentioned my dad was a real estate developer and he
+he was kind of boom bus kind of uh guy so I think that's where my passion for
+risk management came from but uh I I was I was very fortunate went to Yale wasn't
+sure what I wanted to do n 1980 when I got there probably you all can imagine this
+but uh there used to be these things called punch cards and we just gone the Yale computer system just gone from
+punch cards to screens i was going to think of being a computer science major maybe a journalist because people
+actually used to read newspapers so punch cards and newspapers from the way back machine uh and I
+um I I got an internship at just for an individual and
+he taught me the investment business really well and I And who was that his
+name is Jim Rogers he's famous he was George Soros's first partner uh he uh
+had just completed an around the world motorcycle trip and written a book called Investment Biker right and fa
+fascinating guy and um I did the
+investment business and I thought this is really what I like because it's quantitative so I get to use my
+quantitative skills but you're also constructing a narrative um and it's
+also like human emotions and you were trading equities bonds everything currencies uh well I started out with
+equities and I I did that for several years and then I actually ended up at
+Soros Fund Management i worked for a fellow who's my mentor Stan Draen Miller who's incredible but I I think he's on
+he's more than 40 years now never a down year and you know when you're sitting next to him I think what am I doing all
+day and notorious for going allin several times in his career all in all
+all in and uh only when he's he's right yes well I but he he is the best at
+changing his mind that's right of anyone I've ever seen so Duck has that famous adage invest then investigate well he he
+has several and and I'm trying to get him to write a book because he has so many of these great things uh maybe you
+will press him um but invest investigate it takes courage to be a pig right right
+so uh and then I I was hooked on markets because again it was everything it was
+quantitative it was qualitative and it's real time you get real- time feedback
+all the time and you you're could have a long-term view but then you're trying to
+gauge the short term against that and you know I I loved it and uh for 35
+years I've got into I did what's called macro investing so uh eventually I was
+trading currencies bonds commodities the equities uh some credit
+and I got to travel around the world meeting leaders and trying to figure out
+what the next move was in policy i think this is important because I've spoken with folks who um trade in macro and a
+big part of the the role of being a macro investor macro trader is really knowing where central bank action is
+going to be really knowing how government bonds are going to move and spending time with economists not just
+central but around the world and learning a little bit about how capital is flowing all over the world is that
+kind of the right way to describe that role of being a macro investor just for folks yeah you know it's it's a lot of
+it's a lot of that there's another great macro investor called Bruce Ker and he
+had this saying that he said you know I succeeded because I could imagine a
+different future and believe it could happen so the key is to believe it could happen
+and then manage the risk so you know could you imagine like what would happen
+if the iron curtain came down what would happen i mean you all do it as venture
+capitalists but like you know how could the world live in a different state okay
+The legendary trade that broke the Bank of England in 1992, and how it relates to Main Street vs Wall Street today
+well let's hold that idea and double click for us to 92 it's probably one of
+the most famous moments where the broader world at large metro trading and
+this is really where you and Duck and Soros basically broke the back of the
+Bank of England and it's really an interesting window into assessing all of
+these things so can you give us the conditions on the ground at that moment and what new reality you saw for England
+and then it would be great from there we'll contrast and compare to America today good so uh it it's a great
+historical example and it also kind of brings in three dimensions so I I was
+the analyst Stan was the portfolio manager and then in a way George was the risk manager
+okay so I I was running the the UK office i was on the ground in the UK and
+I I had this light bulb go off and you know I thought kind of the fulcrum
+thought or like my differentiated view was that the UK had just had a big
+housing boom and UK mortgages at that time they didn't have long-term
+mortgages they were all floating rates so if the Bank of England raised rates on a Wednesday the your mortgage went up
+on a Friday yeah uh the UK had hooked into something called the exchange rate
+mechanism they had to balance versus the Deutsch mark they had to stay within a
+band um I noticed that if they raise or I thought if they raised rates to try to
+stay in the band and protect the currency it would be unsustainable because British homeowners would get
+bankrupted uh Stan's great uh feat of
+analysis was figuring out that gosh the these bands set up this incredible
+asymmetric bet because I can push them up against one side of the band and their mandate is
+just to push me back to the other side so we just lose two and a half%
+and um you know Stan tells this great story of
+like telling George Soros oh well you know here's what I want to do and he
+says he told him and George says well how much do you want to do and he said probably 100% of the fund and he said
+Soros gave him this really sour look and he thought that he had said something
+wrong why wouldn't you do three times that deal so uh but anyway it was um we
+pushed them against the the ban the Bank of England the British government uh had
+to buy this unlimited amount of pounds and they started raising interest rates and this was September of
+1992 and uh you know eventually they just weren't able to
+sustain the the pressure from the high rates and came out and then the
+asymmetric riskreward was we made about 20 something% in a day yeah right and
+back to what was really Stan's genius is I don't know if either of you play back gammon but in back gammon there's the
+move after the move and so Stan we'd made all that money and we were kind of
+euphoric okay now what because there's going to be the trade after the trade so
+we made that much in a day but then it was actually the trade after the trade
+and this isn't well publicized I think we made another 20%
+during the rest of the year wow so in that moment what you're really observing
+is that the real economy is somewhat dislocated maybe meaningfully dislocated from the financial economy in your
+operating and I think you've said this now many times and you've basically used the terminology the main street wall
+street dichotomy how do you observe the moment in 2025
+the maybe what rhymes with the early 90s or other periods where you've been trading actively well look I I I think
+it goes back to something that's unsustainable is unsustainable and um one of the reasons
+I'm sitting here now is uh about 18
+months ago I went to see President Trump i'd known the Trump family for 30 years
+i'd never known the president that well but to tell him that I want to get involved in the campaign because I was
+so alarmed with what the Biden administration was doing with the defic
+debt and deficit endless stimulus endless spending endless spending but endless spending
+when we were in like solid economic territory or not in a war first time
+first time ever and I I thought it was very cynical because I I actually thought well we're going to spend spend
+spend and then there'll be no choice but to raise taxes so you'd go into this equilibrium that you could just never
+get out of and you become kind of a European style social social democracy
+you know the malaise and you know I I also think that we're very cynical on
+immigration right because if you take kind of the stated number 12 million the
+president's number 22 million i don't know what the truth is kind of lean toward the president but it was oh we're
+going to let all these people cross the border you can't ever make them problem's too big to make them go home
+but I like to stay in my finance lane so the finance lane was we're going to just
+go to the point of no return and kind of inflict these
+the progressive financial values on the country there'll be no way out very
+meaningful wage suppression in that period and you had an equity market that was incredibly well bid just because the
+money supply was just always there well it was always there and you had these
+distributional aspects because back to your question Wall Street versus Main Street that it was driving me crazy when
+Vice President Harris said "I'm going to fight for the middle class." And she'd eviscerated the middle class or or these
+policies inadvertent intentional had eviscerated
+the middle class and really the bottom 50% so you we're we're in this uh
+because purchasing power goes down inflation went up well per if you didn't
+have assets right so uh that's really important i think people don't understand this that if you had stocks
+if you had assets your assets inflated y but if you didn't the cost of everything inflated but you didn't have the ability
+to purchase because your wages don't go up yeah and they not not only did inflation go up but if you look uh
+Jason Trinard has this thing I think he calls it the everyman index and um so
+CPI went up about 22 during the period but the everyman index was up over 30
+35% because the the bottom 25% the bottom 50% of wage earners have have a
+different basket than we do and it inflated much faster% used car prices around car insurance car insurance rent
+groceries and you like not not only is it unfair but it's just unstable and
+great civil civil issues societal issues and so yes but sorry as you guys got
+into looking at this I and I remembering and talking about this in the
+summer of 23 I think it was or 23 yeah
+and what was the point of view on what should have been done at that point in time and then how much farther did it go
+how much longer did it last well I I think what happened the the Democrats will tell you that the big spending
+bills were needed for rescue yeah and I would say in March of 21 the economy
+didn't need rescue was already in recovery right so these were rescue size
+packages and even Larry Summers I remember there was a great debate between Larry Summers and Paul Krugman
+and Summers I think said "Look this is at least 900 billion a trillion too
+much." And the Federal Reserve was ve summer of 23 22 Federal Reserve was very
+slow off the mark and you know we we ended up and you know again imagine top
+10% has assets stock market is flying you're in the bottom 50% you have no
+assets but you have debt yes so you credit cards are up u mortgages
+impossible to buy a house house prices had gone through the roof due to COVID so it really did like end the American
+dream and but we we've been suffering these distributional effects scott what
+what is the American dream today do you think uh look I I think the American dream is what it what it's always been
+but after World War II I think 90% of American families uh the the children
+made more than the parents now now I think it's 50/50 but you know it's to to
+own a home it's financial security it's to uh some some level of comfort it's
+purpose in your work it's the to be able to support your family uh to be able to
+have choices to not have to work two two jobs i I made a remark at the Economic
+Club of New York last week two weeks ago and Mike Pence decided he was going to
+troll me and because I said the American dream is not built on cheap goods right
+and he said "Well yes it is." And you know I I just say "Vice President Pence
+this let them eat flat screens economic policy that doesn't is isn't what people
+want they we they don't want the bobbles from China it's like the old they want progression people want progression i I
+mean I remember reading um there's a uh I think Jonathan height had some work on
+this a long time ago where happiness is measured by your change in net worth or income per year it doesn't matter what
+your absolute levels are by all these socioeconomic kind of surveys that they do that feeling like you're having some
+progression in life is what folks are looking for and I wonder whether solving for that we created a system and I I I'd
+love your point out your your your read on this that we said everyone should own a home that's the American dream and in
+order to do that people put most of their net worth into a home 60% I think of middle class net worth is tied up in
+their in a single asset and then in order to get them to feel like they're progressing we've created a system of
+loans and a system of kind of economic and fiscal policy that ultimately drives the value of the home up every year now
+we're kind of in an unsustainable housing bubble can most people can't even afford to buy a home what did we
+get wrong there and how does that affect what the American dream should look like going forward well I I think a lot of it
+is scarcity because what what you're talking about is like out in San
+Francisco super tight zoning laws so there there's scarcity for home if if
+you think like Ivy League education all of a sudden you gave all these people
+access to Ivy League educations you brought in international students but
+the the number of degrees awarded at Harvard Dale Princeton probably hasn't changed very much since the 1950s so you
+you created just this demand for scarce things which leads to this anxiety um
+but you you you also created I think a sense of hopelessness through cuz if you're I
+can't access I will never get I will never be able to pay down my student loan i will never be able to afford a home i can never see my income growing
+to give me access there yeah a and um
+so is that is that a dereg solution is that the Well I think the first the first part of it is it's a data problem
+because in order for the government I mean the one thing that struck me about
+I think this Trump 2.0 administration is I think you have a better beat on the fact that this data is not as reliable
+as other administrations would say they were in order to do whatever it is they wanted to do anyway so it's sort of like
+let me just find the data that justifies what my action is um and part of why you can't I think tell this story is do you
+trust the GDP numbers do you trust non-farm payrolls do you think these are reliable enough for you to act on behalf
+of the United States no look that they're subject to big revisions o over
+time and I thought one of the big mistakes the Biden administration made and thank goodness they made it was they
+refused to they went with the numbers not what the American people were feeling they said "No it's a vibe
+session and you really don't understand how good you have it this has happened this has happened." When when in
+reality I was on Meet the Press yesterday and there's something that
+said "Well the American people don't believe Donald Trump's doing enough on the economy." And I told the host I said
+"You know the one thing I'm not going to answer is that they don't know what they're talking about i have to have
+respect for how they feel and then we need to go back and look at what is
+causing this anxiety so you that's what that's what we're going to do so let's
+Scott explains the Trump Administration's economic strategy
+peel the onion back what do you think is causing this anxiety where are the levers that maybe the federal government
+can control in releasing some of the pressure and what are more market
+functions that just need to clear up some of these dis Well look I I think there we we're we're trying to do three
+things and I I think you may have talked about it last week week before the the
+three legs on the stool three legs in the stool and and from from the outside
+that you intuited that very well i I would do just a little refinement on
+that that's what I was going to ask you yeah just tell me where I was right and wrong but the you were adjacent to everything okay so uh on on one uh we
+are trying to bring down this massive federal debt cut the spending and but in
+a controlled way because you can't do it all at once i I don't like to repeat
+private conversations with the president but I'll repeat this one because I think it's very the it really illustrates
+where his head was at first time I went to SE into seam saw him at Mara Largo
+and walk in the door and said "Scott how are we going to get these debt and deficits down without causing a
+recession?" Fantastic and that's exactly where we are now how are we going to get the debt and deficits down not cause a
+recession and I said "Sir um when you win you didn't get us here we're going
+to set a goal by 2028 we want to get back to the long-term average we're
+going to deflate it slowly and long-term average being about 3% deficit to GDP
+about three three and a half% deficit to GDP and you know like I keep saying the
+US we don't have a revenue problem we have a spending problem because we are
+averaging right about 18% revenue and I'm talking about federal government
+federal government only we're at about 18% and Biden administration blew it out
+blew the spending out to 25 normally it's about 21 21 and a half we have the
+2% inflation nominal GDP it take real GDP is 18 so we get nominal GDP 3.8 and
+it all works out yeah and it was very I had uh one of the heads of one of the
+Singapore sovereign wealth funds here last week guess what Singapore spends
+the in terms of spending to GDP deficit 3% uh they they have no deficit but they
+they spend 18% 18% 18% and he said you know he said we have a lot in common
+with the Trump administration we like small government we don't like immigration illegal immigration and we
+like personal safety which I thought was very interesting sorry so let me just um understand so deflating government
+spending is key but the big challenge has been that we have now accumulated 30
+some odd trillion dollars nearly of debt and the interest on that debt has
+started to grow we now have to pay $1.2 trillion in interest payments per year
+so that starts to consume more of the spending budget that we have at the federal level which means we can spend
+less on the rest of the federal government's programs meaning you have to cut a lot more than you otherwise
+would have which is what makes it so difficult and so painful is it realistic that you can get Congress to act in the
+way that Congress needs to act to get to the level that we need to get to given
+the high interest payments and the high debt level that we have yeah and w with this Republican Congress uh and look I I
+I'm I'm not sure what a deficit hawk is but I I think I I would qualify as one
+and uh a lot of the Republicans I actually have to coax him you can't do
+this all at once i I was with the one of the congressional budget committees two
+weeks ago and you know they really want to cut this fast and I said you do realize every 300 billion we cut is
+about a percent of GDP so you you could so we we are trying to land the plane
+right uh well and the plan uh because that that's
+really what I'd like to talk about today i think there are three plans here but plan one we're going to delever the
+government via the spending uh we are also going to shed excess labor from the
+government so on that side and then on the other side we're going we're going
+to deregulate the financial system the regulated financial systems really been
+what I call a regulatory corset for a long time and as we deregulate that then
+the private sector can relever so government deleveraging private sector
+releveraging and the employment or the folks who lost their government jobs
+will be picked up by the more productive but this sorry this is really important and I think this is the most critical
+thing i'm really glad we got the chance to talk today because I hear so much about the conversation on any one of
+these topics independent of the others and there's a relationship between them that I think is critical to understand
+on how this administration is aiming to drive an economic recovery that is not
+inflationary is sustainable and also will allow people to have the American dream in a way that they can't have
+access to today yeah and the so part of fixing the affordability crisis is what
+can and we we come back and talk about it if you want but what where can we get prices down you know like e eggs are
+easy or but the the other side of getting prices down is getting real wages up so on
+getting real wages for working people up it goes back to the main street versus
+Wall Street and the the second plan is to the reorder the international trading
+system and bring manufacturing jobs back to the US and you have reinvigorate the
+the middle class because again through tariffs well to to use
+tariffs that we're needed to bring other countries uh into line and to create an
+economic incentive to onshore for some industries and some supply chains well
+so there there's tariffs then I think there are three other things we can do
+which are the centerpiece of the administration we can have the low and
+predictable taxes we can substantially uh slash regulations because regulations
+are the equivalent of that'll drive investment dollars private investment dollars and predictability in regulations uh and then uh cheap energy
+right and sorry what what is the relationship between the tax cuts and um
+the getting to 3% three and a half% deficit as a percent of GDP especially
+because the CR unfortunately gave folks a get out of jail free card because we kept the you know $2 trillion cap for
+the next alone uh yes uh but you got to
+have we we I I I been in this building i think this is my seventh week president
+Trump been back at the White House for eight weeks so you actually do need time
+so what a lot of people who weren't happy about the CR but shutting down the
+government wouldn't have been productive either politically or economically so sorry does does um tax cuts get made up
+with tariffs or does tax cuts get made up with cutting government spending well
+tax cuts will so tax cuts and deregulation will uh change the growth
+traje uh if trend line has been 1.8 eight if
+you can move the growth to three or above right then you really change their trajectory and if you can um keep
+expenses flat or do the unthinkable and cut expenses then you can really So this
+is important so sorry government revenue as a percent of GDP can go lower if you
+have lower expenses and a faster growing economy yes I think that's like really important for folks to understand that
+relationship and so in isolation tax cuts might reduce revenue but when done
+with reduced government spending and deregulation and a reordered international trade model you
+theoretically will accelerate economic growth in this country increase government revenue overall even with a
+lower tax rate that's kind of a theory right and and you know I'll I'll tell you shame on me i I was in the
+investment business 35 years i I talk very confidently that CBO scoring says
+this and it turns out I I didn't know you know what about CBO scoring like when you're on this side of the wall you
+realize how crazy it is it's crazy so So just quite a gameable system it's a Yeah it it's very gameable and one of the
+most gameable parts of it is in normal CBO scoring that so we we're calling
+we're saying that we want to renew the tax cuts right we're actually just renewing the current
+tax regime right that but somehow a after they
+expire then they go back to the old rate spending never changes like spending
+never has to get renewed and I think when when I look and think about a mental model and how does systems work
+how do they break down one of the things that has caused this spending bulge is
+this idea that you never had to rescore spending oh it's nuts and the incentive
+model is when you have a constituency that you represent as an elected representative that's earning from that
+spending they're telling you "If you want to get reelected make sure my earnings stay and get me more." And then
+every year you've got a set of elected representatives whose you know primary objective in a democratic system is to
+go in and get more money for their constituents how do we solve that fundamental problem how do you think
+about that well you got to deal with a second do you actually think that that's true do you think that most politicians
+are here to just get money for their Good question yeah yeah i mean it's it's OPM it's other people's money but they
+Danny DeVito had that movie yeah but but you you would regard that as being a good politician like you brought home
+the bacon for for your district that because
+the the CR a lot of people didn't like it but one of the things that a lot of people didn't like there were no
+earmarks in it like how dare they totally the Christmas tree bill that kind of shows up at the 11th hour where
+everyone gets a little bit yeah can you talk about So we talked about this deregulation as this one very important
+How this administration plans to de-regulate the economy, Fed relationship, re-financing debt
+lever right so how do we add 50 100 basis points of growth back in we're going to do it through
+deregulation how do you undo the financial corset as you said what are the what are the sort of three or four
+big ideas that you'd like to affect yep so um we are
+reexamining all all the bank regulations and why why are they there why why do
+banks have to I can't remember it's five or 7% to hold treasury bills what are
+the regulations why do I I had a whole group of community bankers or small banks here last week and why do they
+have to hold the same amount of capital that JP Morgan and Wells Fargo and City
+hold when they don't have the complexity they don't have why do the regulators
+one one of these small bankers said "Well you know Bank America does it this way." Well Bank America has a trillion
+dollars in deposits yeah this was $183 million
+but when you look at the regulatory overhang of some of these things Basel 1 Basel 2 you have all of these frameworks
+and then as a result all these organizations that are running around trying to help you administer this
+complexity all it does is just lower economic activity in the end well and and but it's I know you all talk about
+incentives a lot back to incentives what's a regul regulator's incentive
+just to keep like keep tightening the corset they don't care about growth they
+they don't care about the uh common sense turn off turn off every risk it's
+their job if you had to create a metric then to say okay here's how we're going to measure this undoing of the financial
+corset is it sort of the lending velocity by private lenders so that the
+private releveraging can occur is that a good way to think about or is rates a way to think about it well it it doesn't
+have to be rates but if if we do all the things I was just talking about if we deregulate if we have cheap energy the I
+if we shed excess labor from the government if we get government spending
+down then rates inflation should come down rates should come down yeah uh but
+the on the question of how are we going to measure it i I don't have any problem
+with private credit yeah like I I actually think it's exciting the dynamic it's dynamic it meets the business where
+it is yeah i agree and the the strength of the US financial system is the depth and now the breadth but you you could
+see that what's happened that so much lending is being
+pushed outside the regulated banking system that tells you it's overregulated yeah right
+so now um once we so one test will be
+how has bank lending especially small regional small banks community banks
+that come undone and you these small banks the small banks and community banks they're 70% of a loans they're 40%
+of small business loans and that that's one of the reasons Main Street's been stifled so can you talk about then how
+you will work with the Fed in sort of the change of all of this financial
+you need to and do you need to work with Congress too to make these changes and also just generally maybe your thoughts on just the Fed in this process of
+helper foe like where where do they stand well the the
+Fed I 100% support the Fed's autonomy in monetary policy yeah i don't agree with
+it all the time but right that how it is it's how it is it's how it is
+and um so and and I've said I won't comment on perspective policy i can talk
+about their mistakes in the past which have been numerous but I I think like like with with with any system as as it
+expands beyond sort of the core uh I I actually think that some of the things
+they've done in regulation some of the things they've done kind of climate and DEI some of the things may maybe even
+non-standard monetary policy uh threatens their independence and I want
+them to stay strong robust and independent on monetary policy on regulation i I think that they have they
+have been much too harsh on especially the smaller smaller banks medium banks u
+so there are three main bank regulators there's the Fed off office of control of the currency OC and the
+FDIC and then there other regulators the SEC CFTC but the banking regulators at
+the federal level are those three here at Treasury we have something called
+FSOC and financial stability oversight council and um I chair that and via that
+the president's working group uh which is another convening mechanism that I I
+plan to just keep pushing for you know safe sound and smart deregulation like
+why are we doing this why are we doing that and you again that there's a
+capital charge to banks for buying treasury bills totally so I I actually think there's a chance that if we take
+it's it's called the supplementary leverage ratio if we take that away it's
+it becomes a binding constraint on banks we might actually pull Treasury bill
+yields down by 30 to 70 basis points
+every basis point is a billion dollars a year can we talk about that for a second
+so I think and I' I've said this for a year probably but the one of the biggest
+mistakes that I think Janet Yellen affected was this continued issuance of
+money on the short end of the curve to finance these deficits which gives you
+you inherit an incredibly difficult challenge i think over the next nine months I think there's like nine or 10
+trillion that has to get refinanced do you want to talk about that yeah look I I I thought that it that
+when rates were low you're supposed to term out rates exactly and in instead
+the the Treasury for the past few years has pulled rates in and I think part of
+that was to keep rates lower that they they changed the issuance schedule when
+rates move back up towards 5% i I um
+have maintained that policy but I'm maintaining it because let's go back to
+David's question of when when are you going when are we going to see the results from
+this the getting the government spending under control and I don't think the markets recognize it yet like like you
+know again if we do they don't they're not sure what to believe i mean we hear this commentary a lot like what do you
+really what we people there's just a lot of uncertainty there's a big spectrum of opinions there yeah like like the the
+central value tendency you're right the central value tendency like what's the center of it because the the range of
+outcomes is so so broad and you know like we know we know there's a problem
+there we know there's waste fraud and abuse quantify it quantify it so I I
+think as we are more able to quantify it we will get credit for it so let me go
+back so outside of waste fraud and abuse as it's termed I want to go back
+to the question I asked earlier how much do does this administration need Congress to act to get to 3 to 3 12%
+deficit to GDP and how what's your read on the Congress and how willing and able
+they are to take the action that's needed here yeah I I I think there are a lot of headlines especially after the CR
+about the Democrats being in disarray and media like media likes to write about disarray
+i I think the under or untold story here is Republicans have for a change
+actually been very disciplined that and I think a lot of that President Trump is kind of
+shephering the party shephering the movement because imagine he said "Oh
+that Mike Johnson will never get reconciliation instructions out of he's
+got such a slim majority." Well he did it he did it yeah that he'll never be
+able to pass a clean CR he did it he did it so let's see what happens with the
+budget so we need Congress to be our partners on the budget they're very
+engaged the House and the Senate that everybody recognizes that if we don't get this done it's going to be the
+biggest it's past fail it's the biggest tax hike in history where does Doge come
+DOGE, DC grifts, shakeup at the IRS
+in well Doge that's the the cost cutting and
+it's the first time we've really ever had business people looking at it the this Clinton Gore Commission that we
+hear a lot of like or hear a lot about i I think it was a bunch of business school professors and but here you've
+got real CEOs you got Lutnik you got Bergam you got Elon i mean this cabinet is stock full of experienced operators
+that can go in and identify where there's an opportunity for saving the taxpayers money and still getting the
+results well it's that and we we had this crypto council meeting the other
+day and I was sitting as looking it was myself Secretary Lutnik and Kelly
+Laughler everybody was a market person like forget business like we and but
+with Doge that I am completely aligned with what Elon's
+doing and everyone says "Well do you have to do it so fast you have to do it." I I like I said I've only been in
+in this business for 7 weeks i've only been in DC for 8 weeks but the thing I
+can tell you is if you don't move fast the vested interest will weigh you down
+like the the the quicksand will come up or the claws get the claw yeah
+everybody's got lobbyists everybody's got I mean think about it within a 10 10
+mile radius of here 25% of the GDP of the US pulsates through here pulsates
+every day and everybody wants to just skim a little i I said to uh e Elon and
+we were in a meeting and I said "You know people are mad at you cuz you're moving their cheese." And he goes "It's
+not their cheese it's the American people's cheese." 100% every dollar spent goes into someone's pocket and
+that person's going to fight tooth and nail to get that dollar to keep flowing into their pocket and it's a it's a it's
+a very like there is no winning in Elon's role there's every single time he
+takes action there are people that are going to come after him that are going to come after the administration there's
+no situ and and obviously gets recast reclassified in the media as being
+something different but there's nothing but downside as you make these changes to individual organizations that
+participate and then it takes a while for the flow of that money to find its way or those individuals to find their
+way back into the productive private economy that's where I think there's a big gap and a big challenge in the
+perception of the actions that are going on with the changes right now is everyone sees the cuts but they don't
+see the benefits and that's nine months 12 months 15 months down the road and that's a really hard thing to reconcile
+for most yeah and I I'd say there are a couple of things too is one like
+everyone's hearing cuts and they think they're government services that's right that's right and they're not i I keep
+saying it's the Department of Government efficiency not government extinction not
+government elimination and can we make it run much better with fewer people
+with fewer costs and you I don't want to demonize any of these federal employees
+cuz I tell you in this building I've been so impressed with the quality of the the people i I would have hired them
+in my private firm they are great public servants i need you to stay for the weekend and I need a 25page memo in 72
+hours that super high quality i I actually think what when when all this
+is done there there will have been two big savings one will been on these
+contractors sure which totally we were just talking about this we were with Elon just now with an incredible stat he
+said I'm not going to name the firm so that I don't want to but he said this one organization gets 98% of their
+revenue from it was in the newspaper so we can say it it's booze Allen we were talking about this and then but
+then we were going through the numbers on the other firms and it's just the whole thing what kind of risk management is that by the way yeah yeah but but it
+tells you that that they didn't manage the risk that's right tells you how entrenched
+they believe they were and how good it is for them and how good it is you're absolutely right and and the way the way
+the grift works you can only have six-month contracts but there are people who have had 40 six-month contracts
+incredible like they've been in situ for 20 years incredible and it's this whole
+I'm so happy there is transparency and visibility into this if for nothing else
+the administration providing this level of insight and data I think is so
+important for taxpayers and individuals in this country to see to recognize and importantly to understand just how much
+of this grift is going on it's frightening and I'm glad that it's like being addressed and and the American
+people can see if they want it so this is what I was going to ask you let's just say that some somehow the Borg
+slows this whole thing down you know what people say is that the conventionalism well then the only
+place to look will be things like entitlements good question yeah do you do you think that that's true
+well I I I think that now that the cat's out of
+the bag that the American people are are not going to stay with this is that you
+may maybe again here may maybe in the Northeast Corridor um there's some push
+back but when I've seen the polling data and the rest of the country does not want this to stop and this
+administration's not gonna stop yeah the courts they're trying to throw sand
+in the gears with the courts and how some judge can say "Oh all these workers
+have to come back in." And but I I also think we've moved really quickly now i
+think when we start putting out some of the ane anecdotes and the the messages
+and talk about what's happening like I I'll talk about it i I'll be talking
+about it soon but there there's one very large department that everybody deals with on April 15th that their help desk
+is fully staffed 24/7 365 days a year they have the same number of people on
+Christmas Eve as they have on April 14th wow this is this this by the way is
+something that I've seen being a lightning rod theoretically every dollar you spend on the IRS you get $3 back or
+whatever it is that's not necessarily true like I just want to be clear that there's you can still get all your tax
+revenue at the federal level but you don't need to waste well look I I mean I'd be the ultimate chump if I said "Oh
+we're going to cut spending." Yeah but I also cut revenues with with the IRS
+which Treasury controls my my three goals are very simple revenue
+enhancement privacy and customer service totally you know there's a there's a
+body of knowledge that says if we just fed in and by the way four or five of these companies can do this now if we
+just fed in this entire federal tax code into these AI models what you can give
+to Americans is a very guaranteed resolute ability to file taxes with the
+assurance that there is no waste fraud and abuse and now all of a sudden you take this incredible weight off of
+people's shoulders um you know sometimes it is said that you get audited for
+almost political reasons it seems like you know uh people that not almost we
+have a big we we we had a big announcement on Tuesday and we brought
+in the 200 Biden whistleblowers who they uh have a lot to say about who gets
+audited who doesn't they're going to be sitting in this building working on IRS
+the matters and understanding exactly how these audits get triggered how these
+political witch hunts happen and trying to the change the ethos of the building
+and again 99% of the people at the IRS are good people it's just like all these other
+agencies where they're they're bad folks but to your point this is where technology can create um very reliable
+guard rails for the American citizen where it's like okay well if this model says I owe $1,000 in tax this is it i'm
+not trying to change anything i've fed it all the software first and you just know let me go back to entitlements
+Re-engineering social security through the US SWF, how energy factors in
+um I talked last week on our podcast about social security mhm social Security has a $2.7 trillion balance
+which is just a basically a Treasury bond that's owed that they can't trade
+out of should Social Security have invested in the S&P or invested in equities and why don't we turn Social
+Security into a sovereign wealth fund and invest it for the benefit of all Americans going forward yeah I I I
+think there there's the optimal then there's the possible george W bush tried to
+privatize social security and you I I saw your your numbers listened to your
+numbers going way back 1971 1971 and with 15 16 trillion that we'd have I I
+don't know what the numbers are since W tried it they'd be substantial we we
+wouldn't be thinking about a problem in a few years but I think now you got to
+play the hand you're dealt i think we are dealt the social security uh hand and I think maybe we could re-engineer
+it if we could create the sovereign wealth fund and have that on the other side there are a lot of philanthropists
+who are looking at baby bonds so if you can create a some kind of an investment
+account for newborns then that would run on a parallel track to social security
+so that would be compounding the other thing would be a safety net yeah but it's still sitting in treasuries on the
+other side y and that's where there's an opportunity not just to drive up returns but participate in the American economy
+and give all Americans today the ability to know that they have some participation in the American economy rather than having their retirement
+funds being sitting as a loan to the federal government for spending which I think could be a big dramatic change i
+don't know if they need to be independent but I I I would I think it's a it's a real opportunity for us are you
+are you excited by the idea of the sovereign wealth fund i I am and I'm excited by the idea like this is pres
+President Trump everything he does isn't in a straight line but I guarantee he
+has a destination in mind and the idea that he's going to be the first
+president in generations who is going to he wants to create assets for the
+American people not just debt yeah yeah so he wants to take the debt down and then this idea of assets there was a lot
+of talk about this economic deal we're going to do with Ukraine that would have gone in the sovereign wealth fund right
+yeah government has big stake in Fanny May and Freddy Mack
+when it comes out of conservatorship where does that go where where does that go
+as you mentioned Doug Doug Bergam did great work when he was governor of North Dakota north Dakota
+has the equivalent of two state sovereign wealth funds and for I don't know are they 7 8 900,000 people i think
+they had $25 billion right and Alaska permanent the Alaska permanent but all
+all that's from the natural resource money going in so to the extent we
+start the other day when the sovereign wealth fund was announced President Trump surprised me in the oval and said
+"Could you make a few remarks?" And I said "Well we're we're going to we're going to mo we're going to mobilize the asset side of the balance sheet." And
+all the gold books said he's going to re he's going to revalue the gold i I can say today we're not revaling the gold
+but what we are going to do is Doug Bergam at Interior every other department head is looking for the
+assets that we can mobilize so if if we have energy leases federal government
+own back to the housing shortage federal government owns a lot of land in downtown urban areas can we or in
+suburban adjacent things in in Nevada and Utah can we use that land yeah do
+you see a wave of privatizations as a way to sort of both pay down the deficits and debts and also just to that
+that's important to me like why put in a sovereign wealth fund versus pay down the debt help help kind of do the
+finance math for us on Oh could you think you get a higher return right well anything anything that beats our
+current return our current interest rate yeah i mean not not that I'm keeping score not that I watch it closely but
+the 10-year Treasury today is 428 428 yeah so um it's responding well can can
+we can can we do better Yeah than four can we do better than 428 and I think
+with this group and this cabinet and if we can put in right right now we're
+working on the the study group for the sovereign wealth fund and we want to do best practices we're talking to people
+around the world we're talking to investment people uh we're talking to uh a lot of the other big sovereign uh
+funds and we're going to do best practices and we want this to be a legacy event totally dan Lo made this
+comment that the Australian superanuation they've got 30 managers and they have as much in their on their
+balance sheet today in their fund than Social Security does about $3 trillion
+and they have 7% of our population yeah no it's incredible it's incredible it's incredible and I was with one of the
+Middle Eastern funds and you know I said something about oil revenue we haven't
+had an an injection into the fund in 20 years why was this such a miss for
+America what happened in the United States was that we took every excess dollar we had and we invested it in the
+future we bought in we built infrastructure what happened that kept us out of this model where others were
+so successful and clearly have now gotten ahead of us and their their people have a greater kind of safety net
+than we do yeah i I I think it it was just this idea of it it was supposed to
+be a safety net not some kind of prosperity ramp the old age and survivors disability
+insurance fund that's what it's called right under social security you uh you've mentioned cheap energy as a
+critical part of this holistic program I think three times now where do we make
+mistakes in that path where energy gets out of control what what do we need to do to make sure that energy actually the
+the incremental cost of the electron basically goes to zero well I I think the biggest challenge we're having right
+now is trying to get private sector to lock in for some things that might not
+have a payoff for 5 10 years and how do we avoid student body left student body
+right with administrations coming and going so we're we're trying we're we're working on well this is an incredibly
+nuanced and I think an important point because we have this very vibrant as you know tax equity and transferability
+market that allows a lot of these organizations to make these five and 10 year investment cases and you know for
+all the issues with the IRA of which there are many I think the one narrow aspect that it did was um it calmed the
+markets about the future of those specific ITC credits and transferability and And it's a critical thing because
+there was a report you probably saw it but you know FK said 90 plus% of our
+incremental electrons as of December were from sources that were
+leveraging these ITC credits and that transferability so to your point we have this very delicate balancing act of
+making sure we but but there there's the the tax side but then the regulatory
+side with with fossil it's tougher because it crosses a lot of state lines there's a lot more permitting right
+a lot less permitting for solar farms for wind for geothermal yeah and nuclear uh nuclear is going to
+be a big part of it but it it's not going to happen tomorrow we got to fix
+the supply chain and the regulatory well we got to fix the supply chain we got to fix the regulatory
+um I we've got to decide which model are we going to go with and you know I I'm
+told that you you two probably know more about nuclear than I do but he loves it
+i hate it okay well no I don't hate it i mean I I like I like nuclear i just think it's 10 years away he's a loser
+don't listen to him yeah he doesn't really It's just not an investable thing for the next but it's important because the
+question is when it becomes one that's when we know we've fixed the problem but but but to to the point that it's not
+investable that's where the government needs to step absolutely i 100% agree with you like we that's where we have to
+bridge to to the technology we have to do the time arbitrage and also I'm told
+especially with the smaller plants that you that you need to cluster them and
+you got to find somebody who wants to cluster them and all that and um let me ask you one more question as we kind of
+Surprises, fixing affordability, thoughts on President Trump
+get to the end but uh what's been the most surprising thing for you in this role since you've um since you've been
+in office uh the national security aspect that I I would say 40 50% of my
+day uh Treasury does a lot of national security work whe whether it's cifhious
+in terms of uh foreigners who want to buy US assets whether it's sanctions
+whether it's OFAC anti-money laundering we we've just designated the Mexican
+cartels as foreign terrorist organizations we President Trump over
+the weekend launched a very aggressive strike on missile strike on the Houthi
+assets well underneath that we had already been working for several weeks
+on their bank accounts i see so or anyone who is adjacent to them the
+Iranians supply the Houthis with the their
+ecosystem previous to my getting here uh Treasury had disrupted the ecosystem so
+much that uh the Iranians used to hand them cash now they're just handing them
+here take take this oil tanker and try to sell it right so like there there is
+the ability to to break that down when you go home and you're talking to your kids you're talking to your husband and
+you're like "This was so cool." There must be these moments where you're like "This
+was so cool do you have any anecdotes that you you're comfortable sharing where you're just like this is like I
+can't believe I'm doing this job uh well uh there have been several but a a good
+example my family was actually there because after the inauguration I I asked
+President Trump may I bring my family in say hello get a photo and we're we're
+sitting in the oval so it's myself my 11year-old daughter uh my spouse
+15-year-old son and the President Trump's having a great conversation with
+them and and then he said "Oh Scott while you're here let me call in these
+other two people and we need to discuss this." So they actually got to see
+government being done live so you there there's that um I I you know I I have to
+say I I think the the moment with um President Trump Vice President Vance
+President Zalinski was kind of a once in a-lifetime thing in the Oval Office i
+hope it's once in a lifetime and they um but you know I I was sitting there kind
+of in the front row of history i I vice president Secretary Rubio myself on the
+sofa and watching President Zullinsky do what I thought was the the
+biggest diplomatic own goal in history yeah yeah i think you said it very well in in TV afterwards it really really was
+based on and you you said because you were there you tried to negotiate with him in Kev it was a very escalated I
+think you use the word escalated or high high decibel conversation high decel yes yeah so but it kind
+of my my job for 35 years was to be outside the room try to put my ear to
+the door maybe lift myself over the transom figure out what the leaders
+needed to do were going to do and then how it would affect the markets and now
+it it's fantastic and amazing and stimulating and a little scary being the
+person in the room who has to what should we do what can we do
+how's it going to affect the markets how's it going to affect the real economy that what what's it going to do
+to working people in America so how do we fix affordability um we're just going to have to go
+through and where where's the problem what's the solution in terms of like are are the
+insurance markets broken right what can we do there there's been no in I I've
+been involved in the house building business there's been no technological change in house building in 50 years
+maybe 60 some of the building codes go all the way back to the Chicago fire right so what can we do that the way we
+categorize housing it's stickuilt or modular mhm is there something in the
+middle prefab because the more that comes out of a factory the more that is
+standardized that neighborhoods from DC from DC to Bethesda to PTOAC to like you
+could be in contiguous neighborhoods and if they're different municipalities they'd all have different building codes
+not zoning building yeah and why is that like it they're adjacent why do the
+houses have to be so is there some kind of window guidance that the federal
+government can give in terms of the more that comes out of the factory the
+cheaper it'll be the faster we can make it things like that is there pressure that you could apply or influence you
+can apply one of the things you mentioned earlier was just you know take San Francisco there's an artificial
+constraint that's created by the zoning paradigm and it's not clear how you
+unlock that you know maybe is it up to private citizens to sort of like have regime change at the local level um but
+how do we sort of unclog that part of it to marry up with this kind of stuff because it would be great if you could
+just build up in many places yeah well I I I think there are a lot of things where you can look around and
+find what's interesting that some what's something that's interesting that's being done
+somewhere so I I lived in Greenwich Connecticut for a while may maybe the richest suburb in America there's a ton
+of multifamily there very expensive very nice multifamily there's some affordable
+housing but Greenwich is not all 10
+acres and a horse farm the state of Connecticut has put in a I
+guess it's a law that every municipality has to allocate 10% of vacant land to
+multifamily and if the zoning board won't give you a hearing you as a
+developer you as a nonprofit for housing can go over the top and go to Hartford
+and then Hartford will give you the authority well no no town wants the
+state doing on their behalf so now the towns negotiate yeah so like I I think
+that there are a lot of things that that can be done again on on insurance is
+there something that I I've been thinking about is there something the federal government could do for
+California where we come in everyone's paying homeowners insurance
+then there's reinsurance on top of that then I think the California reinsurance
+companies called Fair on top of that so it's a well it's a separate plan but yeah yeah but but it it's it's a you're
+stack you're stacking it so is there something we could do where you put
+another layer of private money in there and then the federal government is the fifth risk trunch right but if the
+federal government comes in can we mandate down here proper hygiene changes
+in the building code well changes in the building code changes in brush cutting right and material choices yeah right
+right yeah makes sense great so I I think there's a lot if we And obviously energy I mean just getting back to
+affordability right energy costs come down i took the words out of my mouth no no no no but I mean energy costs are
+energy costs but then there's also the for food the transportation cost of
+getting it to the to the grocery store everything that that's made out of petroleum products so I I think we we
+can do that and um you know I think there's a lot to do
+and it shouldn't be too hard so we're actually we should probably be announcing it in about 10 days we're
+going to have an affordabil affordability zar but it's going to be someone with a lot of experience in
+supply chains figuring out what are a lot of the quick fixes we can do because
+back to the question what really has people anxious inflation for now is
+actually pretty quiet in and um but the affordability has gotten so
+away from everyone that how can we bring that down yeah good for all our friends at home
+who talk a lot about the conversation about climate change and carbon-f free i
+think one of the things that I always point out to people is the cheapest way of driving energy production in this
+country is that there's a low carbon or carbon-f free alternative that's out there that's actually cheaper than
+standing up new new plants um and there's an acceleration i don't know how much this administration thinks about
+that relationship but it seems to me like if we can unlock energy production costs come down and this economy
+transitions well it transitions and I think it's also not being dogmatic
+like I I I saw what the Biden administration did with EVs i I have an EV i can't wait for it to come off lease
+and but also have a hybrid and I think I fill it up maybe three times a year
+totally but this administration had a jihad on hybrids because there it it
+they didn't pass the purity test so they were picking winners and losers in a way that a lot of us were left scratching
+our heads yep and cheap I think cheap energy solves a lot of problems i I I
+think it'll a and uh cheap energy is energy security too 100% cuz
+that that's why Europe's kind of over a barrel literally and it's a it's why the
+Russian war machine hasn't again literally run out of gas and to the
+extent that we believe we're in an existential arms race for technical supremacy it's really on one dimension
+which is AI and that is so needy of energy so if we don't
+pull all of these issues together and realize that we need to basically take the incremental cost to zero whatever we
+do we need to create the incentives and package it all together i mean we can't we can't compete manufacturing as
+without energy without we certainly can't compete without energy yep yeah i mean we're we're we're not going to
+crush labor like China and some other countries have done so we got to crush the energy price right exactly right and
+when you're in the Oval what are the truths and misconceptions of the president meaning on the outside and
+what people know or don't know oh how about this i we we had a lot of um
+foreign leaders come in and I I knew someone in in the in one of their
+entouragees i won't tell you which one but afterwards he comes up to me he goes "Holy crap." He goes "He's really smart
+president Trump has perfect recollection because he was talking about something that had happened in that country 30
+years ago and he said and he really So the President Trump listens he is
+judicious he is just taking it all in he likes to see how people react
+um it it's just incredible executive skills uh yeah and the other thing too
+that he he's tough but I went in and I showed him we were talking about
+something the other day and I said "Well you know this is going to cause some layoffs." He goes "Well let let's try to
+fix it." Yeah yeah let's try to fix it so I I always say he really regards
+himself as the mayor of America right 330 million people he wants to be personable to everyone and he cares
+deeply about all of them and he doesn't care whether you're Elon Musk or the the
+guy cutting the rose garden but you're his constituent great well Scott thank you so much for
+taking the time this has been a wonderful a pleasure and we really appreciate the insight yeah and thanks
+for the service and thanks for doing the role good thanks appreciate it thanks [Music]
+thanks i'm going all in
+
+Add another separator like "---TRANSCRIPT ENDS---"
+
+
+Please generate flashcards from this transcript following the guidelines above.

@@ -7,6 +7,7 @@ KnowledgeForest.App = (function() {
     const Data = KnowledgeForest.Data;
     const UI = KnowledgeForest.UI;
     const Flashcards = KnowledgeForest.Flashcards;
+    const ContentSearch = KnowledgeForest.ContentSearch;
     
     // Handle file upload
     function handleFileUpload(event) {
@@ -159,6 +160,9 @@ KnowledgeForest.App = (function() {
         if (Data.getLibrary().length === 0) {
             Data.loadSampleData();
         }
+        
+        // Initialize content search
+        ContentSearch.init();
         
         // Render content list
         UI.renderContentList();

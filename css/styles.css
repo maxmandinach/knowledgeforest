@@ -5,6 +5,105 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Search section styles */
+.search-section {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#content-search {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--card-border-radius);
+    background-color: white;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-speed);
+}
+
+#content-search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow);
+    margin-top: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    border-bottom: 1px solid var(--highlight-color);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: var(--highlight-color);
+}
+
+.search-result-item .title {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.search-result-item .subtitle {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Loading animation */
+.loading-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    margin: 1rem auto;
+    min-width: 200px;
+}
+
+.loading-button .sparkle {
+    animation: sparkle 1.5s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
 body {
     background-color: var(--light-color);
     /* More subtle and higher quality pattern background */
