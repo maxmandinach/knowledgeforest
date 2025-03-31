@@ -55,6 +55,41 @@ KnowledgeForest.UI = (function() {
             cardEl.className = `content-card ${selectedContentIds.includes(content.id) ? 'selected' : ''}`;
             cardEl.dataset.id = content.id;
             
+            // Add delete button
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'delete-content-btn';
+            deleteBtn.innerHTML = '🗑️';
+            deleteBtn.title = 'Delete content';
+            
+            // Handle delete button click
+            deleteBtn.addEventListener('click', (e) => {
+                // Prevent the click from triggering card selection
+                e.stopPropagation();
+                
+                // Show confirmation dialog
+                if (confirm(`Are you sure you want to delete "${content.title}"? This cannot be undone.`)) {
+                    // Check if this content was selected
+                    const wasSelected = selectedContentIds.includes(content.id);
+                    
+                    // Delete the content from storage
+                    if (Data.deleteContentById(content.id)) {
+                        // If the deleted content was selected, clear all selections
+                        if (wasSelected) {
+                            clearSelectedContent();
+                        } else {
+                            // Otherwise just re-render the list
+                            renderContentList();
+                        }
+                        
+                        // Show success notification
+                        UI.showNotification(`Deleted "${content.title}"`);
+                    } else {
+                        // Show error notification if deletion failed
+                        UI.showNotification('Error deleting content');
+                    }
+                }
+            });
+            
             cardEl.innerHTML = `
                 <h3>${content.title}</h3>
                 <div class="content-meta">
@@ -67,6 +102,10 @@ KnowledgeForest.UI = (function() {
                 </div>
             `;
             
+            // Add delete button to card
+            cardEl.appendChild(deleteBtn);
+            
+            // Handle card selection
             cardEl.addEventListener('click', () => toggleContentSelection(content.id));
             contentListEl.appendChild(cardEl);
         });
@@ -221,6 +260,13 @@ KnowledgeForest.UI = (function() {
         }
     }
     
+    // Clear all selected content
+    function clearSelectedContent() {
+        selectedContentIds = [];
+        // Update any UI elements that depend on selection state
+        renderContentList();
+    }
+    
     // Public API
     return {
         renderContentList: renderContentList,
@@ -235,6 +281,7 @@ KnowledgeForest.UI = (function() {
         setIncludeSupplementary: function(value) { includeSupplementary = value; },
         getIncludeSupplementary: function() { return includeSupplementary; },
         setShowDueOnly: function(value) { showDueOnly = value; },
-        getShowDueOnly: function() { return showDueOnly; }
+        getShowDueOnly: function() { return showDueOnly; },
+        clearSelectedContent: clearSelectedContent
     };
 })();

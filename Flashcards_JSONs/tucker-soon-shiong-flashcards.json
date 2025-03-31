@@ -1,0 +1,131 @@
+{
+  "episode_title": "The Tucker Carlson Show - Dr. Patrick Soon-Shiong: You're Being Lied to About Cancer, How It's Caused, and How to Stop",
+  "flashcards": [
+    {
+      "question": "What concerning trend in cancer rates did Dr. Soon-Shiong highlight at the beginning of the interview?",
+      "answer": "Dr. Soon-Shiong identified a worrying trend of increasing cancer rates in younger populations, including pancreatic, ovarian, and colon cancers appearing in children and young adults, which he described as a 'non-infectious pandemic.'",
+      "direct_quotes": "What's really worrisome to me now is not just the rate, but the population in which it's increasing, i.e. the younger people. So we clearly see an increase in certain types of cancer like pancreatic cancer, ovarian cancer, and we're seeing it, colon cancer, and we seeing it in younger... I never saw pancreatic cancer in children. And the greatest surprise to me was a 13-year-old with metastatic pancreatal cancer.",
+      "supplementary": false
+    },
+    {
+      "question": "According to Dr. Soon-Shiong, what is the fundamental cause of cancer in the human body?",
+      "answer": "Cancer is fundamentally an immune system problem where the body's natural killer cells and T-cells, which normally eliminate defective cells, become suppressed or inhibited, allowing cancer cells to proliferate unchecked.",
+      "direct_quotes": "The cause of cancer, it's not the rapidity of its growth, but its inability to die. And its inability to die is because it either hides from the cells that matter, i.e. your natural killer cells, your T cells... Your body and the cancer has found a way to suppress your killer cells.",
+      "supplementary": false
+    },
+    {
+      "question": "How does Dr. Soon-Shiong describe the natural balance within the immune system that prevents cancer?",
+      "answer": "He describes a constant equilibrium between killer cells (natural killer cells and T-cells) that eliminate threats, and suppressor cells that regulate the immune response. When this balance is disturbed and suppressor cells dominate, cancer can develop and spread.",
+      "direct_quotes": "We have a crazy, wonderfully exquisite balance in our body. You have the ying and the yang of the killer cells and these things called natural killer cells in T cells. Whose job is to kill anything that threatens the body... As you and I are sitting here today, our stem cells are growing in order to replenish parts of your body or heart... But mathematically, there are some cells that are transformed and your body recognizes that through these natural killer cells and kills it. I call that nature's first responder.",
+      "supplementary": false
+    },
+    {
+      "question": "What does Dr. Soon-Shiong identify as the three hallmarks of an oncogenic (cancer-causing) virus?",
+      "answer": "According to Dr. Soon-Shiong, an oncogenic virus must: 1) persist in the body, 2) cause continuous inflammation, and 3) inhibit P53, a tumor suppressor gene that normally protects against cancer development.",
+      "direct_quotes": "The hallmarks of an oncogenic virus is one, it must persist. And why? Because it continues to create inflammation. And why with inflammation you get suppression? because your body is trying to suppress it. It must inhibit the thing called P53 that's in your body to try and protect your body from not having cancer. If it persists and causes inflammation and inhibits P53, it begins to have the hallmarks of an oncogenic virus.",
+      "supplementary": false
+    },
+    {
+      "question": "What connection does Dr. Soon-Shiong draw between COVID-19 and the rise in cancer cases?",
+      "answer": "He suggests that COVID-19 (from both infection and vaccines) can create persistent inflammation, suppress natural killer cells, and potentially act as an oncogenic virus, explaining the increase in cancers affecting organs with high ACE2 receptor concentration.",
+      "direct_quotes": "Is it by coincidence that post COVID infection, post COVID vaccine, we've seen all these events where we know the spike protein goes there? I don't think so. I think it's not a coincidence... Can we prove that once you have that persistence of that virus, does that COVID virus suppress the natural killer cell? Does a natural killer cell actually not only go to sleep? becomes a what-you-call-energic that's now been published.",
+      "supplementary": false
+    },
+    {
+      "question": "How does Dr. Soon-Shiong characterize the relationship between inflammation and cancer?",
+      "answer": "Chronic inflammation is a key driver of cancer development because it causes immune cells like neutrophils to transform from protective cells into suppressive cells, inhibiting the body's natural cancer-fighting mechanisms.",
+      "direct_quotes": "What knocks you out of equilibrium? And that's why when Bobby Kennedy is talking about the toxins in our food, the toxins and PFAS, the processed food, and viral infections - really what knocks you out of balance basically is inflammation. If you have inflammation in your body... these cells called neutrophils that actually see an infection and tries to kill it, which it does. But if there's persistent information, these neutrophil actually flip into a suppressor cell.",
+      "supplementary": false
+    },
+    {
+      "question": "What critique does Dr. Soon-Shiong make of conventional cancer treatments like chemotherapy and radiation?",
+      "answer": "He argues that conventional cancer treatments often destroy the very immune cells (natural killer cells and T-cells) needed to fight cancer, while activating suppressor cells, which explains why cancers often initially respond to treatment but then return more aggressively.",
+      "direct_quotes": "Those missing link, we've actually destroyed with chemotherapy, we have destroyed with radiotherapy and we've destroyed with checkpoint inhibitors, we've just destroyed with steroids. Guess what we give to patients? Chemotherapy, radiotherapy, steroids and checkpoints... You win the battle, and you'll lose the wall... you see this little blip of a response with chemotherapy. And then the moment you stopped or not even again, you've actually now killed the cells that were there to protect you.",
+      "supplementary": false
+    },
+    {
+      "question": "What is Dr. Soon-Shiong's alternative approach to cancer treatment?",
+      "answer": "His approach, which he calls a 'BioShield,' focuses on exposing cancer cells so immune cells can recognize them, using low-dose chemotherapy to stress the cancer, activating natural killer cells and T-cells, educating T-cells with a vaccine, and suppressing the suppressor cells - all simultaneously.",
+      "direct_quotes": "You smoke it out, but your body has mechanisms to smoke it... Your body has a thing where you can induce what you call damps, which is damage associated molecular patterns... So the algorithm is expose, from hide to expose. The next algorithm is activate and proliferate your NK cells. And that's what the subcutaneous injection. The next is to educate your T cells with a vaccine that you anticipate that it's going to be exposed. So you now have educated T cells ready. So you get educated T-cells, you got NK cells. And the next thing is to activate your macrophages. So they become killer macrophage. And the step is to suppress the suppressors, it all simultaneously.",
+      "supplementary": false
+    },
+    {
+      "question": "According to Dr. Soon-Shiong, what was the fundamental limitation of the mRNA COVID vaccines?",
+      "answer": "He argues that the mRNA vaccines failed to clear the virus from the body because they focused on generating antibodies rather than activating T-cells, which are necessary for virus clearance, leading to persistent viral presence and chronic inflammation.",
+      "direct_quotes": "The opportunity to clear the virus was actually known, I think, by Collins and by Fauci, that it did not clear the the virus. The spike vaccines. The spike vaccine. The Pfizer, Moderna. The antibody vaccine does not, and to this day, does not clear of the virus... It doesn't clear the virus and that's why we were told, of course, you take the virus and then you can't get COVID or transmit it, but neither one turned out to be true.",
+      "supplementary": false
+    },
+    {
+      "question": "How did Dr. Soon-Shiong personally avoid COVID-19 infection?",
+      "answer": "He developed a T-cell vaccine targeting the nucleocapsid protein of the virus (rather than the spike protein), which he injected himself with, giving him protection through T-cells that could recognize and clear the virus if infected.",
+      "direct_quotes": "I have a T cell in my body that protects me from the nucleocapsid... I injected myself. And then, and we're going to measure and talk about, I don't want to talk about the family and we going to measure my own blood. I drew my own blood and tested, and I have T cells to, to nuclear capsid and to spike. Which means if I were to get COVID touch word, the T cells now are memory T cells would clear the virus.",
+      "supplementary": false
+    },
+    {
+      "question": "What critique does Dr. Soon-Shiong make about the dogma in cancer treatment?",
+      "answer": "He criticizes cancer treatment for being dominated by oncologists rather than immunologists, leading to a focus on killing cancer cells with toxic therapies instead of understanding and enhancing the immune system's natural ability to combat cancer.",
+      "direct_quotes": "The problem with cancer is, it's been treated by oncologists and not immunologists. And immunologists don't see patients because they look at basic immunology. And then when you have infection and you have virology, so this cross disciplines of virologies, immunology, oncology, all these allergies, don't talk to each other.",
+      "supplementary": false
+    },
+    {
+      "question": "How does Dr. Soon-Shiong describe his concept of 'quantum oncotherapeutics'?",
+      "answer": "He describes it as understanding that immune cells can exist in two states - killer or suppressor - similar to quantum physics concepts like Schrödinger's cat, with the doctor's role being to intelligently manipulate the system to favor killer states over suppressor states.",
+      "direct_quotes": "I named this concept of cancer a quantum theory like a physicist. and that in our body we have cells that can be in two states. It can be a killer or a suppressor. And like the Schrodinger's cat, it could be alive or dead. And it depends what you do with it. And so I named this thing quantum oncotherapeutics, just to be controversial, so that doctors could understand what I'm talking about.",
+      "supplementary": false
+    },
+    {
+      "question": "What natural factors does Dr. Soon-Shiong identify as important for activating and maintaining healthy natural killer cells?",
+      "answer": "He identifies proper sleep, exposure to sunlight (particularly red wavelengths), and avoiding processed foods and toxins that cause inflammation as key factors for maintaining healthy natural killer cell function.",
+      "direct_quotes": "The idea is to activate the natural killer cell... So the first thing you have to do is you have to expose the receptors on the cancers of the killer cells could recognize that... This natural killer cell does, it replenishes itself with sleep, so sleep is important. It replenishes self with light, with sunlight, and I believe there's a certain wavelength, the red wavelength, in the sunlight that it actually requires for it to be stimulated.",
+      "supplementary": false
+    },
+    {
+      "question": "What did Dr. Soon-Shiong reveal about his experience trying to develop a T-cell based COVID vaccine?",
+      "answer": "His team developed a T-cell based vaccine targeting the nucleocapsid protein that successfully cleared the virus in NIH testing, but was removed from Operation Warp Speed and later blocked by the FDA when he tried to use it as a booster, despite initial approval from Peter Marks.",
+      "direct_quotes": "So I was one of eight of warp speed. Then I get a call, Patrick, you de-warped. You are there. I said, test my vaccine anyway. They did a vaccine test at the NIH in Barder. It cleared the virus, as I predicted... I injected the first three patients as a booster. I get the call from the FDA to say, you have to stop. I said, why? To this day, they never explained to me it wasn't Peter. It was people around Peter said, you must stop.",
+      "supplementary": false
+    },
+    {
+      "question": "What contrasting approach to using chemotherapy does Dr. Soon-Shiong advocate compared to conventional cancer treatment?",
+      "answer": "Instead of using high-dose chemotherapy to kill cancer cells directly, he advocates using low-dose chemotherapy as an 'immunomodulator' to stress cancer cells just enough to make them expose themselves to the immune system, without destroying the patient's immune cells.",
+      "direct_quotes": "So even in the presence of chemotherapy, you don't use chemotherapy to kill the tumor. You use a tiny dose of chemotherapy just to stress the patient, the cancer, and the cancer's, oh my God, something's coming at me and it starts exposing itself. So you go from high to exposed. So you use the chemotherapy at a low dose called low metronomic dose to use it as what I call an immunomodulator.",
+      "supplementary": false
+    },
+    {
+      "question": "What motivated Dr. Soon-Shiong to purchase the Los Angeles Times in 2018?",
+      "answer": "Having grown up in apartheid South Africa where newspapers were his primary educational resource, he wanted to preserve a major newspaper from being dismantled, create a platform for diverse voices and education, and develop a modern content management system that could integrate various media formats.",
+      "direct_quotes": "I grew in South Africa as apartheid. Because South Africa didn't have, I did not see a TV until the age of 21, believe it or not. No TV? No TV, South Africa, didn't TV. So not that I didn't watch TV, period. Also, it was just books and newspapers. That was the only way I got educated, books and newspaper... So I fell in love with the printing presses... I want this newspaper to be an educational moment for people. And at the end of the day, a newspaper is not just a newspaper, it's a basis of engagement.",
+      "supplementary": false
+    },
+    {
+      "supplementary": true,
+      "question": "What is P53, which Dr. Soon-Shiong describes as important in preventing cancer?",
+      "answer": "P53 is a tumor suppressor gene that regulates cell division and prevents cells with damaged DNA from replicating. When functioning properly, it triggers cell repair mechanisms or programmed cell death (apoptosis) in damaged cells, preventing them from becoming cancerous. Oncogenic viruses often inhibit P53 function to promote cancer development.",
+      "direct_quotes": null
+    },
+    {
+      "supplementary": true,
+      "question": "What are natural killer (NK) cells in the context of cancer prevention?",
+      "answer": "Natural killer cells are a type of white blood cell that forms part of the innate immune system. They patrol the body for abnormal cells (including cancer cells and virus-infected cells) and destroy them without requiring prior sensitization. Dr. Soon-Shiong describes them as 'nature's first responders' that maintain equilibrium by eliminating potentially cancerous cells before they can develop.",
+      "direct_quotes": null
+    },
+    {
+      "supplementary": true,
+      "question": "What is the ACE2 receptor that Dr. Soon-Shiong mentions in relation to COVID-19?",
+      "answer": "The ACE2 (Angiotensin-Converting Enzyme 2) receptor is a protein found on the surface of many cell types, particularly in blood vessels, lungs, heart, kidneys, and the gastrointestinal tract. It serves as the entry point for the SARS-CoV-2 virus into cells. The spike protein of the virus binds to ACE2 receptors, allowing the virus to enter and infect cells in these organs.",
+      "direct_quotes": null
+    },
+    {
+      "supplementary": true,
+      "question": "What is a 'Whipple procedure' that Dr. Soon-Shiong mentions performing?",
+      "answer": "The Whipple procedure (pancreaticoduodenectomy) is a complex surgical operation to treat pancreatic cancer and other disorders involving the pancreas, small intestine, and bile ducts. It involves removing the head of the pancreas, the duodenum, part of the bile duct, gallbladder, and sometimes part of the stomach. It's one of the most technically demanding abdominal surgeries performed today.",
+      "direct_quotes": null
+    },
+    {
+      "supplementary": true,
+      "question": "What is the difference between antibody-based and T-cell based vaccines that Dr. Soon-Shiong emphasizes?",
+      "answer": "Antibody-based vaccines (like the mRNA COVID vaccines) primarily stimulate B-cells to produce antibodies that bind to pathogens in the bloodstream, while T-cell based vaccines activate cytotoxic T-cells that can recognize and kill infected cells. According to Dr. Soon-Shiong, T-cell vaccines are superior for clearing persistent viruses from the body and providing longer-lasting immunity against variants.",
+      "direct_quotes": null
+    }
+  ]
+}

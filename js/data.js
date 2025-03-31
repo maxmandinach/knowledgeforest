@@ -85,18 +85,18 @@ KnowledgeForest.Data = (function() {
     }
     
     // Process uploaded content
-    function processUploadedContent(content, id) {
+    function processUploadedContent(content, id, sourceIds = []) {
         if (!content.episode_title || !content.flashcards || !Array.isArray(content.flashcards)) {
             console.error('Invalid content format');
             return;
         }
         
-        // Extract information from the filename or content
+        // Use the provided episode title and source
         const contentItem = {
             id: id,
             title: content.episode_title,
             type: 'podcast',
-            source: content.episode_title.split(' - ')[0] || 'Unknown Source',
+            source: 'Selected Episodes',
             date: new Date().toISOString(),
             cards: []
         };
@@ -122,6 +122,27 @@ KnowledgeForest.Data = (function() {
         saveData();
     }
     
+    // Delete content by ID and update storage
+    function deleteContentById(id) {
+        // Find the index of the content to delete
+        const index = contentLibrary.findIndex(content => content.id === id);
+        
+        // If content found, remove it and save changes
+        if (index !== -1) {
+            // Remove the content from the library array
+            contentLibrary.splice(index, 1);
+            
+            // Save the updated library to localStorage
+            saveData();
+            
+            // Return true to indicate successful deletion
+            return true;
+        }
+        
+        // Return false if content wasn't found
+        return false;
+    }
+    
     // Public API
     return {
         loadData: loadData,
@@ -130,6 +151,7 @@ KnowledgeForest.Data = (function() {
         setLibrary: function(library) { contentLibrary = library; saveData(); },
         loadSampleData: loadSampleData,
         processUploadedContent: processUploadedContent,
-        createDefaultContent: createDefaultContent
+        createDefaultContent: createDefaultContent,
+        deleteContentById: deleteContentById
     };
 })();

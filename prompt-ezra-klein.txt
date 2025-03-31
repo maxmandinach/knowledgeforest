@@ -1,0 +1,914 @@
+Podcast Transcript to Flashcards Prompt
+Task Description
+Convert the provided podcast transcript into a structured set of spaced-repetition flashcards. These flashcards should capture key concepts, facts, expert opinions, and important context from the podcast to enhance listener retention and understanding.
+Flashcard Purpose
+These flashcards will be used in a spaced repetition app called "Knowledge Forest" to help users retain information from podcasts they've listened to. The flashcards should:
+
+Reinforce main concepts covered in the podcast
+Highlight important factual information
+Preserve notable opinions or perspectives shared
+Include supplementary cards that define terms, people, or concepts mentioned but not fully explained
+
+Output Format
+Create a JSON file with the following structure:
+jsonCopy{
+  "episode_title": "Podcast Name - Episode Title/Guest",
+  "flashcards": [
+    {
+      "question": "Clear, concise question about a key point",
+      "answer": "Synthesized answer that captures the essence of the discussion point",
+      "direct_quotes": "Verbatim quote from the transcript that supports the answer",
+      "supplementary": false
+    },
+    {
+      "question": "Another knowledge-testing question",
+      "answer": "Concise answer drawn from the content",
+      "direct_quotes": "Relevant direct quote from the podcast",
+      "supplementary": false
+    },
+    {
+      "supplementary": true,
+      "question": "Question about a term, person, or concept mentioned but not explained",
+      "answer": "Definition or explanation that provides helpful context",
+      "direct_quotes": null
+    }
+  ]
+}
+Guidelines for Creating Effective Flashcards
+For Regular Flashcards:
+
+Questions should be specific, testing a single concept rather than broad topics
+Answers should be concise (1-3 sentences) but comprehensive enough to fully answer the question
+Include the most relevant direct quote from the transcript that supports the answer
+Focus on insights rather than basic information that would be obvious to someone who listened
+Capture diverse content types:
+
+Historical events and their significance
+Expert opinions on debated topics
+Cause-and-effect relationships
+Comparisons between different concepts, periods, or perspectives
+Statistical information or research findings
+Key arguments or frameworks presented
+
+
+
+For Supplementary Flashcards:
+
+Identify terms, people, events, or concepts mentioned in the podcast but not fully explained
+Create clear, definitional questions that would help users understand these references
+Write concise explanations that provide necessary context
+Mark these cards with "supplementary": true
+Direct quotes are optional for supplementary cards and can be null if not directly from the transcript
+
+Process to Follow
+
+Carefully read the entire transcript to understand the main themes and discussion points
+Identify 15-25 key points that would be valuable for listeners to remember
+Convert these points into question-answer pairs, ensuring each tests a specific piece of knowledge
+Find direct quotes from the transcript that support each answer
+Identify 3-5 terms, people, or concepts mentioned that would benefit from additional explanation
+Create supplementary flashcards for these items
+Format everything according to the JSON structure above
+Review to ensure diverse question types and comprehensive coverage of the podcast content
+
+Example of Good Flashcards
+Regular Flashcard Example:
+jsonCopy{
+  "question": "How did the British North America Act of 1867 address tensions between anglophone and francophone Canadians?",
+  "answer": "It created a looser federation that allowed Quebec to maintain significant autonomy over matters most important to French-Canadian cultural preservation, including education and civil law.",
+  "direct_quotes": "They realized that a tight union wouldn't work for Quebec. They needed a looser union with more autonomy for Quebec, particularly in those domains that were most important for the preservation of French-Canadian culture, particularly education and civil law.",
+  "supplementary": false
+}
+Supplementary Flashcard Example:
+jsonCopy{
+  "supplementary": true,
+  "question": "Who was Benito Juárez?",
+  "answer": "Benito Juárez was a Mexican politician who served as president of Mexico from 1858 to 1872. As leader of the liberals, he fought against both conservative forces in Mexico and French occupation, establishing principles of free elections, press freedom, and a more equitable legal system.",
+  "direct_quotes": null
+}
+Common Mistakes to Avoid
+
+Don't create overly broad questions like "What did the guest say about economics?"
+Don't include unnecessary information in answers - be concise and focused
+Don't ignore direct quotes - they are essential for connecting answers to the source material
+Don't create imbalanced flashcards that only cover one section of the podcast
+Don't miss opportunities for supplementary cards when important terms are mentioned
+Don't generate flashcards for basic information already known to the target audience
+Don't create flashcards with multiple questions embedded in a single card
+
+Remember, the goal is to help users retain and understand the most valuable insights from the podcast through spaced repetition learning. Focus on creating flashcards that will be genuinely useful for long-term knowledge retention and deeper understanding.
+Input Format
+When using this prompt with an AI tool, structure your input as follows:
+
+
+Add a clear separator like "---TRANSCRIPT BEGINS---"
+
+Episode Title: The Ezra Klein Show - What is DOGE's Real Goal?
+
+When the creation of the unofficial Department of Government Efficiency was announced after Donald Trump won the election, I knew a lot of people who thought it was a way to get Elon Musk and Vivek Ramaswamy out of the Trump administration’s hair. It’s an old tradition in Washington: You have people who help you in the election and the campaign, but you don’t want them in the White House, so you give them a blue ribbon commission somewhere where you’ll never hear from them again.
+
+But that’s not how it worked out. The first person DOGE purged was Ramaswamy. It became Musk’s operation. But in becoming Musk’s operation, DOGE became central to how Trump is remaking the federal government.
+
+But I have to tell you: I hate the name DOGE. Not that it’s not good branding; it is. But it obfuscates what’s really happening here.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Efficiency to what end? Efficiency has to be in service of a goal.
+
+And you hear a lot of goals. Maybe DOGE is here to make the government leaner, to lower head count. Maybe it’s here to save money. Maybe it’s here to make the government more responsive.
+
+What is it actually doing? What can we see after two months of its hack-and-slash operation through the federal government? And what does that suggest about where Trump’s term is going?
+
+One of the people who’s thinking about DOGE with the most clarity, in my view, is Santi Ruiz at the Institute for Progress. He’s the author of the Statecraft newsletter and the host of its podcast.
+
+Ruiz is somebody who thinks very deeply and often about how to build a capable state, and he’s somebody to my right. So he has been more open to the idea that what DOGE is doing is well constructed and well thought through.
+
+But like everybody, Ruiz is trying to grapple with the reality of what it has really turned out to be. So I thought it would be interesting to have him on the show to talk through it.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Ezra Klein: Santi Ruiz, welcome to the show.
+
+Santi Ruiz: Thanks, Ezra. Good to be here.
+
+I’m obviously a liberal, and I’m pretty upset about what DOGE is doing. But steel-man it. When liberals see DOGE and Musk as a pulsing source of evil and corruption, what are we missing? What arguments are we maybe not considering?
+
+I’ve got my criticisms of DOGE. But I think there are a couple of threads here that are worth trying to take on their merits.
+
+One is an experience of 2016 and 2020, when the Trump administration felt it could not get control of the executive branch. You see this in ways small and large.
+
+I think there’s a lot of learnings from the first time about: Oh, we tried to manage the executive branch this way. It didn’t work. And when we moved slowly to try to reform things, you give your opponents in the civil service, in the “deep state,” time to coalesce and organize. And then the clock runs out on you, and they’re still there.
+
+So there’s one instinct that’s just: The president should be able to do things within the president’s remit. And then there’s another instinct, as well: The president should be able to do more things than the current constitutional architecture allows for.
+
+Editors’ Picks
+
+Knees Hurt? This Exercise Can Help.
+
+Nails Are the Canvas for Her Mind-Boggling Creations
+
+Who Even Knows What Famous Means These Days? They Do.
+Advertisement
+
+SKIP ADVERTISEMENT
+
+We can disagree on whether Elon really cares about the national debt or whether it’s a fig leaf for other things. We’re in a different place on the national debt than we were five years ago, pre-Covid response. And when you talk to people in and around DOGE, you hear the debt come up over and over again — that if we don’t take this one opportunity now, while the window is open before the midterms, before public opinion naturally swings back and we lose the House, there’s a green field to run into to try and cut, cut, cut. And this will never happen any other time.
+
+There’s a strong instinct here that this is our one shot. So if we’re going to err on one side, we have to err on the side of cutting too much. And this is an Elon instinct. We can add things back later. I tend to disagree with that in specific places. I think we’ve cut some things that can’t be easily undone.
+
+But that’s very much the instinct: The Dems are going to stop us. They’re going to come in, and we’re going to do crazy oversight in the House in a year and a half. Public opinion will just change over time because cutting things is unpopular.
+
+I don’t think Musk is doing this because Trump wants somebody else to take the fall. I don’t think that’s the dynamic. Trump and Musk have been very close. Trump is very proud of the DOGE things. I do think there’s a sense in which Elon sees himself as: Someone has got to be the man wielding the sword — and it’s not going to be anybody else, so I’ll do it.
+
+I’m very skeptical of this cutting-the-debt theory.
+
+We do need to cut the debt. We’re spending more now on interest payments than we are on defense.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+But every person I know who is a budget obsessive — and I’ve been doing this work a long time. I know budget obsessives. You can’t imagine the things I’ve heard. Every one of them says: We’re going to have a higher debt in a year than today. That not only is this not going to significantly cut what we are spending money on, but they have lit on fire their opportunity to do it.
+
+Because to shift the major streams of money — that’s not Elon Musk running around with a sword —
+
+That’s welfare.
+
+That is convincing Democrats and Republicans alike — or at least Republicans — that we should cut Medicaid and Medicare spending. That’s maybe increasing taxes. And at the same time they’re doing this DOGE stuff, they’re planning a $4.5 trillion or maybe $5 trillion tax cut.
+
+So you can imagine a group of people obsessed with cutting the deficit. But you really do have to do that through some amount of bipartisan action in Congress. It’s very hard to do it while you are cutting taxes.
+
+I don’t know, man. Convince me it’s not [expletive].
+
+If you go back to what Russell Vought, one of the more powerful people in the administration, director of the Office of Management and Budget, says about this stuff, he actually will say this quite clearly — that he’s a deficit hawk. He’s a debt hawk.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+He says if you want to get into welfare, if you want to cut Social Security, if you want to tell people you’re cutting Medicare and Medicaid, you have to start with the other stuff that doesn’t seem as close to home, with the stuff that’s, you know, the comic books in Peru about wokeness or whatever. You have to cut that stuff out first, and you have to hold up the bloody head before you have popular interest and willingness to go with you to the stuff that touches their families.
+
+I think that’s definitely the view of some people in DOGE — that you have to zero out the stuff that isn’t going to make a huge difference, because that’s the only way popularly you’ll be able to say: Look, we really mean it. We’re not just taking you to the cleaners, we’re making the government smaller. Period.
+
+Right now, we’re two months in. So you can project a couple of different views into the future and say: OK, we’re going to cut off the funding streams to universities and woke NGOs — you name the list of enemies — and that will be it. And then we can’t touch the politically difficult stuff because it’s politically difficult. That’s why people don’t reform welfare.
+
+Or you can say: No, we’re gutting ideological enemies. And then we’ve got room and popular credibility to go after the stuff that we know is closer to the American pocketbook.
+
+Maybe I’m naïve and a fool to think that those two paths are both still in play. But we’re very early on.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+But they keep talking about using DOGE to send a check back to every American.
+
+This is the best argument against the idea that it’s a debt thing.
+
+I always want to try to take people generously. It might be easier to if Elon Musk, in all these interviews, said something like: Boy, we really want our tax cuts extended. And if it wasn’t a fiscal emergency, we would extend them. But unfortunately, if we don’t get the debt under control, we’re not going to have a country anymore. So we just can’t. It’s a real shame. But people like me — Elon Musk, the richest dude in the world — are going to have to pay higher taxes.
+
+But he doesn’t say that. Instead, they’re cutting the Department of Education and U.S.A.I.D. and people working at the Social Security Administration. And that’s just not where the money is.
+
+You are not DOGE. But you are a very fair-minded analyst of this. So if you are still taking this theory seriously at all, I would like to know why.
+
+Maybe this is a cop-out. But I just keep coming back to the coalitional element of it: Is President Trump a deficit hawk? I don’t think there’s a lot of evidence for that just based on the first term.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+But you’ve got a bunch of different actors in here. Russ Vought is touch tight to the president. He was in the same role in the first administration as he is in the second. He’s been a lifelong deficit hawk.
+
+So what do you make of that? It’s a political coalition, right? You act with the president partially in the hopes that you can get your own thing squeezed in the door.
+
+That said, I do think Musk has a particular management style that has served him well in the private sector. And you can point to specific things: ruthless reduction of head count — especially when he comes to places like Twitter, which was bloated at the time. Reduction of cost, especially in places like SpaceX. He’s an incredible penny pincher at SpaceX.
+
+So you combine that instinct, which you’re seeing very much here, with a managerial impulse to push people as hard as you can to achieve really specific, measurable, kind of insane goals. This happens at SpaceX all the time. You’re giving people stomach ulcers as they’re producing fantastic rockets in record time.
+
+I think this is what has worked for Elon, and what he looks at and says: This is the right way to do corporate restructuring, to get results that nobody else thought possible.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+He keeps saying in private and in public: It’s the source code. The problem with the federal government is not this or that regulation. We need to get deeper into it.
+
+This is an Elon instinct, and he sees an opportunity to apply a lot of those elements that many folks from the outside would say: That won’t work on the federal government.
+
+He says: No, we can do that, and we can synthesize a bunch of information. We can get a better view from the top of how money flows in the federal government. And from there, it will be much easier to cut the head off.
+
+I want to pick up on that source code idea. I was going through Elon Musk’s recent interview with Ted Cruz, and there’s a moment in it, pretty early on, where Musk describes what he’s doing differently — a little bit to Ted Cruz’s awe.
+
+Archived clip of Elon Musk: Well, the government is run by computers. So you’ve got essentially several hundred computers that effectively run the government. And if you want to know —
+
+Ted Cruz: Did you know that, Ben?
+
+Ben Ferguson: No.
+
+Elon Musk: Yeah. So when the president issues an executive order that’s going to go through a whole bunch of people, and so ultimately it is implemented at a computer somewhere. And if you want to know what the situation is with the accounting and trying to reconcile accounting and get rid of waste and fraud, you must be able to analyze the computer databases. Otherwise you can’t figure it out. Because all you’re doing is asking a human who will then ask another human or ask another human, and finally, usually, ask some contractor who will ask another contractor to do a query on the computer.
+
+Ben Ferguson: Wow.
+
+Elon Musk: That’s how it actually works. So it’s many layers deep.
+
+There’s a genuine innovation here. He is doing this differently. What seems to me to separate DOGE at some level is this sense that the power comes from control over the computers that send the money. If you control the computers, you control the money. And if you control the money, you control the power. And that genuinely does seem like something no one here has tried before.
+
+Yes, I think that’s right. You can call it a West Coast or a tech or Silicon Valley instinct on the problem.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Some of it also comes from a sense from Elon’s career and a sense in the Trump world that the people you’re engaging with — civil servants, etc. — are going to lie to you. You’re not going to get source reality from what the general counsel of a given agency says. The career civil servants are going to snow you, they’re going to wait you out, they’re going to slow-walk you.
+
+So in an effort to try to get to ground truth, this makes a lot of sense as going down the chain, trying to figure out: OK, well, where is the money going? And I think what you’re seeing with DOGE — for information environment reasons and for all kinds of reasons — is that it can be a really misleading source of truth — that where the money is going, especially if you’re not familiar with how federal contracts work, is not always going to give you the information you want. But it certainly presents that way.
+
+If you are trying to reshape the government radically to make it more efficient or make it into something else, the informational input into your project is really important. And the fact that a computer tells you that money is going here and it’s going there is actually a very thin form of information.
+
+How is that money being used when it gets there? What actually is the nature of that grant? Why was it started? Why did the people who started it think it was a good idea?
+
+This concept that they’re going in and just looking at things and — it’s not even clear to me based on what — just deleting vast swaths of them: How do you think about that as a way of learning about government functions?
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+It’s one way. [Klein laughs.] It’s a source of information. I think what you’re seeing with DOGE is that there’s a bunch of other kinds of information that you would want to have if you, Ezra, were leading the Department of Government Efficiency, or that I would want to have in that role. And they’re either not getting it because they don’t have the capacity or because they’ve closed themselves off.
+
+Or take Elon and his particular relationship with Twitter. The ways he’s getting information is that he’s built his own Twitter ecosystem — the same way that you and I can curate our feeds. And he’s built the actual platform itself to surface certain kinds of information. Twitter, and the internet in general, is a more adversarial information environment than it used to be. The algorithm is designed to surface conflict. And Elon spends a ton of time-consuming information there.
+
+So if your sources of information are stories about malice and conflict and human opposition on the one hand and then just the data on the other hand, and you’ve closed yourself off to other information flows, you’re flying blind in some ways.
+
+And he’s very wedded to a specific, concrete, memeable target. He likes those. It’s like: We’re taking the contracts, and we’re zeroing them out. And we’re putting them on the wall, and you can see them. And I want you, DOGE team, to find contracts in different federal agencies. That instinct, I think, leads you to a lot of fat and waste — and to a ton of stuff that you should not be zeroing out.
+
+Sign up for the Opinion Today newsletter  Get expert analysis of the news and a guide to the big ideas shaping the world every weekday morning. Get it sent to your inbox.
+One example is the Agency for Healthcare Research and Quality — this little agency within Health and Human Services that produces a lot of research about avoidable deaths in the health care system, which the incoming F.D.A. commissioner thinks is the third largest cause of death in the U.S. So it produces all this evidence. It tries to get hospitals to adopt best practices, to make it easier to share information about what you’re doing without being punished so that you can kind of better assess what is leading to death in hospitals.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+DOGE wants to zero that out. It’s a cost center on the budget. It looks like: OK, that’s half a billion dollars a year that we’re spending on random research. It seems very plausible to me that it is a net money-losing move to zero that out, because we actually care a lot about money and lives.
+
+This is research that is supposed to help us cease with ineffective treatment and overtreatment of disease. There’s tons of stuff in the health care system we know we’re spending money on that, in the end, is not improving health. But it’s very hard to know which things won’t improve health.
+
+My view is that we don’t do nearly enough of it. And we also don’t enforce it enough. If I were running DOGE, I would expand that — but also pass legislation forcing hospitals to abide by more of it. But they’re not. As you’re saying.
+
+Without naming names, I can just tell you from conversations, I know there are people in DOGE who think the feds shouldn’t be in the business of funding this research at all. We should just zero it out.
+
+And there are people who have this view that: It probably makes more sense to fold that in somewhere else — maybe the National Institutes of Health.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+A.H.R.Q. has a grants program. Why does it have a grants program? Let’s stick that with the other health grants. We can rationalize and corporately restructure this. You zero it out now, and then if Congress really wants it, we bring it back somewhere else, and we save some money that way.
+
+So you have both those views within this coalition, even within the DOGE team. Maybe the people who want to bring it back are getting played by the folks who really just want to zero out. But I definitely think there are actors within DOGE who have very different long-term game plans of how this plays out.
+
+I want to talk about this idea of zeroing things out. There’s a quote famously that Elon Musk gives to Walter Isaacson in his biography of Musk: If you’re not adding things back in at least 10 percent of the time, you’re clearly not deleting enough.
+
+The point of that quote is that when Musk is running things, he cuts, and his view is that if things don’t then begin to break, such that you realize you’ve cut too much, then you’ve cut too little.
+
+That’s fine. But one of the things about the companies Musk has been in is that the information loop, the feedback loop, for that kind of thing is pretty fast and pretty clear.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+It’s an engineering feedback loop.
+
+Exactly. So SpaceX is trying to build rockets that go up into space and land and they’re reusable. If the rocket blows up, you’ve done something wrong. At Tesla, if the car doesn’t work, if the door falls off, it needs to be recalled — there’s apparently a new cybertruck recall — you’ve done something wrong. If customers don’t like what you did, you’ve done something wrong.
+
+He’s destroying, for instance, a bunch of data collection functions in the federal government. There’s going to be no fast feedback loop on whether that was a bad idea. Right now they’re cutting people from the I.R.S. and the Social Security Administration.
+
+One of the things we are certain that’s going to do is lead to fewer audits. And when you try to call somebody on the phone during tax season or if you’re a senior citizen and you’re having trouble getting your Social Security payment, you’re going to have hours of waiting. It’s going to be very hard to get customer service.
+
+The Consumer Financial Protection Bureau was a big target for them. I’ve known people there who are working on financial scams. People are just going to get scammed who weren’t going to get scammed before — because there were some people out there protecting them and some people could have reclaimed their money. Nothing is going to break. But those people are going to get scammed and ruined.
+
+What really worries me about this theory of cutting is that it works when you have very fast feedback loops, but the government doesn’t have very fast feedback loops. And it kind of can’t — because it is, on some grand level, a long-term risk-management enterprise.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Steelman the argument for me. How do you think about the critique I’m making of that argument?
+
+This is the place where I have the hardest time steel-manning DOGE. Because I think it’s true: There are all kinds of benefits to fast iteration cycles and engineering, especially when you have — as Musk does at SpaceX, for instance, or Tesla — people who are some of the best in the business at understanding the mechanism that they’re looking at.
+
+If you push an engineer to the limit on rocket fuel, and you say: I’m demanding crazy outcomes from you, and I want it cheaper than ever — at SpaceX you’re entrusting some of the best people in the world at doing that thing to these really hard challenges.
+
+And so far, there’s not a lot of evidence that the people working on DOGE are the best people in the world at understanding federal contracting or where the money flows, despite having computer access.
+
+So I think you’re right. This is my biggest frustration. And I think you can look at the cuts to PEPFAR. Whether you think: Oh, that’s on purpose — we actually don’t care about saving these lives. Or you think it’s foolishness. The net effect is the same. You broke something that you cannot easily repair.
+
+The first really big thing DOGE does is decapitate U.S.A.I.D. You write in your piece about how, before that, you had been aware of two parallel streams of argument about U.S.A.I.D. and they really never crossed over to each other. What were they?
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+On the right, for a long time — predating Elon, predating even the Trump administration — you have these critiques of the nonprofit industrial complex. You have critiques about self-dealing in liberal circles. You have critiques about the efficacy of foreign aid as administered by NGOs.
+
+At the same time that debate is playing out, largely on the right, without a ton of overlap to other parts of the discourse, you have a very rich debate within the foreign aid world, among effective altruists, about: Wait a second, what works? Do we actually know that this or that program is doing the things that we want it to do? Is it reducing poverty in this African country? Is it increasing education? And you have a very rich debate on that side, as well, about: Hey, we should probably do this stuff better. We’re probably wasting a lot of money.
+
+Both of these arguments have played out for the last seven years, if not longer. And when DOGE came on the scene, it looked like neither side had been at all familiar with the other side.
+
+People in the foreign aid community were shocked. Most of us were pretty surprised that DOGE came in with this kind of decapitation attempt. And people on the right and within DOGE were not familiar with this idea. There’s a chief economist at U.S.A.I.D. who got canned working really hard on trying to make sure that we get more of the dollars out into the places that we want them to go.
+
+But were they unfamiliar with the idea, or did they not want to know and not care?
+
+I don’t believe they didn’t know. Or if they didn’t, it’s a kind of weaponized and chosen ignorance. Like choosing to just say to yourself: What I’ve seen on Twitter or on the printout of funds going around looks weird — as opposed to calling in the chief economist and the head of the organization and having a conversation with them.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+This is where you get into this really tricky thing about what “efficiency” is doing here as a word. Because you can ask: How can I make something more efficient? Or “efficiency” can be a smoke screen for a set of other projects.
+
+I think you could probably tell what I think is going on here. But what do you think?
+
+Do you really believe what happened is that they didn’t know about this other debate? Or is it that, ideologically, they don’t like the idea of us spending money on aid to people who live in other countries?
+
+Genuinely, I think there are a lot of things going on. There’s a whole bunch of different intellectual streams and actors in this funky Trump coalition.
+
+There are absolutely people in the administration who clearly don’t think this is a worthwhile project for America to engage in. I think that also exists within DOGE itself.
+
+But people like Marco Rubio have been champions of foreign aid their whole careers. So you look at that, and you say: Oh, wow, the State Department wants to turn back on this funding or wants to give waivers to PEPFAR, the anti-AIDS program that the U.S. has run in Africa and the Caribbean since the George W. Bush years. And then apparently the DOGE folks on the computers are zeroing out those grants as they’re supposed to go out.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+So one of the problems is that it’s kind of hard to tell from the outside who’s doing what. I think we’re getting more information as time goes on. And you definitely have this sense that DOGE as an entity doesn’t think that these things should exist at all.
+
+U.S.A.I.D. was, to me, very revealing. Because there was no feedback loop. This is money we are spending to prevent bad things from happening to people in other countries — primarily poor people in other countries. And they can’t call up Elon Musk or their local member of Congress to get it turned back on.
+
+So this theory that what you’re doing is deleting things and then seeing: Oh, does something break? But you’re not watching to see if something breaks. You’re not doing a monitoring effort to see what happens to malnutrition in the Horn of Africa.
+
+Yes. Without defending this view, let me just tell you what I think they would say in response: If Americans don’t care, if there’s not enough of a domestic outcry, why were we paying for it in the first place?
+
+Now, I disagree with that view. I like humanitarian aid. I like lifesaving work in Africa.
+
+But that is the kind of clear answer that they will give you: Americans didn’t care enough to turn it back on. If they cared, we would hear from these senators and whatever.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Well, they did hear from senators, right? Marco Rubio got yelled at, and he said that he would save PEPFAR. And then, as you mentioned, they sort of deleted it.
+
+I guess the thing I’m saying is: They claim to have a theory of responsiveness. But they’re not putting into play monitoring mechanisms. I guess maybe there’s an archive? But a lot of people were mad about it, and DOGE doesn’t care. They exult in that. They have contempt for many of the globalists worrying about children in Africa.
+
+That’s where you get into this question, again: What is this efficiency toward? And I think it’s important to bring this idea in: There’s a view that these are all liberal power centers.
+
+When I was talking to a well-known right-wing activist about U.S.A.I.D., his perception of the dismantling of U.S.A.I.D. and what was going on here — and he was thrilled — was: Oh, they’re destroying this power center. All the liberals are paying themselves off and the nonprofits, and it’s a feeder.
+
+And it was all so interesting. “Interesting” is maybe a light word for it. But I can tell you as a liberal, never for a second did I think to myself: Well, one of the left’s real advantages is the huge artillery of U.S.A.I.D. grants sending people to work on agricultural productivity in Ghana.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+One of the ways I’ve been trying to think about DOGE and a lot of the Trump administration’s actions is: If I put a rule into place, what rule would help me predict what they’re doing?
+
+If the rule were that taxpayer dollars would go further and government responsiveness would be improved — I don’t think I could predict it based on that.
+
+But if I said: What could I do that would destroy the power of progressively coded nonprofits and agencies in America? — I think I would get pretty close.
+
+Chris Rufo is at the Department of Education right now. It’s been a longtime conservative goal to cut it since it began to exist, I think, in the ’80s. Would we have seen that same attempt to decapitate other ideological power centers without DOGE? I think probably.
+
+What have they picked first? It’s places where either there’s a groundswell of opinion on the right that this is a liberal bastion — in the case of U.S.A.I.D., which I think is surprising to a lot of people on the left who have just not followed this for a while. The Department of Education. Grants to universities. You can’t pull the funding for the woke English department, but you can cut off N.I.H. grants, or you can withhold funds from Columbia. You’re definitely seeing that the tip of the spear is the stuff that they read as liberal power centers.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+But here’s where I think what you’re seeing at DOGE is less clearly ideological or well thought through than I think critics from the outside, like you, might even think it is. There are functions that the Trump administration cares about — for instance, controlling the export and the sale of the highest-end semiconductor chips to China. So there’s a public/admin interest in doing this.
+
+The Bureau of Industry and Security at the Department of Commerce that does that was really understaffed, really underresourced. And DOGE went in and cut not a huge amount of people — like 15 out of 500 — but a bunch of the probationary employees, the people who had been hired within the last year, who had been promoted recently. And being somewhat familiar with this topic, I think they fired some of the best people, some of the people you really want if you’re going to improve on our really porous export-control system.
+
+This is not a self-serving or a Trump team ideological move. You’re going to go back and realize: Wait a second, we need to hire those people back.
+
+Right. This is something we are doing to compete with China, which they agree with.
+
+Yes. On artificial intelligence, which they agree with.
+
+So this is where I have a less clear perception of DOGE than you do. I think there’s stuff that has targeted ideological enemies. There’s stuff that’s nihilistic about the value of foreign aid. And then there’s stuff that I think is just like a Goodhart’s Law problem. We’re just cutting stuff —
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+What’s Goodhart’s Law?
+
+The idea that anytime a measure becomes your target, it stops being a really good measure. Once you hyperfixate on the measurement, looking at the numbers on the computer, you lose a sense of the actual reality that you care about.
+
+So in this case: Great, we cut people from head count. The Bureau of Industry and Security is leaner and more efficient.
+
+But you’re going to run into this problem six months or a year down the line, where you want the agency to do things, even if you’re a small-government conservative. I count myself in that category. I want B.I.S. to do things. But it’s going to be a lot harder now.
+
+So I think there are different things going on here, but they’re not all fully aligned. There are a lot of things that the Trump administration itself will regret.
+
+In my reporting around DOGE, something that just comes up again and again is people saying: Look, there is no master plan. There’s no document we’re all working off. There’s no single objective. It’s not all pointed toward one thing.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+And we’ve been playing with different ideological objectives here — cutting spending and controlling the government and ideological purges.
+
+But I do think one thing that is a driving force of DOGE is simply action. There’s a huge bias toward action — and Trump himself has a big bias toward action.
+
+Being able to show you are doing things, acting relentlessly — it’s one of the very first things Trump said at the speech of the joint session of Congress:
+
+Archived clip of Donald Trump: It has been nothing but swift and unrelenting action to usher in the greatest and most successful era in the history of our country. We have accomplished more in 43 days than most administrations accomplished in four years or eight years. And we are just getting started.
+
+This administration likes the perception that they’re moving with incredible force and speed — Steve Bannon’s flooding-the-zone idea.
+
+And the assertion of power. One of the things you had in your piece on this, that you said you thought there was some legitimacy to, was a tweet that took a scene from “The Dark Knight.” The Joker gets all this money from the criminal underworld and then, having screwed them over, lights it on fire.
+
+And his point is that everything burns. Nobody has any leverage on him. He’s not there for the money. He’s not there to win anybody over. He’s there to show that everything burns.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+And you said in your piece: There’s an everything burns quality to this — a sense that they are showing that. Certainly with things like U.S.A.I.D., the things that were considered sacred in Washington, processes that were considered sacred in Washington, civil service protections, etc. — part of the message is that they can do things that were far outside of the Overton window.
+
+So the way that you might have predicted what a Republican administration will be capable of doing is gone. They’re more powerful than you ever could have imagined.
+
+I think there’s definitely a Schmittian thing going on: We’re hurting our enemies, and we’re rewarding our friends.
+
+You wrote a book about polarization. I think one of the dynamics here is that people on the right look at the left, and they say: You guys were doing that all along. We’re just copying you now.
+
+This idea that: Oh, you were self-dealing. We’re just going to punish all those people who are self-dealing.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+And I think this is always a defense for hyperpartisanship. It’s like: They were doing it first. Sorry, guys. Turnabout’s fair play.
+
+I think there’s also something really interesting here that came up in a conversation your colleague Ross Douthat had with Chris Rufo, whom he correctly called the most successful American activist since Ralph Nader or Phyllis Schlafly.
+
+Douthat pushes Rufo on: Why do you want to zero out the Department of Education? Why not capture it? Why are we trying to destroy it instead of staffing it with our own people and using it to achieve conservative ends?
+
+Archived clip of Chris Rufo: Other agencies can be perhaps reformed. But Department of Education, in my view, is beyond reform. And so you have to spin off, liquidate, terminate and abolish to the furthest extent you can by law, while maintaining your political viability and your statutory compliance for those things that are essential, that are required by law and that are politically popular. You always want to maintain the popularity. But can you —
+
+Ross Douthat: But it just seems weird to me.
+
+Chris Rufo: Why?
+
+They go back and forth. But I think what Douthat writes later is largely correct — that underneath the slashing and burning of DOGE, there’s a kind of worry that we don’t have the people or the talent that it would take to recapture this institution post-election and administer it the way we want. It would be really hard to use these tools for good governance.
+
+And sometimes that overlaps with the idea that the whole thing is rotted out anyway — like, the D.O.E. is a den of iniquity, and we just need to cut it.
+
+But I think there’s also this worry that administering these institutions is really hard. All the people who have done it for a generation are liberals. We don’t have our own people who can do it. Better and easier to just cut it.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+I want to go back to something you said at the beginning of that — this feeling that the right is working with a symmetry here: The left did this to us. It spends in a way that’s completely self-dealing, and it just rewards its friends and punishes its enemies.
+
+This view bothers me. Because not only do I not think it’s true — I think it’s untrue in a very obvious way.
+
+Look at the central legislative achievement of the Obama era — the Affordable Care Act. Fiscally, it is a tax on blue states and a transfer to red states — simply because the states that did not have generous and expanded Medicaid programs were red states. And red states are, on average, poorer than blue states.
+
+The Inflation Reduction Act has sent a huge amount of its money to red states. If you look at where it is building clean energy, where it is placing advanced manufacturing, it’s red states. Red states have disproportionately won out that money, partially because it’s easier to build there and partially because this was actually the political theory of the Biden administration — that you will build a broad base and win back Trump voters by showing that the benefits of liberal government flow to these places, too.
+
+Biden talked a lot about how you had Republicans who voted against the I.R.A. or voted against the infrastructure bill, but then they were out there at the ribbon cuttings for this bridge or that project.
+
+
+I’m not saying the left doesn’t give money to nonprofits that are progressive and in their aims. Of course it does — because it believes in those aims. But it doesn’t withhold money from conservative places or conservative people.
+
+You could just look at the fiscal flows of its major legislation. Because it actually doesn’t have the view that the right way to run government is just to reward your friends and punish your enemies.
+
+Yes. I think there’s an asymmetry, in that the left is redistributive. It wants to take the money in. And then, as you said, the big part of the Biden philosophy was: We’re going to put the money in so many places that you’re all on board now. And you’re seeing that play out, in that lots of Republicans want to keep the I.R.A. credits.
+
+And I don’t want to sit here and say that I support a politics of resentment. It’s not my preference. I’m trying to be descriptive here, though. And I think what people on the right notice is what they see as huge opportunities for graft in the nonprofit sector from federal grants.
+
+People like Rufo look at the university system, and they see that taxpayers are paying money for riots at Columbia. Or pick your boogeyman. But he says that’s funding your friends. And I think a lot of this just comes back to radicalization during Covid, during lockdowns, toward rationing of vaccines in blue states, which you saw along racial lines.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+I would not underestimate how much that is a radicalizer on these lines — that they reward their friends and punish their enemies, and we should just do the same.
+
+There’s also the reality that they’ve convinced themselves of things that aren’t true. If they were true, they would be very bad. But I think they’re not true. But they do seem to be motivating action.
+
+There’s this moment in the Ted Cruz interview of Elon Musk, where Cruz says to Musk: Look, you used to be a liberal hero. You made Teslas. You got invited to nice parties in Hollywood. And now they hate you. Why do they hate you?
+
+Here was Musk’s answer:
+
+Archived clip of Elon Musk: The single biggest thing that they’re worried about is that DOGE is going to turn off fraudulent payments of entitlements. I mean everything from Social Security, Medicare, unemployment, disability, Small Business Administration loans. Turn them off to illegals. This is the crux of the matter. This is the thing that — why they really hate my guts and want me to die.
+
+Ted Cruz: And do you think that’s billions? Hundreds of billions? What do you think the scale is of that?
+
+Elon Musk: I think, across the country, it’s well above $100 billion. Maybe $200 billion. So by using entitlements fraud, the Democrats have been able to attract and retain vast numbers of illegal immigrants.
+
+Ted Cruz: And buy voters.
+
+Elon Musk: And buy voters. Exactly. And basically bring in, I don’t know, 10 or 20 million people who are beholden to the Democrats for government handouts and will vote overwhelmingly Democrat, as has been demonstrated in California.
+
+Musk has said a version of that a lot. What he’s doing and the reason the left is so mad is that we’re running a massive scheme to pay off illegal immigrants to vote for Democrats. I think he believes this. Do you think he believes this?
+
+That he believes this?
+
+Yes.
+
+Yes. Totally.
+
+So if you believe that this whole complex is really, at every level, about moving money around to entrench leftist power in a way that is bad for America and then bad for us eventually getting to Mars, then a lot of what they’re doing seems more straightforward.
+
+
+Yes. This view, which is pretty common on the right, also explains why, if it turns out there’s not that much literal fraud in welfare — which I think is true. Improper payments in Social Security are something like 0.3 percent, according to the internal watchdogs.
+
+But if you think that, actually, the whole project of some of these welfare programs is to redistribute to your friends’ political machine, Tammany Hall-style pay for votes, then I think you feel much better about taking the flame forward of the whole institution.
+
+I’ve struggled with what I think is the generous interpretation of this. I can’t decide if I think the generous interpretation is that Musk believes it and that explains his actions or that he doesn’t believe it but it’s a politically advantageous thing to say because it coheres right-wing support for entitlement cuts, which Donald Trump’s coalition — which is older and poorer than some previous Republican coalitions have been — would otherwise oppose.
+
+Because I think the thing that also has to be admitted here is they have control of the government. The people of the Social Security Administration actually do know where the money is going. There’s not some line item in the computer code that says “political panels to illegal immigrants.” [Laughs.] And they don’t seem to want to disprove any of their conspiracy theories.
+
+At some point, it is a choice to not track down the information about what you think might be happening here.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+I think Elon is interested in this question. And I’ll agree with you — he’s an unreliable narrator. I don’t think Elon loves the truth.
+
+But when you see the stuff about dead people taking Social Security benefits, for instance, pretty quickly, apparently, even before Elon kept repeating this line, folks on the DOGE team realized that’s not what’s going on. It’s not like there’s massive flows of money out the door to people who are pretending to be 135 years old.
+
+But it is probably true that a lot of illegal immigrants are using those Social Security numbers for various purposes.
+
+Elon’s very interested in zeroing that out. And they’ve absolutely swept up normal people in their “You don’t exist” push on Social Security. There was a bunch of reporting this week about people to whom Social Security has said: We’re clawing back that money, because you’re not real — you’re dead.
+
+But do you think that DOGE as an entity is trying to learn about the thing that it is trying to control?
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+We started this conversation talking about Musk trying to get at the ground level — the payments data. And I think the appeal of that is that it’s objective. It’s literally where the money is going. But where the money is going does require interpretation. And you could learn about it.
+
+Do they want to? Are they getting to know it better? Or do they want to use DOGE as a kind of polarization strategy to maintain support for what they’re doing?
+
+I don’t know if those are the only two options. But I’m definitely more dispirited than I was two months ago about DOGE’s ability to learn on the job.
+
+You saw very early on the sloppiness about federal contracts: Oh, we zeroed out a billion-dollar contract. And it’s a million. And they somehow added three zeros.
+
+You keep seeing that lack of facility with numbers. And they update it later. These are not mistakes that have to happen as you do this.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+The DOGE team is not really staffed up in the way you might expect if they really wanted to build a more robust, better system. It’s a very small team that is definitely not learning as quickly or improving as quickly as you’d want to see. And I think, classically, a good Elon private sector team would improve by iterating.
+
+You’re not seeing the same dynamic that I would want to see.
+
+One thing I will say to DOGE’s credit is: Incredible branding.
+
+DOGE is a funny brand. It gets a lot of attention. Not everything happening in terms of the attack or reform or revitalization — depending on how you want to think about it — of the administrative state is DOGE.
+
+Behind Elon is Russell Vought, who’s running O.M.B., which is a very powerful nerve center of the federal government.
+
+We talked about Vought earlier in terms of that. He is classically somebody who does want to cut government spending. It’s not all he wants to do. But he’s got a pretty big theory of how the government should work. You had him on your show. I found that to be a very helpful episode for understanding him.
+
+
+What does he want? How does Russell Vought think the ideal government — or at least the executive branch — should function?
+
+Vought believes in unitary executive theory — the idea that the president should, constitutionally, have full control of the executive branch. He believes that you elect a president, and he’s in charge of the executive branch. It reports personally.
+
+So according to this theory, there’s really no such thing as an independent executive branch agency. People elect the president. That’s democratic accountability.
+
+Vought has a view that’s quite interesting, even for people on the right — that we have what he calls an imperial Congress. And now there’s all these agencies within the executive branch that don’t listen to the president. They listen to appropriations in Congress.
+
+He thinks presidents should have the power to impound money — that is, if they can achieve their policy priorities within the confines of the law for less money than Congress is appropriated, the president should be able to do that and not spend that money.
+
+
+So it’s, in some ways, a very capacious view of presidential power.
+
+There was this O.M.B. memo that went out early on freezing grants and different kinds of spending. It ended up being rescinded and rejected by the courts. But something the memo said was — and I’m paraphrasing a little bit, but this is basically right — that the government, the executive branch, should represent the will of the people and the will of the people is expressed in their choice of the president.
+
+This is important for understanding them. Because it gives you a definition of responsiveness.
+
+I think a lot of the time when people think about what it would mean for the government to be responsive, they think: Well, if I’m having a problem, there should be somebody I can call who can fix it.
+
+Or: When the government is doing something, it should be able to do that quickly and well.
+
+But government responsiveness in this definition is very responsive to the executive. When Donald Trump wants to do something, the government responds, and it does that thing.
+
+This is their theory of what went wrong in the first term, on some level: The government was unresponsive to Donald Trump. And it is their theory of what they’re trying to achieve in the second term, which is that the executive branch would be truly responsive to Donald Trump.
+
+My first question is: Do you think I’m misrepresenting that in any way?
+
+No, I think that’s right. And I think what’s interesting about Vought’s view is that, in some ways, it rhymes totally with longstanding critiques of the administrative state across the right: the Federalist Society view that you have bureaucrats who are out of control and they need to be disciplined.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+The place where it does not rhyme with that kind of more libertarian or small-government view is this idea of impoundments. The view that presidents have some piece of the power of the purse is much newer. It doesn’t have any kind of deep ideological threads that views about the rogue bureaucrats do.
+
+Vought combines these two in a very interesting way.
+
+My integrated theory of DOGE, Vought and the Trump administration is that the right way to think about DOGE is that it’s the Department of Government Control.
+
+There are versions of it that Vought is trying to do, in terms of impoundment and in terms of firing and traumatizing the civil service so that there isn’t a “deep state” trying to stand in Donald Trump’s way.
+
+And then there’s what Musk is doing, which is gaining source-code-level control over the plumbing and the machinery of government — the spending of it, the computers that run it. If you have that, you have enormous power.
+
+And if you combine the two, then you’ve turned money into an incredible source of power and leverage. And you can use that ideologically. You could use that just to try to achieve policy goals. You could use that as leverage over friends and enemies — something Donald Trump loves. That’s the whole play here.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Tell me how reasonable you think that is. Or poke your holes in it.
+
+I think that’s largely right. Again, what’s interesting to me is a lot of that is just normal conservative movement instincts about how the executive branch should work.
+
+The part that’s quite striking is this impoundments view, which is, to plenty of folks, not an especially sturdy legal theory or constitutional reading of the power of the purse. But what people like Vought would say — and do say — is: This is what the branches are for. And if you don’t like it, Congress, or if you don’t like it, courts, you have to assert your own prerogatives.
+
+The whole point of the system, in a Madisonian sense, is that the executive tries to do a bunch of things, and he runs into the wall of the courts. And as Vought will point to, Vance and Trump and all these people have said: The president will abide by these rulings even if there are crazy district judges. And Congress, if you don’t like this, then stop us.
+
+Well, Vance has kind of said maybe he shouldn’t. And if you look right now at Stephen Miller’s X feed —
+
+Miller and Musk are very much on the other end of this.
+
+But Vance has sort of said this, too. He set out this tweet basically saying that it is the courts overstepping their bounds. It depends how you understand what the proper role of the executive branch is. But I think Vance has said stuff that implies very strong sympathy to the idea that for the courts to stop a bunch of this would be unconstitutional, and the executive branch shouldn’t abide by it.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+There is a large number of people around Trump who are arguing that these judges should be impeached when they rule against Trump. “Judicial coup” has been the language we’re hearing.
+
+This isn’t a “We should have checks and balances” kind of thing. This is something I really worry about. It feels that they are preparing for a showdown of the courts.
+
+There are different versions of war with the courts. Some of them, for me, are five-alarm fires. The Supreme Court says something, and they say: No, we’re going to do it our own way. That’s very bad.
+
+And there there’s other places where people like Vought say explicitly: We think the 1974 Impoundment Control Act is unconstitutional. DOGE is going to create a case for that. We want that to go to the Supreme Court. We would like to have that fight because we think that law is unconstitutional.
+
+To me, that instinct is not crazy. I think they’re wrong. I think the Supreme Court should rule —
+
+The question is: What happens if they lose?
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+I did not think this at the beginning, but I think it now: If the Trump administration doesn’t get a lot of what they want from Roberts, they are really going to try to get around that. And they’re going to try to get around it on technicalities.
+
+But a decision was made by someone to not listen to the judge and turn the planes around and instead say: Oh, no, you can’t enforce a verbal order. These planes were over international waters. That was a provocation to the courts.
+
+A different administration wouldn’t have done that. They are attempting to assert a huge amount of power. And I guess the thing that makes me very skeptical that what they’re trying to do is get a favorable Supreme Court ruling is that there’s a way you would go about doing that.
+
+You would be very carefully choosing cases — creating a conflict that generates a case that is favorable to you. You would want what lawyers call a model test case. You would be acting in a way that is fairly respectful of the courts, because you would be trying to politically hold them on your side.
+
+This thing where they are knocking through the glass left and right, where the test cases are really bad, where they’re annoying the courts, where they’re defying the courts and saying the judges should be impeached — that doesn’t work unless you have a view that the right way to manage John Roberts politically is to try to cow him.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+And I think that is basically how Donald Trump deals with everybody. So maybe that is his view. But in a world where what you’re trying to do is get a favorable ruling in the Supreme Court because you are going to abide by that ruling, I don’t think this is what you do with John Roberts.
+
+So that’s an administration that looks to me like they are preparing for a showdown. And ultimately the unitary executive theory might need a showdown.
+
+I think that’s what you’re going to get. The nature of that showdown is, I think, an open question. But the administration, people like Vought, say: Look, we think these cases were wrongly decided. We want to refight them.
+
+And what happens next? I’m not going to pretend to tell you in advance. But to fully implement unitary executive theory does require that we take this fight to the Supreme Court and get rulings in our favor.
+
+I was saying earlier that I think a very important question to keep asking yourself is: What goal would predict what they are doing fairly accurately?
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Because efficiency is not a helpful word. It obscures things well. Efficient toward what? Efficient toward following the law? That’s something different.
+
+I think if you insert as the top goal here maximizing Donald Trump’s power, you would get a fairly good read. Not the Republican Party’s power, by the way. Not conservatism. Maximizing the control and the authority that Donald Trump has — creating the imperial president. I think you would be predicting things at a fairly high level of accuracy.
+
+And the scary thing about coming to that conclusion is: Imagine a world where it’s 2027. Democrats have won a huge House victory in the midterms, so Hakeem Jeffries is the speaker. And now there’s a lot of oversight happening. Donald Trump is at 39 percent, maybe lower in the polls, which seems very plausible to me. Maybe he’s at this point a lame duck — though he probably doesn’t want to be. And now you have a House that is not letting them do things. And you have a Supreme Court that maybe already has or is ruling that impoundment is unconstitutional.
+
+In this world, do Donald Trump, Stephen Miller, Russ Vought and Elon Musk all say to themselves: Well, it’s a good try. We fought the good fight, and we lost.
+
+Or is the final act of this: No, [expletive] you.
+
+I don’t see anything in here that makes me think they will live within limits, particularly when the walls begin closing in. Right now, the walls haven’t begun closing in. But even the little bit that they have, they have really reacted badly.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+I don’t know how to answer the hypothetical. I’d be curious how you read the first term in office on this model. Because Trump lost in the courts quite a bit.
+
+I read it exactly like this: The easiest way to understand the difference between the first and the second term is that, in the first term, the most important member of the family, who brought a lot of people into the administration, was Jared Kushner — as thoroughly a mainstream figure as you could possibly find. The administration was full of people who saw part of their role as keeping Donald Trump caged.
+
+In the second term, it’s been Donald Trump Jr. — who is a right-wing, now accelerationist, groyper. Elon Musk has pushed Donald Trump to go further than Donald Trump would have gone without Elon Musk. Russ Vought wants to go further. JD Vance’s only chance of power is that it all works out for Donald Trump. And if you look at the staffing, it’s very radical people. There are no people who are saying: Slow down.
+
+And you really see this, I think, with the reaction to the markets. In the first term, when the markets would crash, not only would Donald Trump be like: Oh, my God, we don’t want the stock market to go down.
+
+But there were a lot of people around him — like Gary Cohn — who were creatures of the markets, who would say: OK, we want the economy to be good here.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+This time, when the markets began going down, clearly they’re self-confident enough to say: We know better than the markets. You have to expect a little bit of short-term turbulence here.
+
+So I think this is a very different administration, where you have a disinhibited president surrounded by disinhibitors.
+
+I think a lot of that reading is really plausible. And the extent you’re concerned about that depends on a couple things. One is just: Are you ideologically aligned with Trump? And another is: How much do you think personalist presidencies — presidencies that are incredibly dominated by the executive — are bad in themselves?
+
+I was reading a book called “Stalin’s War” by Sean McMeekin. It’s a history of World War II. And it’s largely about Stalin and the ways in which World War II was actually a product of his enmity for the West. It’s also about the ways the West, and the U.S., especially, gives into specific demands of the Soviets when we don’t have to, without negotiation or without better information about what the Soviets are really thinking.
+
+A character who’s really striking in the book is Franklin Delano Roosevelt, who is probably our most powerful executive in American history, with the most control of the executive branch. Similarly, he put incredible pressure on the court system in service of his ideological and political goals.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+One of the things that comes through in this book is that kind of total personalization leads to bad outcomes for F.D.R. himself, in that we get rolled by the Soviets on all kinds of Lend-Lease things. He’s a worse negotiator for being surrounded by only people who agree with him at the Tehran Conference in 1943.
+
+So there are dangers to fully personalized presidencies in general. But also you’re often worse at doing things you care about if your information flows all lead one way.
+
+It reminds me of Curtis Yarvin, whose influence I think can be overstated but is certainly somebody many people in the administration have read and found interesting — let’s put it that way.
+
+And he always says: What I’m looking for is an executive that has the level of power that F.D.R. did at his height. That’s my monarchy. Though, if you read Yarvin closely, that’s not quite true. But he has this idea that the whole thing should be more like a corporation.
+
+And I guess it gets to this question of efficiency, again, in a slightly weird way: On some level the U.S. government is supposed to be inefficient. Whenever people say that you should run government like a business — well, a business doesn’t have multiparty competition separated across branches.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+A business is a very different kind of structure. It’s got a board of directors. It does have some internal checks, potentially.
+
+But we built our system this way because we think there’s value in getting information sourced from different places. The fact that the bureaucracies are full of people who are career civil servants is not just a protection against patronage — it’s also valuable because they know things, because they’re not switched out every four years.
+
+Congress, which the Republicans have very much cowed and Elon Musk has really reshaped with his threat to pump money into a primary against any Republican who crosses Donald Trump. Even within parties, Congress is supposed to be a generator of information and friction. Because what Lisa Murkowski knows, what John Thune knows, what any sort of individual member knows, given that they’re representing a geography in a different place, is supposed to be absorbed into the machinery of government.
+
+And this idea that you would have it all just coming down from Donald Trump, rather than going up to Donald Trump, is a very different vision that pits efficiency against representativeness and what I would call small-d democracy: this idea that the executive is not going to have perfect information.
+
+Again, the places that I worry most about DOGE right now, aside from things like PEPFAR — those cuts are a travesty — but there are information sources within the executive branch that we all care about that are actually tools for any executive to use, Republican or Democrat. And in the particular kind of DOGE approach to government efficiency — we’re losing a lot of those information streams.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+There are a bunch of surveys about K-12 and higher education, for instance, at the D.O.E. that we’re losing. And we’re losing the ability to track this important longitudinal data. If you’re conservative and you think the public schools are failing, that is the data that shows you that.
+
+So I totally agree. To the question of whether the government be run like a business: There are lots of ways for employees at a functioning private sector company to surface negative information that you’re not seeing right now.
+
+There were a lot of proposals when DOGE came in. For example, you could source savings ideas from people at the agencies and cut them in on a share. Give back, say, 10 percent across the agency for any savings that you can find — the software licenses that we don’t need, etc. That’s the sort of thing where you would see aligned incentives in a private sector company. That’s a good idea.
+
+And you’re not seeing that. You’re seeing a lot of top down — if you’ve read James C. Scott’s “Seeing Like a State” — the view from above with very little granularity from below.
+
+Or seeing like a payment system. [Laughs.]
+
+Seeing like a payment system.
+
+Corporations do a pretty good job of sourcing information from the bottom. That’s actually a good thing about businesses: You get live data all the time from all over the place about the markets, about consumer behavior, about wasted functions.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+So I think that would be an improvement over the DOGE model. I don’t think what you’re seeing from DOGE is exactly an application of the running a business idea. It’s something different.
+
+You asked me a version of this question earlier. Let me throw it back at you so that I’m not ending in quite such a dark vision of a future monarchy.
+
+Let’s say we do have a backlash to this. Democrats win in 2026, and then a Democrat wins in 2028. What should they learn from DOGE?
+
+If Democrats wanted to make the government more efficient, where would you tell them to start?
+
+Do they?
+
+Entertain the hypothetical.
+
+Maybe I’m naïve, but there are a couple of things that I’m still holding out hope for over this next cycle that, if I’m wrong, if I’m a fool and they don’t happen, are absolutely ready to hand for somebody to come in.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+For instance, the Biden administration did a lot of really smart things on trying to get people into the government around the usual federal hiring system. O.P.M. can basically hand out accepted service slots. They can say: Getting you into that position is critical for the national interest.
+
+So you can just get hired like you would in the private sector. Someone can just say: Hey, this guy’s great. We’re hiring him. Starts next week.
+
+The Biden administration did that for the CHIPS office. And the CHIPS office was staffed very well — a bunch of folks from Wall Street, a bunch of rock stars, very quickly.
+
+I thought it was very telling that on CHIPS, which the Biden administration really cared about — what they did was circumvent a huge amount of government procedure. They eventually passed a bill from Ted Cruz and Mark Kelly exempting CHIPS from the National Environmental Policy Act.
+
+I thought it was very telling that the approach was: Well, if we’re going to do this right, we certainly can’t run it the way we run the rest of the government.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+Because what does that say about the way you run the rest of the government?
+
+And the people you’ll run into if you try to use O.P.M. or direct hire authority or any of these end runs around the existing federal hiring system, the roadblocks will be, largely, public sector unions. They will be Democratic constituencies. So you’ll need somebody who’s willing to split that Gordian knot.
+
+The National Environmental Policy Act has a large basis of support on the left. And people like you are trying to change how we think about that.
+
+Again, one reading of what DOGE is doing is that the cutting comes early: You take Machiavelli’s advice that you do all the cruelty at the beginning, and then you dole out the good stuff later. Because then people forget what came first, and they remember all the nice things you did.
+
+Like with the Bureau of Industry and Security, like with export controls on semiconductor chips, the administration will want to do things over the next four years. It will have things it wants to achieve. People like JD Vance who are their own actors and want to build their political futures will want to achieve things.
+
+And to do that, you’re going to need to do things like fix federal hiring. You’re going to run into the same problems as the Biden coalition did, which is that everybody wants you to lump in their pet thing when you do it.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+But actually, if you want effectiveness or efficiency, you’re going to have to prioritize and say no to parts of the coalition and yes to other parts. That’s going to require filling in after DOGE cuts.
+
+And even if you think that this doesn’t accord with a view of Trump’s personal power, you’ve got a bunch of actors in this current administration who want to have futures for themselves. They want to be able to plant the stake and say: I did that.
+
+I think that’s a good place to end. Always our final question: What are three books you would recommend to the audience?
+
+“Stalin’s War” by Sean McMeekin is one. I just think it is a tremendous history — slightly revisionist but not beyond the pale.
+
+Stalin is a much worse actor than you remember him from your World War II experience — or your World War II education.
+
+Advertisement
+
+SKIP ADVERTISEMENT
+
+[Laughs.] It’s pretty limited, my World War II experience.
+
+[Laughs.] It’s also a really eye-opening book about diplomacy and the ways that you can tell yourself things that aren’t true — and convince yourself.
+
+I just had a guy named Peter Moskos on “Statecraft.” His book is coming out in a couple of weeks. It’s called “Back From the Brink” and it’s the story of the ’90s crime decline in New York City.
+
+He did a fantastic oral history. He talked to everybody who’s still alive and able to discuss it. It’s a fantastic story, both about state capacity — about how to actually do something that you want federal government or, in this case, the state and local governments to do. And it’s a really interesting management history.
+
+But the real revolution was this almost Muskian approach of: We’re just going to hold you accountable to the facts on the ground and to these numbers. And we’re going to call you in every week at 7 a.m., and you’re going to show me that you know all about this specific area.
+
+So it’s that firm mandate — incredible political pressure from above — combined with something that I don’t think you’re seeing much of at DOGE, which is giving people power over the areas they know best and holding them accountable for that. It’s just a remarkable success story.
+
+
+And then the last thing I’d recommend, as somebody who’s A.G.I.-pilled a little bit — there’s a short book by a Catholic priest named Romano Guardini called “Power and Responsibility.” He writes it after the Second World War. And it’s about: What kinds of people do we need to be in a world where the bomb exists, where we’ve built a crazy new kind of power over each other? What are the demands on us to be better leaders?
+
+I find it to be a useful starting point for thinking about the next few years.
+
+You’ve narrowly targeted my interests in these three book recommendations. I think you’ve sold me.
+
+Santi Ruiz, thank you very much.
+
+It’s a pleasure. Thank you.
+
+Add another separator like "---TRANSCRIPT ENDS---"
+
+
+Please generate flashcards from this transcript following the guidelines above.

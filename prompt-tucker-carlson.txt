@@ -1,0 +1,1190 @@
+Podcast Transcript to Flashcards Prompt
+Task Description
+Convert the provided podcast transcript into a structured set of spaced-repetition flashcards. These flashcards should capture key concepts, facts, expert opinions, and important context from the podcast to enhance listener retention and understanding.
+Flashcard Purpose
+These flashcards will be used in a spaced repetition app called "Knowledge Forest" to help users retain information from podcasts they've listened to. The flashcards should:
+
+Reinforce main concepts covered in the podcast
+Highlight important factual information
+Preserve notable opinions or perspectives shared
+Include supplementary cards that define terms, people, or concepts mentioned but not fully explained
+
+Output Format
+Create a JSON file with the following structure:
+jsonCopy{
+  "episode_title": "Podcast Name - Episode Title/Guest",
+  "flashcards": [
+    {
+      "question": "Clear, concise question about a key point",
+      "answer": "Synthesized answer that captures the essence of the discussion point",
+      "direct_quotes": "Verbatim quote from the transcript that supports the answer",
+      "supplementary": false
+    },
+    {
+      "question": "Another knowledge-testing question",
+      "answer": "Concise answer drawn from the content",
+      "direct_quotes": "Relevant direct quote from the podcast",
+      "supplementary": false
+    },
+    {
+      "supplementary": true,
+      "question": "Question about a term, person, or concept mentioned but not explained",
+      "answer": "Definition or explanation that provides helpful context",
+      "direct_quotes": null
+    }
+  ]
+}
+Guidelines for Creating Effective Flashcards
+For Regular Flashcards:
+
+Questions should be specific, testing a single concept rather than broad topics
+Answers should be concise (1-3 sentences) but comprehensive enough to fully answer the question
+Include the most relevant direct quote from the transcript that supports the answer
+Focus on insights rather than basic information that would be obvious to someone who listened
+Capture diverse content types:
+
+Historical events and their significance
+Expert opinions on debated topics
+Cause-and-effect relationships
+Comparisons between different concepts, periods, or perspectives
+Statistical information or research findings
+Key arguments or frameworks presented
+
+
+
+For Supplementary Flashcards:
+
+Identify terms, people, events, or concepts mentioned in the podcast but not fully explained
+Create clear, definitional questions that would help users understand these references
+Write concise explanations that provide necessary context
+Mark these cards with "supplementary": true
+Direct quotes are optional for supplementary cards and can be null if not directly from the transcript
+
+Process to Follow
+
+Carefully read the entire transcript to understand the main themes and discussion points
+Identify 15-25 key points that would be valuable for listeners to remember
+Convert these points into question-answer pairs, ensuring each tests a specific piece of knowledge
+Find direct quotes from the transcript that support each answer
+Identify 3-5 terms, people, or concepts mentioned that would benefit from additional explanation
+Create supplementary flashcards for these items
+Format everything according to the JSON structure above
+Review to ensure diverse question types and comprehensive coverage of the podcast content
+
+Example of Good Flashcards
+Regular Flashcard Example:
+jsonCopy{
+  "question": "How did the British North America Act of 1867 address tensions between anglophone and francophone Canadians?",
+  "answer": "It created a looser federation that allowed Quebec to maintain significant autonomy over matters most important to French-Canadian cultural preservation, including education and civil law.",
+  "direct_quotes": "They realized that a tight union wouldn't work for Quebec. They needed a looser union with more autonomy for Quebec, particularly in those domains that were most important for the preservation of French-Canadian culture, particularly education and civil law.",
+  "supplementary": false
+}
+Supplementary Flashcard Example:
+jsonCopy{
+  "supplementary": true,
+  "question": "Who was Benito Juárez?",
+  "answer": "Benito Juárez was a Mexican politician who served as president of Mexico from 1858 to 1872. As leader of the liberals, he fought against both conservative forces in Mexico and French occupation, establishing principles of free elections, press freedom, and a more equitable legal system.",
+  "direct_quotes": null
+}
+Common Mistakes to Avoid
+
+Don't create overly broad questions like "What did the guest say about economics?"
+Don't include unnecessary information in answers - be concise and focused
+Don't ignore direct quotes - they are essential for connecting answers to the source material
+Don't create imbalanced flashcards that only cover one section of the podcast
+Don't miss opportunities for supplementary cards when important terms are mentioned
+Don't generate flashcards for basic information already known to the target audience
+Don't create flashcards with multiple questions embedded in a single card
+
+Remember, the goal is to help users retain and understand the most valuable insights from the podcast through spaced repetition learning. Focus on creating flashcards that will be genuinely useful for long-term knowledge retention and deeper understanding.
+Input Format
+When using this prompt with an AI tool, structure your input as follows:
+
+
+Add a clear separator like "---TRANSCRIPT BEGINS---"
+
+Episode Title: The Tucker Carlson Show - Dr. Patrick Soon-Shiong: You're Being Lied to About Cancer, How It's Caused, and How to Stop
+
+Why Are Cancer Rates Rising in Young People?
+Doctor, thanks a lot for coming on. So you spent your life, you know, 50 years
+working on treatments for cancer. And when you started,
+it seemed like we were moving in the West toward the elimination of cancer.
+Smoking was a huge emphasis, get rid of tobacco and cancer rates will drop.
+Obviously smoking does cause cancer and we got rid of it basically, but cancer rates.
+And that is a very rarely remarked upon mystery that really bothers me.
+Tell us since you, you know, you made billions of dollars selling your companies, but you're still involved in medical research, which I admire.
+Where are we now with cancer? What are you seeing in cancer rates?
+Well, what's really worrisome to me now is not just the rate, but the population
+in which it's increasing, i.e. the younger people. So we clearly see
+an increase in certain types of cancer like pancreatic cancer, ovarian cancer,
+and we're seeing it, colon cancer, and we seeing it in younger.
+Just to set a baseline, what's the 10-year survival rate for pancreatic cancer? It's horrible.
+I think, you know, if you have pancreatic cancer today, I don't think there is a 10 year survival rate, so to speak.
+What there is, however, if have patients who are what we call failed all standard care,
+survival rate is in months. You measure it in two months. That's certainly my understanding, having watched a lot of people die
+of it. So, advanced pancreatic cancer is a
+death sentence. Where are you seeing it now? Well, I got to tell you a
+really concerning story. It's not only I'm seeing it now, I'm saying that in younger people
+and for the first time in my career, when I left UCLA, I was doing all the
+whipples, which is a surgery to actually remove most of the pancreas, a very big operation. You're a surgeon as well.
+I'm a surgeon. Yes. And I was also doing pancreast transplants for type two diabetes and islet cell transplants and
+stem cell transplant. So I had this diverse activity as a UCLA system professor.
+But I never saw pancreatic cancer in children. And the greatest
+surprise to me was a 13-year-old with metastatic pancreatal cancer
+that the family called us. And to me that was not only
+devastating, it emphasized the idea that we're seeing people with higher incidence of
+pancreatic cancer and younger. Right now in our clinic we have 45-year-old, 50-year old.
+What was sad about this young boy, by the time he came to see us,
+he had exhausted all the standards of care, and he came from Butler, Pennsylvania,
+and all the major medical centers really had exhausted their therapy.
+By the time we came to his body was ridden, and he passed away.
+Seeing cancers now in younger people and almost a rise,
+almost like, I don't want to call it a non-infectious pandemic, but this is what I think is worrisome
+in the world, not just in the United States, but largely in the U.S. we're beginning to see this and it's
+really worrisom. A non-infectious pandemic of cancer, including deadly
+cancers. Correct. Like pancreatic. Um, in, in your career,
+which I think is about 50 years of working on this, how many 13 year old pancreatics cancer patients have
+you seen? Never. I inquired around because it
+bothered me so much now of why this is happening.
+So Dr. Stephen Day was a good friend who was trained with me at UCLA when I was at UCLA.
+He's now at the Angeles Clinic and I called him and he said, listen, Patrick, I'm now seeing an eight year old, a 10 year old and 11
+year old with colon cancer. We've never seen colon cancer, we've never seen that.
+We're seeing now 30-year-old, 40-year old ladies, young ladies with ovarian cancer.
+So this is a real phenomenon of a rise of cancer in early people, in young people and
+really need to get to the bottom of that. Do you notice a difference in the virility of the cancer,
+of the speed with which it moves? I'm getting reports that they've
+even called it turbocharged. Yes, I heard that phrase. Right. I'm getting reports of that now that people that have been in
+remission before even are now getting back the cancers and very rapidly progressing.
+If you really think about what the cause of cancer is, you know, and I did a piece with Sanjay
+Gupta many, many years ago on 60 Minutes. And I said, you know the cause of
+cancer it's its inability, it's not the rapidity of its growth, but its inability to die.
+And its inability to die is because it either hides from the cells that
+matter, i.e. your natural killer cells, your T cells. All, and this is what I'm
+really worried about. Your body and the cancer has found a way to suppress
+your killer cells. And once they do that, once they
+activate what are called the suppressor cells, and you call yourself immunosuppressed,
+then I think you see this. rapid progression because it's nothing stopping them.
+What Is Causing This Cancer Epidemic?
+What could possibly be causing this? Well, I think if you look back
+of causes, you know, ironically, when I was doing at UCLA, I was working on
+pancreas transplant where I want to immunosuppress the patients. Yes, you have to. Yeah, because you prevent it.
+And then I was on cancer where I don't want to emissor press. So I needed to understand
+the body's mechanism and we have a crazy, wonderfully exquisite balance in our
+body. You have the ying and the yang of the killer cells and
+these things called natural killer cells in T cells. Whose job is to kill anything that
+threatens the body? It's whose job is, to kill quite right. Anything that threatens body,
+whether you, the body has infection. If you have TB, you have HIV, if you have
+hepatitis, you have COVID, these cells are there to recognize.
+these infected cells and kill it. As you and I are sitting here today,
+our stem cells are growing in order to replenish parts of your body or heart.
+If you didn't have that, you wouldn't have a heart at the age of 14. You need those stem cells. But mathematically,
+there are some cells that are transformed and your body recognizes that through these natural killer cells and kills it.
+I call that nature's first responder. Thank you. That's your mechanism, that's how
+we are all protected and we are in the state of equilibrium or balance. On the other hand, the moment either
+the tumor finds a way to hide from these cells or your body's or
+the tumor causes these cells to be suppressed. And that's why I call this
+suppressor cells and there are certain cells in your body call T-reg cells or myelo-derived
+suppressor cells. These are all technical. that when they get upregulated,
+you've lost your protection. And so the question then is,
+how do we understand this balance? How do we increase the killers and how do you decrease the suppressors?
+So that's been 50 years of my challenge of, and how to expose the tumor.
+So on the one hand, you need to expose the tumor because it hides from the killers. And then you activate the killers,
+and the other hand, you have to suppress the suppressor. So we truly playing a good game of chess.
+And I think like a Astrophysics, where you're looking for God's particle, where all these
+molecules are floating around, talking to each other, all the cells are floating round, talking to
+other, and this dynamic interaction. And how do you understand all of
+that? You know, one of the best, most fun lectures I gave,
+I gave a lot of lectures on this and tried to be non-technical because it's basic, what I call basic
+immunology. And the problem with cancer is,
+it's been treated by oncologists and not immunologists. And immunologists don't see patients
+because they look at basic immunology. And then when you have infection and you have virology,
+so this cross disciplines of virologies, immunology, oncology, all these allergies, don't talk to
+each other. So you're saying, just big picture for non-specialists, of which I'm
+of course one. You're saying that cancer is to some extent a problem with your immune system.
+It is everything about you immune system So you've got all kinds of defective cells that could become cancer or cancer in your body at all
+times. At all times But your body is zapping them. Correct. And that's the fundamental balance of the human
+body. Correct. And when that body gets out of balance, when the killer cells become suppressed
+or That's effective. That's when you get cancer. Okay. So I'm sorry to interrupt.
+I just know it's, I love it because. That's the perfect interpretation
+that I couldn't do. in a non-technical way, because I
+think that's, I get too nerdy, so I'm glad. Well, you are a doctor.
+So, but that's, I think is what's happening in our body. We have these perturbations,
+but we're in equilibrium, and that's a good thing. The moment you knock yourself out of
+equilibrium, now what could knock you out of the equilibrium? And that's why when Bobby Kennedy is talking about
+and standing up about the toxins in our food, the toxins and PFAS, the
+processed food. and viral infections.
+And really what knocks you out of balance basically is inflammation.
+If you have inflammation in your body. There's this, now I'm going to get
+nerdy again, these cells called neutrophils that actually see an infection and tries to kill it,
+which it does. But if there's persistent information, these neutrophil actually flip into
+a suppressor cell. people don't realize is
+that we have the yin-yang in our body that every cell has a counter cell.
+And that's where I was about to go there. I said the most fun conversation I had where I asked an
+astrophysicist or physicist to give a lecture is I named this concept
+of cancer a quantum theory like a physicist.
+and that in our body we have cells that can be in two states.
+It can be a killer or a suppressor. And like the Schrodinger's cat, it
+could be alive or dead. And it depends what you do with it. And so I named this thing quantum
+oncotherapeutics, just to be controversial, so that doctors could understand what I'm
+talking about is that we need to understand the fact that you
+have a killer T cell and you have a killer suppressor cell. We have an M1 macrophage
+that actually chomps things up and M2 macrophages that blocks that. You have an NK cell that kills
+and NK cells that inhibits. And we need to have that balance otherwise you'll get into autoimmune
+disease. There's a thing called quantum entanglement that is
+the scat alive or the scot dead if somebody interacts with that, and the person
+that interacts with it is the doctor. So you as a doctor could
+either be enlightened enough to activate just the activators and suppress the
+suppressors and change the dynamic towards the cure, but it's
+very complex because it's now quantum. All those changes are happening
+in minutes in your body. These molecules, like God's particle, where they're
+colliding with each other and the cells are colliding and interacting, happens within minutes.
+So you need to have a theory of how do you interact at that level.
+And in so doing, the first thing you need to understand is how does cancer happen?
+And then how does it grow? How do you stop it?
+This idea of a vaccine against a vaccine.
+Do you radiate that cancer? Do you remove that cancer, do you remove the lymph nodes? Do you give chemotherapy?
+And crazy enough over the last 50 years, I figured out that everything we're doing.
+The word wrong, because that's a bad statement, a pejorative statement, is not enlightened,
+or a better way to say it. Because everything we're doing is tipping the scales towards the suppressor cells.
+We're activating the suppressors cells. We're not activating the killing cells. And we can go into this conversation
+where I can explain that. So the key system, which you just said, is cancer's all
+about the immune system. So if you activate the immunosuppressor system,
+you get more cancer. So then the fundamental root cause is what's activating that immune system on the other way.
+Is There a Connection Between Covid and Cancer?
+And that's inflammation. Something is suppressing people's immune systems, including the poor
+13-year-old boy who died of pancreatic cancer. And the question is, what is that? And maybe there are a lot of causes,
+but we're not the first people to notice there's been an increase in scary cancers in
+populations that didn't used to get them. It's very obvious just from living here. And a lot people have pointed to
+both COVID, the virus and to the mRNA COVID vaccines as potential causes.
+Do you think that they're related? The best way for me to answer that is to look at history.
+What we know about virally-induced cancers is well-established. We know that if you get hepatitis,
+you get liver cancer. Hepatitis is a virus infection.
+We know if you got human papillomavirus, HPV, you get cervical cancer.
+Certain kinds of throat cancer are caused by viruses as well, right? If you get itch. HIV, you get Kaposi's sarcoma.
+So we call that oncogenic viruses in medical terms, meaning viruses that are
+induced carcinogenic. And the fundamental basis for that are threefold.
+The hallmarks of an oncogenic virus is one, it must persist. And why? Because it continues to create
+inflammation. And why with inflammation you get suppression? because your body is
+trying to suppress it. It must inhibit the thing called P53 that's in your body to try and
+protect your body from not having cancer. If it persists and causes
+inflammation and inhibits P53, it begins to have the hallmarks
+of an oncogenic virus. So then the question is, does
+COVID, whether it come from the vaccine, which is the spike protein vaccine,
+or from the infection, which is spike driven, that gets into every cell of our body, because it
+goes through the- Every cell of the body? It goes wherever you have the thing called the ACE2 receptor which is in the blood vessels.
+So wherever you have a blood vessel in your body, it's where it's gonna go. And if it has an H2 receptor on that
+blood vessel, that's where you can go, because that's the purpose of the spike protein, to penetrate, to hijack that H2 recipient, get
+into their cells. So that's why it gets in the pancreas. That's why you have brain fog, because it disrupts
+the blood vessels of the brain and cause mitochondrial dysfunction. That's is why in the colon, which has a high energy eye tract, is
+a high H2-receptor. that's why pancreas is the receptor. where that's why you people have in
+the heart, you have dysfunction. You've seen young people have
+sudden heart attacks all of a sudden. You see young people with pancreatic cancer all of sudden. You see with young people's colon
+cancer all the sudden. So is it by coincidence that
+post COVID infection, post COVID vaccine, we've seen all these events where we know
+the spike protein goes there? I don't think so. I think it's not a coincidence.
+So the question is, can we prove, is this what I call long COVID
+virus persisting? And the group at University of California, San Francisco has
+now definitively proven that and published that in papers like Nature.
+Can we also prove that once you have that persistence of that virus, does that COVID virus suppress
+the natural killer cell? Does a natural killer cell actually not only go to sleep?
+becomes a what-you-call-energic that's now been published.
+The natural killer cell has gone to sleep. So by your
+definition, we just solve the mystery right there. I think so.
+I think this is a conversation I had with the... Well, but wait, I mean, billions of people, literally
+billions of had the COVID virus. Over a billion got the spike protein
+vaccine. So that's like, we're talking like a huge percentage of the Earth's
+population, unless I'm missing something. Now you understand what keeps you
+awake at night and it's kept me awake at nights for two years, two and a half years.
+And that's why I sort of abandoned everything just to focus on how do we clear the virus?
+Because the answer is to clear the virus from the body. From the body, the answer's to stop the inflammation
+because it's chronic inflammation. Privacy should be a right for all citizens in this country. It's a prerequisite to freedom.
+No privacy, no freedom. Unfortunately, in America, privacy is a luxury. So who gets the luxury of privacy?
+You don't, we don't. Privacy is given to government agencies. They've got millions of classified
+documents, actually over a billion in this county. The average American citizen, meanwhile, is being watched every
+time he or she goes online. Data brokers are tracking and recording everything you do and then
+they're selling what they learn about you and your private life to advertisers, even to the government, to the NSA.
+What do you do about it? Well, we use a product called ExpressVPN. ExpressVPN is an app that sends 100%
+of your online traffic through secure encrypted servers. And that means that everything you do online, your personal data, your
+personal information. is shielded from the creeps who wanna sell it to other businesses
+or the government. ExpressVPN also hides your IP address and that means the
+brokers cannot exploit you. They can't sell you as a product to the highest bidder.
+ExpressVPN works on up to eight devices at once. It's fast, it's easy to use. It's number one rated by industry
+professionals. So until we get privacy, you're gonna have to make your own privacy and we do it with
+ExpressVPN. Right now you can get an extra four months of ExpressVPN for free.
+Scan the QR code on the screen or go to expressvpn.com slash Tucker and get four extra months for
+free, that's expressvpm.com, slash Tucker. So can I ask a dumb question?
+How long does the virus remain in the human body? If not- So far we've found three months.
+Is there any reason to believe it will naturally go away? not if your body is immunosuppressed.
+So it's a circle. You ask what causes cancer because your body's immunosupressed.
+You have in your body nature's compound. And if the tumor or the infection or
+the inflammation suppresses it, you have to find a way to reactivate it
+and clear the virus. It's as simple as that.
+And that's the missing link that I think So it sounds like you're describing what could be like the worst human
+health crisis in history. I-I-I I don't know how to say that without
+saying it. It scares the pants off me because I think what we
+may be, I don' think it's virus versus man now, this is existential.
+I think when I talk about the largest non-infectious pandemic
+that we're afraid of, this is it. Because While
+there was an increase in cancer in our country because of the idea of the
+toxins and everything else, this immunosuppression that has occurred now globally,
+and more importantly, immunosupression tied to inflammation, chronic inflammation,
+which is asymptomatic in some times, and sometimes it's not. There's 15 million Americans with long COVID, and
+they're not psychiatric when they have memory loss. They're not psychiatric when they
+have instantaneous heart attacks. It's not psychiatric when you have an eight year old, 10 year old colon
+cancer, a 13 year old pancreatic cancer.
+Idea Wars is a solution. And this is what I certainly hope
+so, because you spent your life around scary diseases, like that's been your life.
+And if you're scared, then that's, that's not a good sign.
+I think it's important for me to have this conversation with you, not just that's why.
+Okay, I'll share with you a conversation I had. I got invited by the CEO of the Henry Jackson Foundation to come to
+DC, I think October, November last year during the election phase,
+and just to have a conversation about what I'm doing. And there he brought the leader from
+Walter Reed, the barter, the DOD.
+the NIH, the NID, all into that room, and it was just me.
+And I said, it is time. It is time for me to reveal to this learned group
+of leaders about what I'm scared about. And I spent, I think it was three
+hours, no slides, just me speaking alone on the stage, and all of them in the audience.
+When I first started the conversation, the first sentence was, I think COVID is oncogenic.
+one of the members of the audience said, that's nonsense. I said, okay, let me explain to you what we've been doing in our
+research. At the end of three hours, four hours, he said, you've got to publish this. This is so important.
+And I said yes, we are processing the publication. And then what came out was this
+paper that they biopsied the colon of young people temporarily when no COVID to
+COVID. and showed the persistence of replicating viruses in the
+colon tissue two years out. Replicating COVID-19. Replicating code viruses.
+Replicating. Asymptomatic replicating.
+in the tissue, meaning there's inflammation. And when you have this inflammation,
+these neutrophils, now getting geeky again, plasticize flip from
+a protective neutrophil to a suppressive neutrophile. It's called an N2. It's call a myelodirived suppressor
+cell. That's an official name. So now you have suppression in your
+body. and no wonder that then converts into colon cancer.
+Why Dr. Soon-Shiong Never Got Covid
+But so is this true? Do you think for, I mean, have you had COVID?
+Lucky man. Not lucky man, T cell man.
+I have a T cell in my body that protects me from the nucleocapsid.
+Where do I get one? was held up by the FDA and
+by Collins and Fauci. You never got COVID because your protectors cells were so strong?
+Not only a protector sells if I do get COVID, the virus clears. You want to clear the virus.
+the hell out of my body. I just want to pause here. I know you're in the midst of a much
+larger story, but this is something I think everyone can understand. So I think I'm in good health.
+I am in very robust. Did you have COVID? I did. How many times? One. I never took the virus. I never.
+Took the vaccine. Okay. Um, but I got COVID knocked me right
+on my butt. It was a bad three days.
+I don't understand, you're older than I am. How did you never get, I just wanna get very specific,
+like, how did, I mean, everyone on the planet got COVID. Okay, so let me let me give you some idea. Okay.
+One, because we understand the implications. My wife, Dutchwood, also never
+got COVID because of both of us. So this is this is their story.
+We, by that, unfortunately, I relate this, it's a painful thing to me because I
+relate it to Kobe's death. It was during Kobe's time when he passed away. And at the funeral- Kobe Bryant,
+who you were close to. Correct, very close to, and at the at his
+funeral, all the people in the room, and it was, I think, November.
+And I turned to Gavin Newsom and I said, Listen. this is one virus I'm worried about,
+because I was studying this virus, you know, I understand HPV very well and I understand hepatitis.
+I said this is not a respiratory virus, this is a dangerous virus.
+So I went back and I shut down our organization so that we could actually
+do nothing else but COVID. My entire team of hundreds of scientists on Zoom
+and everything else around the world, I said, we must. go after this virus with
+a vaccine that clears the virus. And the only way to clear the virus
+is to have what we call a T cell, an NK cell, the cells that kills cancer cells.
+And I wrote a paper with Carlos Codona that says COVID's like cancer and cancer's like COVID, meaning it's immune suppression that
+causes its spread. And it's immunosuppression by the COVID virus that allows it to
+persist. So... The only vaccine that's important is a T cell vaccine.
+But that's why I'm telling you, virologists think about antibodies versus cellular therapy.
+It's foreign to them to have a vaccine that stimulates T cells.
+Why should I understand that internally? It's a little weird since in 20 minutes you explained it to me, it's
+not particularly high IQ, not a scientist. I understand exactly what you're saying. Why isn't it obvious to
+virologists, why isn't that like day one lesson in virology school
+that the T-cells, the cells that protect you against all potential internal
+harm, they're the key. because every vaccine so far is antibody-based.
+Dogma. Dogma Blind spots. Okay, now we're cooking with
+guests. Now I understand what you're talking about. Dogma, blind spots, nicely put.
+Okay, I'm sorry, I keep stepping on your story. So. No, no, you're not stepping because you're allowing you actually
+interpreting. It's pleasure to me because I don't know what I'm saying. Sometimes whether it's going to be so geeky, it gets lost.
+It's important for the audience for you to interpret. This is what Sanjay did for me in the 60 minutes. He was brilliant.
+And he spent two years with me, by the way, doing a little 15 minute piece.
+Wow. Yeah. I would come to LA. We do this through the shoot, shoot, shoot, and we just had breakfast. That's it.
+Okay, so you figure out early, everyone's panicked about COVID. Okay.
+But your position is they're panicked for the wrong reasons. And actually, maybe they're not quite as panicked as they should be
+because this virus could pave the way for cancer because it will suppress the immune system of
+the human body. So you, in November, you said, when did you? Right, so by
+March 2020, we had the vaccine, March 2020. Because I had built a full
+GMP facility for cancer using the same vaccine that NCI had retested for
+HPV and for colon cancer, I think we'll see. So I'd create this vaccine
+in which we would educate your body prior to COVID.
+for the treatment of cancer to educate the T-cells to recognize a cancer cell to kill it.
+That's called a cancer vaccine, but which by the way, is for the only vaccine in clinical trials today to prevent cancer that
+the NCI is running using our technology. Is there any way you can take the word vaccine out and call it something else? I'm calling it BioShield.
+Backseat just scared the crap out of me at this point. No, because it's not a vaccine in that general sense of an
+antibody-based vaccine. It's your body's bioshield. So we'll announce it on the show.
+We're going to call this Project Bioshield, which by the way, in 2004, there was a Biosheild
+Act for national preparedness against radiation,
+against a pandemic of infectious diseases. So, we have
+the worst thing that can happen to you. is to have one dose
+of radiation or wipe out your NK cells and your T cells. That's how you die. Yes. That's why you get cancer.
+It zaps your immune system. It zps your immune systems. So we wanted to create a bio shield.
+And the bio shield is to educate your body to have these T cells called memory T cells that go and
+hide in the bone marrow and come out when they need it and kill that cell so it
+can never do damage. That's the concept. And it's not a foreign concept.
+We published it with the National Cancer Institute. So by March, 2020, I took all
+my resources. Thank God we had the resources. So that's the sort of gift. Was this your money?
+All my money. Okay, so I should just say, I alluded to it earlier, but you had a couple of companies making cancer
+drugs. You owned all of them. I mean, you own, I think 100% of the companies. You sold them for $10 billion or something.
+So, but rather than buy a vineyard, you continued in your work. Is that a fair? You know, as I said to
+you over breakfast, I had no idea about stocks. So when the two companies were
+bought, and they were bought for the right reasons, the one company was American Pharmaceutical Partners,
+and we were making literally close to a million vials a day in the United States, manufacturing
+of 150 different SKUs for every part of the hospital, and was safe for heparin, so
+Fresenius said, we want to buy you. We said, great. And then I developed this molecule.
+that was feeding the tumor that could actually activate the immune system to activate the macrophages called abraxane and Celgene
+said we want to buy you I said great and the purpose for my selling them was not for the
+money clearly it was for the money but the purpose of the use of the money to pursue this dream
+of this astrophysics to find God's particle in your human body to activate your immune system
+that was the purpose of this money and that's all I've done with the money. I've spent about three
+billion dollars of this money. I've not gotten one penny from the government,
+not even one dime. You're the only one. And maybe that's the freedom and the
+liberation allow me to say what I can. Say no. Yes, that's right. So again, I keep pulling
+this away because there's a lot here that's interesting, but how did you not get COVID?
+Okay. So I recognized that,
+so Peter Marks and I had these conversations. So he was the head of
+CBER and I was in pinging him with the science because this is a
+biologic. And I was saying to Peter, listen, Peter, I need to show you that
+we need to create a T cell vaccine. And he said, well, we don't do T cell vaccines, everybody's doing the
+other vaccines. Great, let's continue. The antibody vaccines. Antibody vaccines.
+And then he called me and he said, we're going to create warp speed and he's a start trekking and I'm a
+start trekking. I love warp speed. I said, okay, we've got to do this in warp speed, absolutely. But the only way, Peter, you're
+going do this and warp speed you need, we need as country
+to have NIH and BARDA fund a trial where we take
+macaque monkeys We give them the vaccine and everybody should throw their vaccine
+in because I don't care whether it's not mine or theirs, whoever's vaccine, to clear the virus.
+The only way to do this experiment, you give the monkeys the vaccine, it's under your control,
+you have a hundred monkeys, everybody gets a set of vaccines, and then you infect
+the monkeys in the BSL-3 facility with a high dose of COVID. And then you
+see... in their lungs and the tissue that there's no virus after seven days.
+Absolutely. That was warp speed. So I was one of eight of
+warp speed Then I get a call, Patrick, you de-warped.
+You are there. I said, test my vaccine anyway. They did a vaccine test at the NIH
+in Barder. It cleared the virus, as I predicted. There was no virus in the lungs
+after a big infection. So I said okay, I'm dewarped.
+And this was a Francis Collins scheme and Anthony Fauci scheme and
+Monsi Slaoui scheme. And one day we'll talk about the conversation I have with Monsiv
+Slaoui and what I've learned about Francis Collins in that
+event. And they were going to go after this antibody vaccine which is this mRNA vaccine with spike.
+And I said, this is too important. I told my people, we're going to build our own vaccine with our own money.
+I couldn't get enough material other than to do one batch and we're gonna do a phase one
+trial. And we're going to inject. as many people that we can do in the phase one trial.
+I'm one of them. I injected myself.
+And then, and we're going to measure and talk about, I don't want to talk about the family and we going
+to measure my own blood. I drew my own blood and
+tested, and I have T cells to, to nuclear capsid and to spike.
+Which means if I were to get COVID touch word, the T cells now are memory T cells
+would clear the virus. So, we then... uh, tried.
+because not for funding even, but for the plastic bags that were now restricted
+as you grow these things to Pfizer and Moderna, all the materials that you need in a
+biologic facility. Got zero. I've only got one batch.
+So I'm going to South Africa and inject these in patients with HIV because that's the biggest test
+you could have. You can generate T cells in the patients with the HIV. and do this phase two and phase
+three trial in South Africa. So we did that. And then I called Peter and I said,
+Peter. I'm sorry, what were the results like? T-cells.
+The people that, interestingly enough,
+It doesn't say, just so you know, you have to differentiate.
+does it actually prevent the penetration of the virus versus the load of the virus
+versus a clearance of the viruses? These are three different things.
+We think it prevents the penetration, but we don't know because as soon as it does penetrate, it would clear so you
+wouldn't even know, or the T cell vaccine. This is anecdotal, but
+some of the people who got our T cell vaccines, their family members got COVID, they didn't get it obviously, the vaccine, and they
+didn' get COVID for a time while living with their family.
+The issue of clearing the virus in transmission was the key.
+So an antibody vaccine may reduce the viral load and therefore reduce
+death, which is a good thing that President Trump did. But the next generation of
+clearing the virus was what was needed. And both should have been developed simultaneously.
+It wasn't. I'll share with you. To this day, it's a mystery to me why.
+How Big Pharma Tried to Undermine Dr. Soon-Shiong
+The opportunity to clear the virus was actually known, I think, by Collins
+and by Fauci, that it did not clear the the virus. The spike vaccines.
+The spike vaccine. The Pfizer, Moderna. The antibody vaccine does not, and to this day, does not clear of the virus
+That seems like a big deal. Well, just what we talked about, if you don't clear the virus
+and you have pieces of the virus in there, especially spike, whether from the infection or from
+the vaccine, and now you get another infection, now the virus brings along
+this nucleocapsid, now it reconjoins and replicates again
+in these, what you call, privilege sites. Two years later,
+so what we've seen, now we're back to persistence that's now published just months ago,
+and this is what I shared with NIH secretly four months ago.
+And persistence, asymptomatic persistence but with inflammation and
+reduction of p53 and of suppression.
+are all the hallmarks and recipes for cancer.
+And coming back to your first question is, why are we seeing an increase in young people?
+I think all of the above. The toxins, the history,
+the red dye, the PFAS, the COVID. all of the both.
+Does both COVID and the COVID vaccine lower over time
+the human immune system? The vaccine itself.
+upregulates temporarily the antibodies. But if the
+spike protein breaks off and the RNA or DNA goes
+into the cells, and whether from infection or the
+vaccine, that's where the controversy is, right? It could be both. And the vaccine doesn't clear
+the virus. That's the key. It doesn't clear the virus and that's why
+we were told, of course, you take the virus and then you can't get COVID or transmit it,
+but neither one turned out to be true. Demonstrably untrue. Well, it was not only demonstrably
+untrue, it was knowingly untrue. That's what's bad about
+would seem like that's criminal, actually. I mean, if I tell you that, you know, this car gets
+40 miles to the gallon and instead it blows up, which you know that's a crime. You can't sell anything under
+false pretenses. That's a prime. I don't see how this is not a crime, but. Well, as you said over breakfast,
+it's not a conspiracy if it's true. I believe you're writing a book with
+that title. You probably have no idea where your meat comes from. You probably should know. The likelihood is that the meat
+you're eating passed through a massive industrial processing plant, probably owned by a foreign
+corporation. Foreign meat. Did you sign up for that? We don't think you did.
+So you probably have idea of knowing where the animal grew up, what that animal ate, or
+what chemicals Big Food pumped into the animal to increase profits. That's all kept secret, meaning you
+can never really know what you're putting in your mouth and in your body. That's disgusting if you think about
+it, and it's easy to fix. Merriweather Farms, a farm owned by friends of ours, is a great option.
+We use their meat, we eat their meat for every meal. Unlike corporate farmers,
+Merriwether Farms controls the entire thing, from the pasture the cattle graze on to the facility
+where the beef is packaged. In Wyoming and across the Mountain West, the cattle are raised without hormones?
+without antibiotics or any other additive. Clean American beef you can
+trust every single time and they will ship it straight to your door. Go to meriwetherfarms.com slash
+Tucker. Use the code Tucker 2025 for 10% off your first order. You can also save it a monthly
+subscription if you sign up today. That's meriweatherfarms dot com slash Tucker, we eat
+it and vouch for it. So, and you know that they knew, you've established for a fact that
+the developers of this and our public health authorities knew. the COVID Vax would neither
+prevent infection nor transmission.
+And worse, I think, you know, it's not well-known that during the first...
+President Trump election. He offered me a position and
+I turned it down because I said to him, I really could help him from outside in better than, and I had
+too much to do. I really sure was working on this, thank God, working on potential
+cure for cancer as well as clearing the virus with COVID. This, what I call the missing link,
+which we can talk about, this activator of the unnatural killer cells, this bio shield.
+and we have the spy shield now. So it was the right decision for me not to go into government
+during that time and to stay out. This was 16, 17. Correct.
+But worse, I've since discovered, not by my inquiry,
+but it's been revealed to me, emails about Francis Collins and some politicians
+work hard to prevent me from even joining, becoming head of NIH.
+And I think that was the motivation all the way downstream that we asked, okay, so what happened to this vaccine?
+So I called the FDA and said, okay I can't do a randomized placebo control trial
+now because you got Pfizer's Moderna vaccines all over the place.
+So let me be the booster. And Peter Marks, to his credit, was
+the one who said, absolutely. Peter Markz, to this credit, was the ones who says, I'm worried about
+this COVID vaccine and this long COVID. I want to study the effects of
+this vaccine. Peter Markx would then say to me, Patrick, fine, go ahead. I injected the first three patients
+as a booster. I get the call from the FDA to say, you have
+to stop. I said, why? To this day, they never explained to
+me it wasn't Peter. It was people around Peter said, you must stop.
+So we stopped. And there was nothing more we could do anyway because we didn't have any of the resources, the money, the
+supplies. complete a phase three. So the government has a monopoly on some of the materials that you need
+to do this kind of testing in a biolab. Is that correct? Correct. But now we inter-Bidenian.
+So now we're in the Biden era that said, I must stop. This is 2020 now.
+No, no, beyond, it was during the Biden Era.
+And I think there was, sadly, I'm not a conspiracy theorist, but
+now I've come to realize it truly was a deep state inside there that had a motivation
+beyond, it's hard to say, it's the most devastating to say beyond public
+health. And, you know, I just tweeted recently of how
+so few people could hurt so many, and that's why when
+Dr. Soon-Shiong’s Analysis of RFK Jr.
+I tweeted about, finally, we have the right person in HHS with Bobby Kennedy, we'll take this on.
+that we have doctors that will be like Marty McCurry, I don't know, but I do know he's
+a surgeon who can understand and touch and feel what it means to be there
+on behalf of the patient. And my support for that,
+I think we have a chance now to completely. turn this around in the next few years. I think this last
+election was in part about that. I think the national realization that COVID was, there
+was something very dark there. It wasn't just a virus that happened upon us naturally that there
+was a lot of evil bound up in it. But just to back up a second, you
+said you have learned from watching COVID that a few people can hurt so many. Who are those people?
+I think the main culprit really sitting there was Collins, Francis Collins,
+and he controlled
+I had shared with President Trump that Francis Collins should not be the NH director. He offered me a job.
+Peter Thiel nominated me, and I've since found emails of
+Francis Collins sending an email to a politician that alarm bells, alarm bells.
+Peter Thiels nominated Patrick Soon-Shung. We have to find a way to stop it.
+to this day, power, greed.
+political need. He did the same thing with Craig Vento. I remember during Clinton's
+time with the Human Genome Project, where Craig Venta invented the sequencing machine for tens of
+millions of dollars and he was spending billions of dollars doing nothing but wanted the credit.
+I think what happens to you when you get into Washington,
+the ego, greed and power changes your mindset.
+So I can't give motivation to that. All I can tell you is when I saw that email, I was devastated
+that somebody would actually go to that extent and then send that same email to the
+CEO of Bio, which is all Big Pharma. And that CEO of bio said,
+let's go to Google search to find some dirt on him. Dirt on you?
+On me? To stop me from being nominated.
+to be head of NIH or whatever. Let's Google him to stop him. Let's google to find some dirt,
+some bad stuff, negative research, whatever they want to find. They probably couldn't find any dirt on me, but that was
+the interchange between them. On email. But the funny thing is you made a
+product, and by the way, a clarification of terms, my understanding was a vaccine was administered to a healthy person to
+prevent him from getting the disease. You're describing a product the one that you made that you
+can inject into an infected person and it cures the infection. That sounds more like a conventional medicine than a vaccine.
+It's a therapeutic. So, you know, I use the word vaccine because that's what they understood.
+Dogman terminology. Right. But you're giving this to people who have COVID, who have
+HIV. Well, I want to give it to people who don't have COVID so they can actually easily get COVID, but I
+am now giving patients with HIV, I'm giving to people with HPV, I'm given people who
+are getting cancer and have cancer. And more importantly, there's one in 280 Americans, one in 270
+Americans have this thing called Lynch syndrome. What Lynch syndrome is is a genetic
+predisposition of an 80% increase of colon cancer ovarian cancer, breast cancer.
+It's a genetic predisposition where your cells don't repair themselves.
+I lost a friend to this, yes. We are in clinical trials for the bioshield for patients with Lynch
+syndrome. We now have a hundred patients enrolled already, giving them this bioshild that'll
+prevent cancer. So it's one of the first trials of prevention of cancer and
+treatment of cancer. Then this drug, this BioShield, I think people will
+not want to call it a vaccine. It's just gotten approved in 2024 for bladder cancer.
+We now have people who failed everything, who would have the bladder removed.
+Think about that, your bladder removed, the 9% mortality just from the surgery alone, where we're giving
+them this bio shield. That's all they got is a subcutaneous injection,
+or sorry, into the bladder. And they are now free of disease still, complete remission,
+nine years out. alive today. We can talk to them.
+Published. We have patients with metastatic pancreatic cancer.
+We just published. We're three of disease, five years out. Senator Reid, who came to
+see me after having failed all other treatment with his pancreat cancer, spread to his liver,
+came to me and he said to me, Patrick, I'm here. But I checked with Francis Collins who said, don't go.
+I said, well, send him to read, it's your choice. He said, I'm coming.
+And we gave him the therapy. And he CA-19 went down to normal.
+And he lived for two years, free of disease. He actually was very active.
+We had a patient with Merkel cell carcinoma, which is a terrible disease of failed everything.
+He came into our clinic, complete response. Nine years after he died,
+other causes. The reason I met
+Robert Junior, and even I've not known him for
+about four months, is I called Bobby Shriver.
+His cousin. His cousin, and the reason I knew Bobby Shriver, because Bobby called me seven years prior to that saying,
+Patrick, I'm on the City Council of Santa Monica and the mayor of Santa Monica has this terrible
+tumor in his head and neck. It's ulcerating under his chin, ulcering through his jaw, and you
+should lay and see the sign. I said, he's got two weeks to live, he has got to go to hospice, can you see him?
+I said absolutely, Bobby, I think he needs our natural killer cells, he needs our bioshield.
+So I brought him to our clinic, which we have in Los Angeles, in El Segundo, the nurses broke into tears.
+The nurses says, Patrick, what are you doing? UCLA said he has to go to hospice.
+You should give this man, I should know, you don't understand. We can dynamically activate this.
+And this is all as an outpatient, we got him into complete remission.
+Complete remission to the extent. Is it still alive? So, it healed and this
+melted the tumor. He went home. Because it was exposed, a little
+bleed happened in the blood vessel. His family took him to St. John's.
+And then they called me frantically and said, the doctor says, do not resuscitate. I said, what?
+Let me speak to that doctor. He said, well, it's bleeding and it's got this thing. I think it was in his
+late 70s, 80s. I said please clip it. It's a complete response.
+And we're going to do a flap to cover that. We did the flap.
+He lived for two years, was able to eat.
+So when I called Bobby and I said, Bobby, you remember what we did? He said, absolutely, Patrick.
+A lot of people have asked me to introduce to Robert. You know, Robert and I don't speak very much.
+We've had an argument about his ideas. And I said I understand, but I'm gonna give you a number to
+Robert, to Bobby Kennedy, and he'll call you.
+Bobby called me in 10 minutes. And I said, Bobby, I'd like to introduce myself. He said, Patrick,
+can I meet with you? I said please. And he came to meet with me at my home.
+And we had this long conversation. And I realized, I've watched your show with
+him. Here's what he is, an authentic man
+with a sense of purpose, conviction, courage. He says what he really believes.
+Sometimes it may be wrong, sometimes it may right but he says what he believes.
+And I really believed, Oh my God, here's somebody who would have the courage to take
+on the world and ask the questions. And I said, I'm going to support you.
+That's what happened. That's how I got to know him. Amazing. He was dismissed by, uh,
+no, not just dismissed, attacked and vilified by a lot of people in the medical
+establishment. I would say everybody, why were you
+willing to listen to him? Because what are you saying? is exactly what I was saying.
+And I'm sort of attacked by the same people because of the dogma that's out there. So let me give you this example. I said, Bobby,
+and I shared with him the story about Hope Hicks. I said that you probably
+just walked out to the office and I walked in, in 2016, 2017.
+I said listen, people think of you as saying you shouldn't have a polio vaccine.
+you that you're an anti-vaccinator. What you really are saying, you're
+worried about the excipients inside the vaccine. So- About the what? Okay, so that's a technical,
+the materials that go in with the vaccine- Yes, the mercury, et cetera. The mercury, so I
+understand there's a polio vaccine, it's one, two, three, four polio vaccines that now been manufactured.
+And now that all of a sudden there's a new polio vaccination that's manufactured in which we have cows serum, calf serum, inside
+that vaccine. And I know, and you know, everybody knows, in the UK knows,
+you can get prion disease from this calf serum, because you can't measure that.
+So that got approved in four days, just because of safety, the way the dogma
+has happened. But there's other polio vaccines. So you can take the other polia vaccines, but don't take that one.
+Just like I was telling you about, maybe I was tell you about propofol story over breakfast.
+And you should explain it that way, that you want it just to be examined.
+And you say, exactly. I said, okay. Not only did I get him,
+he is asking the right questions, and people are scared to ask these questions because of his
+perverse incentives. And that was what bothered me. But in science,
+shouldn't any question be allowed? Exactly. So when I tweeted,
+I said, he knows more science than most doctors. He's much of a, it's a good thing
+you're rich. be out of a job tweeting stuff like that.
+But it is, right? And that's what's a blessing, I think. You know, I live the American dream, and that's why you said,
+okay, I made this money. The money is for the purpose of me able to do this. And I was very concerned
+about being too loud about it, because if this deep state would hold up the approval, and
+they did, by the way, they put us into complete responsibility. I got a thousand requests for information. The most, my
+submission was close to 700,000 pages. In order to get this thing through
+700,000. the U.S. tax code. This drug has been in
+trials now for 8 years. How long was the Pfizer mRNA
+COVID vaccine? and trials months. So that's why I'm trying to say, you
+know, this, when, when I knew it's what I'm taking, you know, when you were talking about the user fees,
+so we thought that the user fee is, was going to accelerate the approval where the
+FDA gets user fees from the farmer. It turns out that the big farmer
+user fees are so large, it pays for the salary for all these reviewers.
+So now the biotech companies, the young biotec companies are Brutal.
+So the big pharma that does this is incremental. Little dots that just follow the
+revenue. There's checkpoints, multi-billion dollar Mercs, what, 20 billion, 30 billion on revenue.
+Bristol Mice follows it, AstraZeneca follows it. Roche follows it? There's no, they're all the same,
+but it's all about incremental sameness and follow the dollar.
+But the innovation is really at this young biotech companies that are throttled.
+This is what needs to be changed by the FDA today. They need a complete revamp where people with skill sets
+and the skill sets of the modern science, not the old drugs,
+have to be in place to understand what's at stake here. Time for another True Life Alp
+story. I got a call from a friend of mine yesterday, honestly, true story, who said his girlfriend had just broken up with him over Alp.
+He wouldn't stop. And I thought to myself, that's kind of sad. And he said, no, it's not sad. Imagine if I'd married her.
+Now I know, I was saved. Then the next day, this same friend is driving at twice the speed limit
+through a major American city, pulled over by a cop in a speed trap. Cop takes his license registration, goes back to the patrol car, runs him, comes back,
+looks in the window and sees a tin of Alp on the dashboard. Pauses, stunned, says to my friend,
+you use Alp? Yeah, I do, says my friend. So do I, says the cop, we all do. He looks at my friend thoughtfully
+and goes, drive safely, sir, and hands back his license and registration. No ticket.
+So in two days, he's saved from a tragic marriage to a girl who doesn't like Alp, and a speeding
+ticket. All true. It's more than a- In a nation of 350 million people
+are guessing there are about 350 million Alp stories. Email us yours. We want to know and read it on the
+air. Email tellall at alppouch.com. Tellall at alppouch.
+com. Give us your Alp story.
+The Healthcare Industry’s Conflict of Interest
+Well, you have to take the conflicts out too. I mean, if a reviewer is paid by the company whose drugs he's reviewing,
+that's like such an obvious conflict and no other world would that be acceptable. not only wouldn't be acceptable,
+if then that reviewer has also the role to block an innovator. It gets worse.
+Again, this just seems like crime to me. I mean, I don't know. If this were going on in another
+country outside the United States, and I'm an American, so I give the United State every
+benefit of every doubt, it takes me forever to realize something's corrupt because it's America, it's not corrupt. But if this were happening, I would
+just name the country, China, South Africa. You know, I'd be like, well, that's the most corrupt thing I've ever
+heard. Well, that's exactly the fear I have now. The Chinese don't have this restriction,
+and their innovation is now outstripping us. Think about that. I've always said America's
+lead in healthcare and biomedical innovation is the best in the
+world. And if we could use biomedical innovation as foreign policy for Africa and to
+Asia and to India, To bring that to the rest of the world, that's how we lead.
+I now read the papers, and the Chinese science is now outstripping us.
+Look what happened to AstraZeneca just last week. They just spent $2 billion investing in China now.
+That's a tragedy for us. Not for manufacturing? For innovation. Oh, so that's not good.
+Because the idea was we offshore all the manufacturing, but with the ideas. Right. Generate here. So AstraZeneca's English company.
+So what I'm saying is the fundamental problem
+I think lies at the FDA and even the NIH. So the change that Bobby's bringing
+in with Jay now being head of NIH and Marty being head of the FDA, and Bobby himself having the courage
+to stand up to talk both against the food industrial complex and the pharma complex,
+take on the mercs of the world the vices of the world.
+we have maybe an opportunity, what I call a period of enlightenment. And really I'm all about
+enlightenment. And if you can look at the Sanjay peace, we are there now. So I want to actually send out.
+Can you guys stop asking questions though? So your position is that cancer, but not just
+cancer, all kinds of illnesses are caused by weakened immune system and
+inflammation. It's all about the immune system. Your body functions, you live
+or you die by the immune systems. The senescent cells aging is the immune's system.
+The cells in your body that allow you to go to 100 years old, 120 years old is
+based on the activity and the function of the immune system, because the immune system
+How to Strengthen Your Immune System
+was regulating your healthy cells. Can we just go through, I know this.
+like patentable, this is not your business, but it's, what are some of the obvious things
+a person can do to strengthen his immune system? So you ask what activates
+the natural killer cell. So this is your. you know when you look at the leaf
+and you talk about apoptosis and the leaf actually sits and goes brown and and and it changes
+but then goes back up All of human nature,
+all of nature, is filled with this biology of this balance. So you're a product
+of nature. I mean, literally you're the product of when you were a tadpole and a fish as we
+came out. So this cell has evolved since the Cambrian age.
+Think about that. This cell, this natural killer cell in your body. I published my first article on
+natural killosal in 1990. This cell was only discovered in the 1970s.
+Think about that. And we've ignored that cell. This is what I call the missing link.
+I'm gonna announce that at the American Urology Conference in Las Vegas in the
+end of this month. We have discovered, I've not discovered the missing link,
+we've discovered the awareness of this missing link and how to activate this missing links. So the idea is to activate
+the natural killer cell. It has 30,000 receptors on this cell.
+What this natural killer cell does, it replenishes itself with sleep,
+so sleep is important. It replenishes self with light, with sunlight, and
+I believe there's a certain wavelength, the red wavelength, in the sunlight that it actually
+requires for it to be stimulated. So, This is why people get sicker in the
+winter. Exactly. That's why Seattle has the highest suicide rate.
+Think about that, right? So these things, and if you look at the places like Norway
+and Sweden, where there's very little sun. Finland.
+Nature's all about light, sunlight, so that's
+why I think this is I like obvious abstinence, nature is all about sunlight,
+of course, plants don't grow without sunlight. and at the end of the day.
+We either about neutrons, photons, and electrons. That's what we are. We, as a human being, is nothing else but a battery and end gate when
+you think about that, right? So we have a bunch of electrons and neutrons and charges that floating through us that actually interact.
+And that's how I think of the human body. That's why I said I think of it as an astrophysicist. It's crazy, but that's where my mind
+works. So sleep, getting sunlight. and having food
+that doesn't immunosuppress your biome, the bacteria in your body sends
+out materials that actually will immunosupress or activate.
+What do they mean on suppressive foods? Unfortunately, I think most
+natural foods are fine. It's the toxins in the food, exactly what I said, the excipients. So when we talk about the red dye,
+the processed foods, all this unnatural processed stuff
+ultimately cause inflammation. Now when it gets back to this plasticity of
+inflammation, inflammation causes immunosuppression because it
+causes all these cells to flip. Yes. From the killer state to the suppressor state, that's why we said
+we have this dichotomy of is the cat alive? You see it too in the elderly,
+it's why an infection or a diabetic foot infection can lead to a systemic infection and kill the
+person. That's why, you know, when this guy discovered that H.
+Pylori causes gastric ulcer, they said, you're nuts. It's acid. I remember that. So well. So well, so now when you think about
+that, so that's what But that's a consensus now right acid does not cause ulcers
+Well, it's the cause and effect. So H. pylori causes the inflammation and then the acid that's actually in your stomach.
+Activates it, but it's not the core cause Correct, but it's all about dogma. That's why I call this a vaccine,
+but it's a bioshield. So you have to fight dogma, part of the problem is you're fighting,
+What Your Doctor Won’t Tell You About How to Fight Cancer
+so I will ask you, I wanted to ask us to do an experiment, I'm
+all for it, where we pick up the phone, call any random oncologist, not
+to shame them, primary care physician, pick up a phone and said You do a CBC, correct?
+Yes. Can you define what a CPC is? A complete blood count. You take a blood and you look for...
+Yeah, the blood screen that everyone gets. Blood screen. Yeah. For whether you're anemic or not anemic. Yeah, yeah. People understand that, right?
+Red blood cells. And you see these red blood cells and you give chemotherapy and
+radiation and you ask, what do you look? Well, we look to see if you're
+anemic. So we can give you this drug that Amgen makes called Epogen. We look to whether your platelets
+have gone down. so we can give you a platelet transfusion. We look to see where the neutrophils
+have gone down so that you don't get an infection called neutropenic fever so we give you this drug, neupogen.
+Well, the problem is, does red blood cells cure cancer? No. Does platelets cure cancer, no.
+Does neutrophil kill cancer? No. What kills cancer? The natural killer cells and
+T-cells. So in that CBC, there's a thing called the lymphocytes, correct? Do you look at that?
+the only cell that is important that kills cancer.
+99.9% of oncologists will say, we don't pay any attention to that.
+That, um, that, that does he mass backwards?
+Why, why if you're not, not to, you know, attack oncologists, but if you're fighting
+cancer, why do you ignore the one cell that fights cancer? That's the experiment I want to see.
+And that's a little mysterious. Am I missing something?
+That's the missing link, the final frontier, the E equals MC squared,
+the God's equation. That is the key element in your body that we've been missing for fifty
+years, for fifty years. But it's even worse than that.
+Those missing link, we've actually destroyed with chemotherapy, we have destroyed
+with radiotherapy and we've destroyed with checkpoint inhibitors, we've just destroyed with steroids.
+Guess what we give to patients? Chemotherapy, radiotherapy, steroids and checkpoints.
+Am I missing something? I don't know anything about this. You know, I was a Russian studies
+major, but I have no, just cause I'm 55, I know a lot of cancer patients.
+I have always been skeptical that the protocol is effective based on, so what I have noticed is those
+therapies seem to beat back the cancer in short term, but then so often you watch it come
+roaring back. You know I'm in remission and then wham, you just get hit by a tidal wave of cancer and eliminated.
+So if you see my writings, I have written so many times, you win the battle and you lose the war.
+So this is not, I'm not imagining this. You're not imagining that you win the battle, and you'll lose the wall. The reason you win the battle
+is because you see this little blip of a response with chemotherapy.
+And then the moment you stopped or not even again, you've actually now killed the cells that were there
+to protect you. You've upregulated these suppressor cells and you get metastasis and you say, oops, sorry.
+You know, I have to go to hospice. Think about that. That's what we've been doing for 50 years.
+That's a dogma that I'm fighting. So what, okay, so let's just say I leave here and I'm
+diagnosed with, you know, a serious life-threatening form of cancer. What would you recommend I
+do next? So this is where you play chess and don't play checkers.
+This is where play go. Where you say, okay, what is the cancer doing first?
+Well, guess what? The cancer is not stupid. So we've figured out a way to hide from these killer cells.
+So the first thing you have to do is you have to expose the receptors on the cancers of the killer cells could recognize that.
+So even in the presence of chemotherapy,
+you don't use chemotherapy to kill the tumor. You use a tiny
+dose of chemotherapy just to stress the patient, the cancer, and the cancer's, oh my God,
+something's coming at me and it starts exposing itself. So you go from high to exposed.
+So you use the chemotherapy at a low dose called low metronomic dose to use it as
+what I call an immunomodulator. Wait, I was asking, you're
+describing cancer as almost like an autonomous entity that has a goal, a will to
+destroy the human body. It does. But that's, I mean, you are describing like a... It's a machine.
+But with intent and kind of clever behavior, it hides? Like what?
+You're describing like some foreign entity in the body that's trying to kill the body. It is.
+It's like a virus. Thanks for watching! But how, how can a tumor know to hide? Because it has genomic
+sequencing in there that actually blocks the expression. So. That sounds diabolical.
+It is diabolically. That's why I spent 50 years trying to understand it's
+not a human brain, it's biology and how biology can mutate and actually it's, your
+body is a beautiful thing. It's an exquisite thing. So it has to have this thing called
+epigenetics. So it has the genomic sequencing that says, I'm not gonna express this.
+So we can now stress that and block the blocker and it now expresses
+something on its surface that our T-cells can recognize. So that's the first step, smoke it
+out. Smoke it out, but your body has mechanisms to smoke it, it gets even
+more complicated. Your body has a thing where you can induce what you call damps, which
+is damage associated. molecular patterns, but forget that. It's a way of actually smoking it
+out so now your T cells can recognize it. Okay, so now you've done step one. That's just step one,
+that's one molecule. So this is why I think the FDA needs to understand we're fighting
+a war where you need battlefield awareness all simultaneously, where you have to orchestrate your
+Marines, your Army, your Navy, Air Force, all in the right place so that you can use the tumor in
+your body to act as the weapon, as the vaccine.
+Because a tumor has molecules that is foreign to the rest of your body. And if you educate your T cells to
+recognize as molecules that is far into the rest of your your body, that T cell can remember.
+Now you have a memory T cell. So for the first time in 2024, in our package insert,
+we have a molecule called the bio shield now, I'll call it the bio-shield. They can activate the natural killer
+cell, Activate the killer T cell. and drive memory T-cells. We now have bladder cancer patients
+who would have lost their bladder in complete remission for nine years and still alive.
+And so the protocol is you low dose, you administer low dose chemo to identify
+where the tumor is. You smoke it out. smoke it out. But at the same time, you need to have the natural killer
+cells and T cells ready. So you give them the bioshield that upregulates and stimulates your
+natural killer cells and t-cells. What about radiation? Does that play a role? That'll kill your natural killers
+cells and T cells. So no. Unless, and this comes out, unless today the radiation
+is what they call 70 gigabits, Unless you
+give a tiny little dose just to the tumor. no else, to smoke it out.
+So you use radiation in a very different way called SBRT, a low dose. To identify rather than destroy.
+To expose rather than dispose. So the algorithm is expose, from hide to
+expose. The next algorithm is activate and proliferate your NK cells.
+And that's what the subcutaneous injection. The next is to educate your T cells with
+a vaccine. that you anticipate that it's going to be exposed. So you now have educated T cells
+ready. So you get educated T-cells, you got NK cells.
+And the next thing is to activate your macrophages. So they become killer macrophage.
+And the step is to suppress the suppressors. it all simultaneously.
+How much human suffering is involved in this? There's a lot in a conventional course of cancer therapy? All as an outpatient.
+We've done hundreds of patients now. So you're not, so someone taking this course is not going to,
+is he gonna lose his hair? Throw up? All is an out patient.
+What's even more exciting? Because that matters for cancer patients. I mean, it's hard to be a cancer patient. It's horrible.
+yeah but we're now seeing patients now in complete remission more importantly I want to treat patients
+before they need surgery so they can use the tumor itself in the body
+as the vaccine to educate the body in the t-cells
+all about that tumor What's even more exciting now, we
+can take blood from you. One pint. and extract the natural killer cell
+in the T-cell and grow billions and store in cryopreservation just
+like you do from
+cord blood, we now have the ability to grow these natural killer cells and
+give it to anybody. So I hope we said for the first time we could become the American Red
+Cross of cancer, Our country. and use these innovations
+Why Hasn’t Anyone Faced Consequences for These Crimes?
+as foreign policy. So could, looking
+back, do you think it was unwise to require the population to get the Pfizer and Moderna
+Vax. It depends on the time
+I think it's unwise to keep on giving this nonsense. I shouldn't say that. I should be careful when
+I call it nonsense. The idea of doing an antibody vaccine and then create another antibody vaccine, another antibody
+that chases your tail. I don't know what that's doing,
+those spike proteins. It's not ridding your body of COVID though. It's, it's not.
+Is it, is it creating even more variants in your body? I don' know, but- Is that possible?
+I see the idea, and I'm such a scientist, I need to actually go and actually
+pull out these variants and sequencing them. That's what we do now. But is it theoretically possible? It's theoretically possible.
+Could there be? any change to a person's DNA. Well, that's what this does.
+It's what the mRNA vaccines do. Correct, it converts into DNA and it converts into replicating and that's
+what it does. And it replicates an RNA virus. It becomes, it's the... Someone who's clearly you've made
+reference to it a couple times interested in evolution To change the DNA
+of a species is to change the species over time. No, I don't think it integrates.
+My concern is that this virus is all about itself.
+Very selfish virus. Selfish virus. In fact, the fact that it's now less deadly is in the virus's
+interest. The virus doesn't want to kill you because you are the incubator. Think about that.
+wants your life. You're speaking in a way that
+suggests intent and forethought. It's biology, it's evolution, everything is evolution.
+It was the intent to go from a tadpole to a human being. I don't know, but to consider
+the possibility you have something or the certainty that you have something within your body that is acting against your body's interest
+on purpose. Yeah, because it needs you to be the incubator. So, you know, the, the veracity
+of... when it was so manmade.
+So, you know, viral evolution, when it would have called affinity maturation, it
+matures itself so that it can be more infective. That's one thing it tries to do as
+a virus. I mean, these viruses are living organisms.
+And when you say living, they don't have brains or anything like that, but they have machinery.
+That is very sophisticated. They have what they call promoters and et cetera. Why would you make something like
+that on purpose? Well, there are viruses in nature. Of course. Which theoretically will go
+through what you call maturation that normally do not infect you. They're not species, they're species
+specific. Exactly. But why would you then change that?
+And that's what this, you know, gain of function studies was so dangerous. That's why it was prohibited.
+It's s- so self-evidently evil to even play with something like that with the potential consequences
+which we're now seeing, 13-year-olds getting pancreatic cancer, like how could anyone do that?
+And why aren't those people in prison? Well, it was banned, right? It was banned in the United States. Yeah.
+So we were on lab partnership. Well, so we subverted it. Now you talk about, you know, why I
+said so, so few people could home home so many. How they got around that is
+for the investigators to find out. But I mean, you're someone who's created cancer drugs, who spent a lot of his life in a
+lab. That's why you're a billionaire. So you know a lot about this topic,
+obviously. And it's clear to you that that's just too dangerous to be doing that, right? Yes. To take animal viruses
+and make... You can't control it because you've done affinity maturation
+that would have taken tens of maybe millions of years.
+In that fusion protein, they created this fusion protein and created, and then they created this vaccine.
+I think Barney Graham was the part with Collins and everything else that was so proud to
+create this RBD and make it stable. Think about it. The spear hit the tip of the spear
+that goes into your cell. Are we going to make it stable? That's how this vaccine was produced.
+This was the mRNA vaccine, was produced So you've taken a
+virus that's now gone from bats to men only because I think this kind
+of function work. You then create a vaccine by taking the spearhead of this virus
+that is now being created to get into you and make the spear head even more
+stable and put it on the vaccine and says, This seems super crazy. So just from the perspective
+of a layman again, if I've never had COVID and I get the
+MRA, you know, if I get Pfizer vaccine, MRA vaccine, if I got it three years ago, can you
+detect COVID in my body now? See that's like, that's just crazy.
+Look, I know of a... I wouldn't name her,
+but she... was a very senior person at the FDA.
+And she just got the vaccine, that's it. And within weeks, she got brain fog,
+loss of memory. There's clear evidence that
+sometimes the vaccines effect is the cause. It's sometimes the virus is the course. So that's what I'm saying.
+It's, it's not mutually exclusive. I understand. And it's, but it's all about the.
+But the idea that you would be introducing the COVID virus into a body that was not infected
+by the COVID virus is like. You went after the wrong protein, basically.
+I've been begging them to go after the nuclear capsid protein because the nuclear capsule protein, which is in the core of
+the virus, is not the tip of the spear. And if you have a T cell, it lasts for 17 years.
+We know that from previous COVID infections, but they refused to do it.
+This seems like a human tragedy at like an unimaginable scale. Completely. It devastates me.
+Uh, well, that's incredibly bracing. And I think you're one of the very few people I've ever met who has the
+absolute authority to speak on this. And yet you've, you've not been encouraged
+to speak about it, it sounds like. I've been knocked in what? encouraged to speak about it.
+Yeah, because I'm not a political person and I have this bigger picture that we
+have to find a solution, not just for COVID, but for cancer. And the irony is this Bioshield
+works for both. And the only chance- Because they're connected, it sounds like. Completely connected.
+And the one chance we have now, because, I had no idea that the political
+deep state It was so powerful and so vicious.
+and so egotistical that they would stop good
+science. So now I'm out there speaking because the drug
+got approved, but that's not enough just for bladder cancer. It has the same
+treatment effect for pancreatic cancer, lung cancer, triple negative breast cancer. It is the only molecule for
+50 years that upregulates these killer cells, period the missing link.
+got COVID. So that's you really never got COVID? Never got COVID How many people do you know who didn't
+get COVID? Well, the President of the United States got COVID like four times So if you did get COVID,
+there's three antigens in the virus. There's a spike, there is a nucleocapsid, and there's a thing
+called the M protein, M. And if you have, when you do your
+blood test, you can see if you had the M protein. If you have the M-protein
+in your antibody or T-cell antibody to the M proteins, that means it came from
+the virus. If you had no M-Protein,
+it came from somewhere else, could come from the vaccine. I have no M protein
+and I have T-Cells to N and I've T- Cells to S. So you could basically lick a park
+bench and not get sick. No, it doesn't exactly. So now you need to differentiate and
+not conflate the ability to the virus to infect it could still infect me,
+but my body has the protection, the bioshield to clear it immediately within seven days,
+clear it. Is this a lifelong protection? Well, based on the science of the where they call MERS-1,
+where it was 17 years is protection. That was the original coronavirus outbreak. Correct, 17 years, this
+nuclear T cells is out there. So we'll- I'll take that. I'll takes 17 years. Exactly.
+And you can get a booster. Now what we're working on is a universal COVID virus, a vaccine for
+all coronaviruses because it's in. So what we did, oh, that's a good segue to that.
+So during my genomic sequencing, I was building the whole machine learning supercomputing network and I ran the national Lambda rail for
+the God's particle and I built supercomputers and AI way before AI was,
+and I presented the AI model to President Obama, believe it or not, in the one pager for healthcare.
+So our supercomputer, we combined ourselves with Microsoft so that we had the largest GPU cloud during
+COVID. And we were able then to actually look at the infectivity of
+every pieces. every variant of COVID, with every human type, there's a
+thing called HLA, so that we could actually look at how the virus would change and avoid the T
+cells. The only thing that it could never do was change the nuclear capsid
+and never could avoid the t cells. We made that software public, it is still public, and published it
+so that anybody could test. Based on your HLA and my
+HLA type would be slightly different. There's hundreds and thousands of HLA types
+and know whether this sequence, if you had that sequence in your
+body would be protective. Through that, we are developing what we call a universal COVID
+vaccine, BioShield T-cell vaccine, and we have it.
+But how do you do it? So one of my thoughts was just to give it away to
+somebody. I actually offered to give it away to Regeneron into Amgen.
+but they were too busy, everybody was too busy during the COVID time. So one of the ideas now was
+for me to actually go to the Serum Institute in India and say, yeah, please go build this and
+make this available to the world. You know, just so much we could do
+as an organization with a tiny little biotech company, relative to the Merck and the
+Pfizer's. But that's what my goal is. My personal goal is when you say, I'm still doing it and I don't have
+a vineyard, the resources that was given to me
+as a God's gift, I believe, that allowed me to do this. So, you know, we have hundreds of
+employees and 40 acres of land in Los Angeles. The other tragedy was...
+I took over this facility in Dunkirk, that New York State had put $200
+million in, completely empty, brand new, amazing facility for national preparedness, and I
+called Chuck Schumer to help me make that available for the country.
+It's still sitting there, available for the country, as a national preparedness manufacturing site in Dunkirk,
+New York, for which we put $50 million in, but there's no employees in there right
+now. It is really ridiculous, right, without leadership,
+without skill sets in leadership and without informed leadership,
+how we as a country could go down the wrong path. And I'm so hopeful that these next four
+Why Dr. Soon-Shiong Bought the LA Times
+years could change that. So this has been an amazing story. You're obviously, uh,
+very famous in the medical research world, um, and controversial, but I'm, I'm
+I'm sold on what you said. So everything that you've done is, you know, you'll have a great
+O bit because of it, then you decided to buy the LA times in 2018 ish.
+And, you know, owning a the main newspaper in the country's second biggest town makes you
+obviously a media mogul, but it makes you a political figure as well. And LA is so complicated. Like, why would you do that?
+You don't need that. Why would you that? Well, I think it really helps to know how I grew up, right?
+So I grew in South Africa as apartheid. Because South Africa didn't have, I
+did not see a TV until the age of 21, believe it or not. No TV? No TV, South Africa, didn't
+TV. So not that I didn't watch TV, period. Also, it was just books and newspapers.
+That was the only way I got educated, books and newspaper. To the extent that I would go
+every day as a newspaper boy to the printing press in Port Elizabeth, sit
+at the printing press, get the first one off the press, read it, and then run with about two, three
+hundred papers throughout the city. That would be what I did and grew up. So I fell in love with the printing
+presses, the clicky clack of the, and the oil and the smell. And when the opportunity came,
+remember, as I said, I had this amazing gift of the resources of selling these
+two companies. that I never anticipated in life with
+Michael Ferro saying, he took over this company called, named it Tronc, and
+he was going to shut down the Washington Bureau and move all the- So he owned the LA
+Times? He owned the Tribune, actually, the whole thing. Yeah, at that point, yeah. Chicago Tribune. The Tribune
+Company. The whole Tribune company, which included LA Times and San Diego Tribune and he knew how desperately I wanted
+the LA times. Um, because I'd have helped him invest to buy the
+rest of the tribune. So I was a minority shoulder in that. And he came to me and said, Hey, Patrick, you want it?
+Here's the price. You've got 48 hours to decide and it's $500 million. No due to diligence.
+No due diligence. That's just it. And who would take that deal?
+Only crazy people. It's half a billion dollars and you
+can't see the books. Yeah, nor can you go visit the newsroom.
+because on Monday we're going to actually shut all that and move them all out and I don't want you to talk to these people and you have until
+Monday to decide. And I was running a conference in LA with all my scientists
+and the National Cancer Institute and all the scientists were there at this hotel and I said, oh my God. So I went upstairs and we got a
+private room and I brought all the people into the room.
+I said, I want to do it. And I called my wife and said, we want to do this. I think this is an opportunity for us to have a
+voice for the people, especially if they're going to shut down Washington, they're gonna shut down LA. We'll never have a paper here.
+This is one of the most important things. So by Monday I signed it and
+that was it. And then you paid him $500 million. $500,000,000. How grateful was he?
+Sorry, I'm sorry to laugh, but if you hadn't made so much money, I wouldn't be laughing because of what you mean. But that's incredible.
+So, philanthropy. I've got some stuff I'd like to sell you, is that okay?
+Oh, so Phil Anshut saw me at the next Laker game. He says, you know, Patrick, I always thought you're such a smart guy
+until yesterday. But, you, I have no regrets.
+I think what I did then was said, okay, I'm going to take everything I know in healthcare, that rocket ship that I
+showed you and, and then create, because during that time Bezos would have
+this arc, he'd have the software and he had the Washington post and he, his team came to see me.
+and said, listen, we've got this ARC software that we want you to run. I said, no, I don't like
+this old software. I'm gonna go build a completely new software content management system that could take podcasts, video,
+live streaming, because I want this newspaper to be an educational moment for people.
+And at the end of the day, a newspaper is not just a newspaper, it's a basis of engagement.
+I want to engage users as a tool to engage with people Because that's how I grew up.
+So we took the risk and we built this content management system, took us five years, and we launched
+it and which could talk to the printing press and talk to magazines, it could talk to podcasts, it talked to video talk to
+live streaming. And now it's just gone live. It's called LA Times studio and LA Times live.
+And the next thing we're going to do is called LA times next. And then LA times Next,
+and a gentleman called Eric Beach and I are forming so that we Create
+a platform. that would allow voices to be heard and free speech
+to be a heard unencumbered by either the opinion or news.
+So now we have three platforms. We have a platform of news, which supposedly is facts.
+We have platform of opinion, which are now changed to voices, meaning everybody should have a
+voice, whether your right voice, left voice, central voice, do you like Coca-Cola, Pepsi-Cola whatever
+voice. a complete platform
+that allows free speech and video podcast.
+And now I have that platform and we've built the infrastructure to accommodate that platform.
+And I'm excited by LA Times Next because we're going to have a studio in DC,
+we have to Nashville and
+shows like this are important. because I believe long forms like this is how you
+communicate for people who are interested. And it could be fun, it should be
+engaging, it should interesting. And that's why I bought the paper.
+Well, those are great reasons as far as I'm concerned, but they come with them. The purchase comes with
+it. A lot of people who work at the paper, I've
+worked in newsrooms my whole life and I know that they hate change. They hate the owner no matter what.
+Everybody hates the owner just on principle. There are a ton of unhappy people in journalism. I would say the
+overwhelming majority for whatever reason we could speculate. And they're very hard to manage.
+And they're roughly about a hundred or maybe even more percent, uh, left wing
+everywhere, including at supposedly conservative places that are all lefties. So how do you deal with that?
+by being honest and transparent head on. And I openly shared with them, I said, listen, we cannot be echo
+chamber, I won't tolerate it. It's okay if you're left-wing, but you need right-wing.
+So I offered Scott Jennings an opportunity to write on the paper.
+And I said we need all voices. And so I said listen,
+I don't know who made these rules, because I came into this newspaper, I don' know that- difference between a columnist and op-ed editorial
+page and news and now when you're merging all of these can you imagine the layperson
+not really understanding the difference? That's right. And I want you to say news is news
+and you're the newsroom, fine. Theoretically everything's edited,
+you've checked it, you fact checked it. But when it comes to an opinion I want to
+all American voices to be heard. And you know, the Kamala Harris endorsement, I
+took a lot of heat because the editorial board resigned by my taking a stand that we cannot be
+an echo chamber of opinions not based on facts. So just for those who didn't follow
+it, and it was quite a story for a couple of days there, it was during the campaign,
+the editorial board, correct me if I'm wrong, wanted to endorse Kamala Harris. And you said no, what did they
+say to you? And what did you say back to them? Well, I call.
+Oh, come on! You've gone pretty far already! I can just say that we're not happy.
+But what was their pitch? Like, so, so the pitch was we as a board have met and we
+have this pre-package. We know this is outrageous. Blah, blah, blah. This pre- package.
+What does that mean? We had a pre package endorsement. What do you mean pre package? already written it after
+talking to Kamala Harris never having met her they never met Kamala never met her isn't the editorial board supposed to interview the
+By the way, the editorial board never met, even. I'm on the editorial of the board.
+So I said, I'm with it. Kamal Harris was in LA all the time. Correct.
+In your neighborhood, actually, raising money. Raising money, keeping the traffic in trouble,
+raising money, and that's, and I'd never met her,
+and nor did the board ever met. And I said this is unacceptable. And they know they, as you could
+see, because it's a left leaning, They wrote terrible stories about President Trump,
+which is, had they met him, not met him either. So my statement to them was, listen,
+you may have an opinion, but all of us should have opinion based on facts. I mean, one of the
+statements that came, and I would name him, came from a person that said within
+this concept that Vice President Kamala Harris was the most consequential vice president in
+the history of the United States. No, I shouldn't lie. I don't mean to be dismissive.
+On what basis did the person say that? Having never met her, so now exactly, you just hit
+it on the head, and I said on what basis do we say that, what are the facts, can we actually
+show the record of that? So I said, you know, it boiled down to look, we're not going to do that,
+we just not going to it. What did the person say when you asked? No, why are you saying she's most
+consequential vice president of the United States? Like what are the facts that underlie that judgment?
+I obviously had disagreed with that person and they had no basis for that other than,
+you know, as you said, a personal echo chamber, you know? And look, I think...
+I don't know what they're trying to protect. If I'm trying to find the
+kernel of basis, the audience, because the audience is left so they need to be left.
+I don' think that's right. I think, meaning our audience, we lost a lot of viewers, right, I mean, thousands of
+people unsubscribed. But I don''t think it's right... that we should be this canceling
+society. I think we should have a society that can have a civil discourse like we're having now and disagree, it's okay,
+and understand each other's point of view. That's what I think is the value of the paper when you talk about voices.
+So, that's what i'm instigating now. And so, I've taken... the opportunity. Let's go back to the Comma thing
+really quick. So they were shocked that you canceled that. I was in shock, they resigned.
+They resigned. So I had three, right now, 90% of my editorial board has resigned.
+So where did they go? Oh, because there are no editorial writing jobs left in the world. I have no idea.
+So, look, I think it's important. Look, the fact that
+I had the courage to resign, some of them, no, Kevin Murad, I fired. I fired Kevin before they
+resigned. Why did you fire him? One, because of leadership, two,
+because of I got to be careful. I don't want to disparage him.
+I fired him because I didn't believe he was the right person of taking the paper where it needs to
+be. He was formerly at the Washington Post. Washington Post, yeah. I remember that well.
+And then after that episode, the editorial board, the rest of them
+resigned, and now we're rebuilding. Look, we have to, and what's exciting to me is I'm
+rebuilding with young people. And what's exciting to me is this opportunity with LA Times Next and
+LA Times Studio and then the newsroom. Terry Tang is doing a fantastic job.
+She's working hard to take on the people and the productivity.
+The productivity? Well, increasing productivity. Oh, you're employing journalists?
+Okay, so that's a world I understand. There are some productivity issues there. Yeah, yeah, yeah.
+When you write one slug a month, I think that's not gonna be good. Been there. There
+So it's been an experience, but look, we're there in for the long haul, I think.
+And look, it's just not us, by the way. We've got to save these local newspapers, right? We've gotta save the ability
+to have local discos. Now with the early fires, it is even more important, right. Look, I called out Karen Bass and
+Gavin Newsom. And these politicians, I know them both, I text with
+them both and I complain to them both. And what I tell the public is what I tell them. So I don't say anything
+behind their back. I personally say, I said, you're not doing the right thing.
+Whether it be the homelessness or homelessness, they did a terrible job. Completely wasteful job.
+So these are the kinds of things that I think it gave us the opportunity to have a say
+in our community, you know, and that's what I'll continue to do. Now we'll position ourselves in D.C.
+and I think the next four years will be really, I hope, monumental.
+Doctor, thank you for spending all this time. All right, no, it's been fun and a pleasure. Thank you. Thank you.
+
+Add another separator like "---TRANSCRIPT ENDS---"
+
+
+Please generate flashcards from this transcript following the guidelines above.
